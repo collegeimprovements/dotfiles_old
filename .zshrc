@@ -1,65 +1,37 @@
-export LANG=en_US.UTF-8
-export LC_ALL="en_US.UTF-8"
-export LANG="en_US"
-# If you come from bash you might have to change your $PATH.
-. $(brew --prefix asdf)/asdf.sh # https://github.com/asdf-vm/asdf/issues/428
-export PATH=/usr/local/bin:$PATH #for homebrew
-export PATH=/usr/local/sbin:$PATH #for homebrew
-export PATH=/usr/local/opt/make/libexec/gnubin:$PATH #for make
-export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH #grep
-export PATH=$HOME/.asdf/shims:$PATH #https://github.com/asdf-vm/asdf/issues/107#issuecomment-257282018
-# export PATH=/Users/arpit/.asdf/installs/rust/1.38.0/bin:$PATH # asdf rust-cargo packages e.g. ff etc.
-# NOTE: after adding new executables e.g. rust cargo packages or some other language's packages - we need to run reshim.
-# e.g. asdf reshim python or asdf reshim rust 
-
-# volta javascript package manager
-export VOLTA_HOME="$HOME/.volta" 
-[ -s "$VOLTA_HOME/load.sh" ] && . "$VOLTA_HOME/load.sh"
-export PATH=$VOLTA_HOME/bin:$PATH #SET VOLATA in PATH
-# volta --- over
-
-
-export ANDROID_HOME=/Users/arpit/Library/Android/sdk/
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-#  export PATH=$PATH:~/android-sdks/platform-tools/
-#  export PATH=$PATH:~/android-sdks/tools/
-
 #================================================================================
-# DOTFILE Management - Start
+# ZSH - Autocompletion - Start
 #================================================================================
-#  echo "alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> ~/.zshrc
-alias dot='/usr/bin/git --git-dir=/Users/arpit/.dotfiles/ --work-tree=/Users/arpit'
-#================================================================================
-# DOTFILE Management - End
-#================================================================================
-
-
-# z - frecency based cd 
- . /usr/local/etc/profile.d/z.sh
-
-
-#fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 #autocompletion - git and maybe others
 autoload -U compinit && compinit
 zmodload -i zsh/complist
+#================================================================================
+# ZSH - Autocompletion - End
+#================================================================================
 
 #================================================================================
-# ALIASES
+# HomeBrew
 #================================================================================
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias vim="nvim"
-alias vi="nvim"
-alias o="open ."
-alias desk="cd ~/Desktop"
-alias cat="bat"
-alias l="exa -l"
-alias ll="ls -ltrh"
-alias la="ls -ltrha"
-alias cls="printf '\033[2J\033[3J\033[1;1H'" # kitty - cmd+k - clears scrollback
+dotbrew(){
+    rm $HOME/Brewfile
+    brew bundle dump --file=$HOME/Brewfile
+    dot add $HOME/Brewfile
+    dot commit -m "updates brewfile"
+}
+
+updatebrew(){
+    brew update
+    brew upgrade
+}
+
+brewit(){
+    brew cleanup
+    brew update 
+    brew upgrade
+}
+
+#================================================================================
+# HomeBrew - END
+#================================================================================
 
 #================================================================================
 # Antibody - Plugin Manager - START
@@ -78,23 +50,69 @@ updatezsh() {
 #================================================================================
 
 #================================================================================
-# HomeBrew
+# ASDF - Start
 #================================================================================
-HOMEBREW_NO_AUTO_UPDATE=1
-HOMEBREW_AUTO_UPDATE_SECS=864000 #24*60*60*10 -> 10 days
+# . $(brew --prefix asdf)/asdf.sh # https://github.com/asdf-vm/asdf/issues/428
+. /usr/local/opt/asdf/asdf.sh # THIS IS MUCH FASTER THAN THE ABOVE -> . $(brew --prefix asdf)/asdf.sh
 
-dotbrew(){
-    rm $HOME/Brewfile
-    brew bundle dump --file=$HOME/Brewfile
-    dot add $HOME/Brewfile
-    dot commit -m "updates brewfile"
-}
-
-updatebrew(){
-    brew update
-    brew upgrade
+asdfreshim(){
+   asdf reshim erlang elixir golang rust ruby java     
 }
 #================================================================================
-# HomeBrew - END
+# ASDF - END
 #================================================================================
+
+#================================================================================
+# DOTFILE Management - Start
+#================================================================================
+#  echo "alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> ~/.zshrc
+alias dot='/usr/bin/git --git-dir=/Users/arpit/.dotfiles/ --work-tree=/Users/arpit'
+#================================================================================
+# DOTFILE Management - End
+#================================================================================
+
+
+#================================================================================
+# rupa z - Start
+#================================================================================
+# z - frecency based cd 
+ . /usr/local/etc/profile.d/z.sh
+#================================================================================
+# rupa z - End
+#================================================================================
+
+
+#================================================================================
+# FZF - Start
+#================================================================================
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#================================================================================
+# FZF - End
+#================================================================================
+
+
+#================================================================================
+# COMMON ALIASES - Start
+#================================================================================
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias vim="nvim"
+alias vi="nvim"
+alias o="open ."
+alias desk="cd ~/Desktop"
+alias cat="bat"
+alias l="exa -l"
+alias ll="ls -ltrh"
+alias la="ls -ltrha"
+alias cls="printf '\033[2J\033[3J\033[1;1H'" # kitty - cmd+k - clears scrollback
+alias rr="rm -rf"
+#================================================================================
+# COMMON ALIASES - End
+#================================================================================
+
+
+
+
+
 

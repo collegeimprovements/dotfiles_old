@@ -2,18 +2,15 @@ zsh-users/zsh-autosuggestions branch:develop
 zsh-users/zsh-completions
 zsh-users/zsh-history-substring-search
 zsh-users/zsh-syntax-highlighting
-#denysdovhan/spaceship-prompt
-subnixr/minimal
+
+#denysdovhan/spaceship-prompt - another good shell.
+subnixr/minimal # current shell - it's quite nice.
 
 changyuheng/fz
 rupa/z
 
-djui/alias-tips
 caarlos0/zsh-mkc
-Tarrasch/zsh-bd
-
-supercrabtree/k
 mattmc3/zsh-safe-rm
 
-unixorn/tumult.plugin.zsh
+unixorn/tumult.plugin.zsh #https://github.com/unixorn/tumult.plugin.zsh -> For useful commands
 MichaelAquilina/zsh-you-should-use
