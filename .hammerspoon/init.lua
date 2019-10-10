@@ -2,7 +2,7 @@
 
 local send_escape = false
 local last_mods = {}
-local control_key_timer = hs.timer.delayed.new(0.1, function()
+local control_key_timer = hs.timer.delayed.new(0.2, function()
     send_escape = false
 end)
 
@@ -30,3 +30,4 @@ hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(evt)
     send_escape = false
     return false
 end):start()
+
