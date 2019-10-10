@@ -9,8 +9,9 @@ zmodload -i zsh/complist
 #================================================================================
 
 #================================================================================
-# DOTFILE Management - Start
+# DOTFILE Management - Start 
 #================================================================================
+# dot command should be before we use it in some function. (e.g. dotbrew)
 #  echo "alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> ~/.zshrc
 alias dot='/usr/bin/git --git-dir=/Users/arpit/.dotfiles/ --work-tree=/Users/arpit'
 #================================================================================
