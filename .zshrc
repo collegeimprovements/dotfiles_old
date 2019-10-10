@@ -14,6 +14,11 @@ zmodload -i zsh/complist
 # dot command should be before we use it in some function. (e.g. dotbrew)
 #  echo "alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> ~/.zshrc
 alias dot='/usr/bin/git --git-dir=/Users/arpit/.dotfiles/ --work-tree=/Users/arpit'
+
+alias ds="dot status"
+alias da="dot add"
+alias dc="dot commit"
+alias dp="dot push -u origin master"
 #================================================================================
 # DOTFILE Management - End
 #================================================================================
@@ -108,10 +113,12 @@ alias ll="ls -ltrh"
 alias la="ls -ltrha"
 alias cls="printf '\033[2J\033[3J\033[1;1H'" # kitty - cmd+k - clears scrollback
 alias rr="rm -rf"
+alias t="tree"
+alias t1="tree -L 1"
+alias t2="tree -L 2"
+alias t3="tree -L 3"
+alias t4="tree -L 4"
 
-alias ds="dot status"
-alias da="dot add"
-alias dc="dot commit"
 
 # IP addresses - https://github.com/mathiasbynens/dotfiles/blob/master/.aliases
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
