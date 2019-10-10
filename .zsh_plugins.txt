@@ -1,0 +1,19 @@
+zsh-users/zsh-autosuggestions branch:develop
+zsh-users/zsh-completions
+zsh-users/zsh-history-substring-search
+zsh-users/zsh-syntax-highlighting
+#denysdovhan/spaceship-prompt
+subnixr/minimal
+
+changyuheng/fz
+rupa/z
+
+djui/alias-tips
+caarlos0/zsh-mkc
+Tarrasch/zsh-bd
+
+supercrabtree/k
+mattmc3/zsh-safe-rm
+
+unixorn/tumult.plugin.zsh
+MichaelAquilina/zsh-you-should-use
