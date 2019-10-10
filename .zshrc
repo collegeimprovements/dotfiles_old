@@ -109,6 +109,10 @@ alias la="ls -ltrha"
 alias cls="printf '\033[2J\033[3J\033[1;1H'" # kitty - cmd+k - clears scrollback
 alias rr="rm -rf"
 
+alias ds="dot status"
+alias da="dot add"
+alias dc="dot commit"
+
 # IP addresses - https://github.com/mathiasbynens/dotfiles/blob/master/.aliases
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
