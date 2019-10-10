@@ -81,6 +81,19 @@ updatezsh() {
 # HomeBrew
 #================================================================================
 HOMEBREW_NO_AUTO_UPDATE=1
+HOMEBREW_AUTO_UPDATE_SECS=864000 #24*60*60*10 -> 10 days
+
+dotbrew(){
+    rm $HOME/Brewfile
+    brew bundle dump --file=$HOME/Brewfile
+    dot add $HOME/Brewfile
+    dot commit -m "updates brewfile"
+}
+
+updatebrew(){
+    brew update
+    brew upgrade
+}
 #================================================================================
 # HomeBrew - END
 #================================================================================
