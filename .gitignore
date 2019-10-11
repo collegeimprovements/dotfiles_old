@@ -61,3 +61,9 @@ Thumbs.db
 venv
 node_modules
 .sass-cache
+
+
+#vscode - user directory 
+*.vscdb
+.config/vscode/User/workspaceStorage/1570698008797/state.vscdb
+
