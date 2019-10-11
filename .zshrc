@@ -27,9 +27,9 @@ alias dp="dot push -u origin master"
 # HomeBrew
 #================================================================================
 dotbrew(){
-    rm $HOME/Brewfile
-    brew bundle dump --file=$HOME/Brewfile
-    dot add $HOME/Brewfile
+    rm $HOME/macos/Brewfile
+    brew bundle dump --file=$HOME/macos/Brewfile
+    dot add $HOME/macos/Brewfile
     dot commit -m "updates brewfile"
 }
 
