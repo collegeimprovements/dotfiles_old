@@ -42,6 +42,7 @@ brewit(){
     brew cleanup
     brew update 
     brew upgrade
+    echo "brewed it - `date`"
 }
 
 #================================================================================

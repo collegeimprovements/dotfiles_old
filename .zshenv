@@ -50,3 +50,10 @@ export HOMEBREW_AUTO_UPDATE_SECS=864000 #24*60*60*10 -> 10 days
 #================================================================================
 # HomeBrew Variables - End
 #================================================================================
+
+brewit(){
+    brew cleanup
+    brew update 
+    brew upgrade
+    echo "brewed it - `date`"
+}
