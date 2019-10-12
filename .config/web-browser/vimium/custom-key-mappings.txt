@@ -1,0 +1,18 @@
+# Insert your preferred key mappings here.
+
+# visit the last tab with just a pinky
+map a visitPreviousTab
+
+map t Vomnibar.activateTabSelection
+
+#video-speed control
+unmap d
+unmap s 
+
+#for consistency with vim
+#in vim -> <c-d> and <c-u> are used for page movement.
+unmap u 
+
+map <c-d> scrollFullPageDown
+map <c-u> scrollPageUp
+
