@@ -1,11 +1,70 @@
+# NOTE: ORDERING IS IMPORTANT.  
+# Package Managers must be on top. As those languages can be used in shell scripts.
+# 1. ASDF 
+# 2. VOLTA
+# 3. HOMEBREW
+# ALSO - .zshenv is not a good place for setting PATH on macos. https://stackoverflow.com/questions/26433856/why-would-path-be-getting-overwritten-after-shell-login#comment69745215_26434096
 #================================================================================
-# ZSH - Autocompletion - Start
+# ASDF - Start
 #================================================================================
-#autocompletion - git and maybe others
-autoload -U compinit && compinit
-zmodload -i zsh/complist
+# . $(brew --prefix asdf)/asdf.sh # https://github.com/asdf-vm/asdf/issues/428
+. /usr/local/opt/asdf/asdf.sh # THIS IS MUCH FASTER THAN THE ABOVE -> . $(brew --prefix asdf)/asdf.sh
+
+
+#NOTE: asdf path should be first - i.e. before /user/local/bin and /usr/bin etc.
+#Hence it's set before all. SEE: PATH - IMP Section
+# the above function is also setting the asdf path but it will push below by /user/loca/bin.
+# That's why in PATH-IMP section we have explicitly set the PATH for asdf,volta,brew,make
+# In General, language version managers like asdf, volta should be on top.
+# Then brew(/user/local/bin) and then everything else.
+
+# Note: later we have set android paths. I don't need java except for react-native yet.
+# Hence I'm not installing java explicitly. We will rely on react-native's java guide.
+
+asdfreshim(){
+   asdf reshim erlang elixir golang rust ruby java     
+}
 #================================================================================
-# ZSH - Autocompletion - End
+# ASDF - END
+#================================================================================
+
+#================================================================================
+# VOLTA Javascript Package Manager - Start
+#================================================================================
+export VOLTA_HOME="$HOME/.volta" 
+[ -s "$VOLTA_HOME/load.sh" ] && . "$VOLTA_HOME/load.sh"
+# export PATH=$VOLTA_HOME/bin:$PATH #SET VOLATA in PATH 
+# NOTE: volta path needs to come before /user/local/bin => For that it's path is set below. SEE: PATH - IMP Section
+
+alias vlist="volta list  --format=plain"
+
+#================================================================================
+# VOLTA Javascript Package Manager - End
+#================================================================================
+
+#================================================================================
+# PATH - IMP - Start
+#================================================================================
+# If you come from bash you might have to change your $PATH.
+export PATH=/usr/local/opt/make/libexec/gnubin:$PATH #for make
+export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH #grep
+
+export PATH=/usr/local/bin:$PATH #for homebrew
+export PATH=/usr/local/sbin:$PATH #for homebrew
+export PATH=$VOLTA_HOME/bin:$PATH #SET VOLATA in PATH
+export PATH=$HOME/.asdf/shims:$PATH #https://github.com/asdf-vm/asdf/issues/107#issuecomment-257282018
+
+#================================================================================
+# PATH - IMP - End
+#================================================================================
+
+#================================================================================
+# Android & Android Studio - Start
+#================================================================================
+export ANDROID_HOME=/Users/arpit/Library/Android/sdk/
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+#================================================================================
+# Android & Android Studio - End
 #================================================================================
 
 #================================================================================
@@ -60,22 +119,22 @@ source ~/.zsh_plugins.sh
 updatezsh() {
     antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
     antibody update
+    source ~/.zshrc
 }
 #================================================================================
 # Antibody - Plugin Manager - END
 #================================================================================
 
-#================================================================================
-# ASDF - Start
-#================================================================================
-# . $(brew --prefix asdf)/asdf.sh # https://github.com/asdf-vm/asdf/issues/428
-. /usr/local/opt/asdf/asdf.sh # THIS IS MUCH FASTER THAN THE ABOVE -> . $(brew --prefix asdf)/asdf.sh
 
-asdfreshim(){
-   asdf reshim erlang elixir golang rust ruby java     
-}
+
 #================================================================================
-# ASDF - END
+# VOLTA Javascript Package Manager - Start
+#================================================================================
+# export VOLTA_HOME="$HOME/.volta" 
+# [ -s "$VOLTA_HOME/load.sh" ] && . "$VOLTA_HOME/load.sh"
+# export PATH=$VOLTA_HOME/bin:$PATH #SET VOLATA in PATH
+#================================================================================
+# VOLTA Javascript Package Manager - End
 #================================================================================
 
 
@@ -147,139 +206,3 @@ alias cal="cal -3"
 # COMMON ALIASES - End
 #================================================================================
 
-
-#================================================================================
-# General Functions - Start
-#================================================================================
-
-# Search aliases/functions
-falias() {
-    CMD=$(
-        (
-            (alias)
-            (functions | grep "()" | cut -d ' ' -f1 | grep -v "^_" )
-        ) | fzf | cut -d '=' -f1
-    );
-
-    eval $CMD
-}
-
-# down <url> - Download <url> and save to current dir.
-download(){
-  curl -O "$1"
-}
-# copy current working directory path
-cw() { printf %s "$PWD" | pbcopy; }
-
-# ram <process-name> - Find how much RAM a process is taking.
-ram() {
-  local sum
-  local items
-  local app="$1"
-  if [ -z "$app" ]; then
-    echo "First argument - pattern to grep from processes"
-  else
-    sum=0
-    for i in `ps aux | grep -i "$app" | grep -v "grep" | awk '{print $6}'`; do
-      sum=$(($i + $sum))
-    done
-    sum=$(echo "scale=2; $sum / 1024.0" | bc)
-    if [[ $sum != "0" ]]; then
-      echo "${fg[blue]}${app}${reset_color} uses ${fg[green]}${sum}${reset_color} MBs of RAM."
-    else
-      echo "There are no processes with pattern '${fg[blue]}${app}${reset_color}' are running."
-    fi
-  fi
-}
-
-# xo <xcode-proj> - Open Xcode project.
-xo(){
-  if test -n "$(find . -maxdepth 1 -name '*.xcworkspace' -print -quit)"
-  then
-    echo "Opening workspace"
-    open *.xcworkspace
-    return
-  else
-    if test -n "$(find . -maxdepth 1 -name '*.xcodeproj' -print -quit)"
-    then
-      echo "Opening project"
-      open *.xcodeproj
-      return
-    else
-      echo "Nothing found"
-    fi
-  fi
-}
-
-# dirfiles <dir> - Give number of files found inside given directory.
-dirfiles() {
-    find "$1" -type f | wc -l
-}
-
-# cfile <file> - Copy content of file to clipboard
-cfile(){
-  cat $1 | pbcopy
-}
-
-# md <folder-name> - Create (a single) folder and cd to it
-md(){
-  mkdir "$1"
-  cd "$1"
-}
-
-#yarn add 
-ya(){
-  if [ $# -eq 0 ]; then
-    yarn
-  else
-    yarn add "$@"
-  fi
-}
-
-#yarn start
-ys(){
-  if [ $# -eq 0 ]; then
-    yarn && yarn start
-  else
-    yarn "$@"
-  fi
-}
-
-
-findEmptyDirsAndFiles(){
-  find . -type f -exec bash -c 'if [ `cat "{}" |wc -w` -eq 0 ]; then echo "file - {}";fi' \; -or -empty -exec bash -c "echo dir - {}" \;
-}
-
-# bin <binary>. Move <binary> to /usr/local/bin (in my PATH).
-binmove(){
-  mv "$@" /usr/local/bin
-}
-
-c() {
-  if [ $# -eq 0 ]; then
-    code .
-  else
-    code "${1:-.}"
-  fi
-}
-
-# allowapp <path of application> - generally app is in /Application
-allowapp() {
-  if [ $# -eq 0 ]; then
-    echo "Select Application's Path. e.g. /Applications/Sketch.app "
-  else
-    xattr -cr $1
-  fi
-}
-
-# Make any number of directories, passing options to mkdir. Then cd to the last-mentioned directory.
-
-mkcd() { 
-    mkdir "$@" || return
-    shift "$(( $# - 1 ))"
-    cd -- "$1"
-}
- 
-#================================================================================
-# General Functions - End
-#================================================================================

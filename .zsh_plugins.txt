@@ -3,7 +3,7 @@ zsh-users/zsh-completions
 zsh-users/zsh-history-substring-search
 zsh-users/zsh-syntax-highlighting
 
-#denysdovhan/spaceship-prompt - another good shell.
+# denysdovhan/spaceship-prompt - another good shell.
 subnixr/minimal # current shell - it's quite nice.
 
 changyuheng/fz
