@@ -163,6 +163,34 @@ updatezsh() {
 # FZF - End
 #================================================================================
 
+#================================================================================
+# VSCODE - Start
+#================================================================================
+vscode-dump-extensions-list-to-file() {
+    code --list-extensions > ~/.config/vscode/my-extensions.txt
+}
+vscode-install-extensions-from-file() {
+    while read line; do  code --install-extension "$line"; done < ~/.config/vscode/my-extensions.txt 
+    vscode-dump-extensions-list-to-file
+}
+
+vscode-install-extension(){
+    if [ $# -eq 0 ]; then
+		echo "provide name of extension. Note: currently we just assume name is valid"
+	else
+        for word in "$@"; do  code --install-extension "$word"; echo "$word" >> ~/.config/vscode/my-extensions.txt; done
+        vscode-dump-extensions-list-to-file
+	fi
+}
+
+alias vix="vscode-install-extension"
+alias vd="vscode-dump-extensions-list-to-file"
+alias vinstall="vscode-install-extension"
+#================================================================================
+# VSCODE - End
+#================================================================================
+
+
 
 #================================================================================
 # COMMON ALIASES - Start
