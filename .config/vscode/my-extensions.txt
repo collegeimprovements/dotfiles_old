@@ -1,0 +1,12 @@
+apollographql.vscode-apollo
+azemoh.one-monokai
+chiragpat.tomorrow-and-tomorrow-night-operator-mono-theme
+deerawan.vscode-dash
+eamodio.gitlens
+humao.rest-client
+JakeBecker.elixir-ls
+liviuschera.noctis
+mjmcloug.vscode-elixir
+Prisma.vscode-graphql
+saratravi.elixir-formatter
+whizkydee.material-palenight-theme
