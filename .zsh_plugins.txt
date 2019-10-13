@@ -14,3 +14,5 @@ mattmc3/zsh-safe-rm
 
 unixorn/tumult.plugin.zsh #https://github.com/unixorn/tumult.plugin.zsh -> For useful commands
 MichaelAquilina/zsh-you-should-use
+
+paulirish/git-open

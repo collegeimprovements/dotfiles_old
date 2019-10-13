@@ -78,6 +78,14 @@ alias ds="dot status"
 alias da="dot add"
 alias dc="dot commit"
 alias dp="dot push -u origin master"
+
+dopen(){	
+	if [ $# -eq 0 ]; then
+		open https://github.com/collegeimprovements/dotfiles
+	else
+		open http://localhost:$1
+	fi
+}
 #================================================================================
 # DOTFILE Management - End
 #================================================================================
@@ -103,7 +111,6 @@ brewit(){
     brew upgrade
     echo "brewed it - `date`"
 }
-
 #================================================================================
 # HomeBrew - END
 #================================================================================
@@ -165,6 +172,8 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias vim="nvim"
 alias vi="nvim"
+alias cz="code ~/.zshrc"
+alias ce="code ~/.zshenv"
 alias o="open ."
 alias desk="cd ~/Desktop"
 alias cat="bat"
@@ -178,7 +187,16 @@ alias t1="tree -L 1"
 alias t2="tree -L 2"
 alias t3="tree -L 3"
 alias t4="tree -L 4"
+
+#spelling mistakes
 alias claer="clear"
+alias oepn="open"
+
+#suffix aliases
+# alias -s {zip,ZIP}="unzip -l"
+# alias -s {mp4,MP4,mov,MOV}="background vlc"
+
+
 
 
 # IP addresses - https://github.com/mathiasbynens/dotfiles/blob/master/.aliases
