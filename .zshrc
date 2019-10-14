@@ -2,7 +2,8 @@
 # Package Managers must be on top. As those languages can be used in shell scripts.
 # 1. ASDF 
 # 2. VOLTA
-# 3. HOMEBREW
+# 3. 
+
 # ALSO - .zshenv is not a good place for setting PATH on macos. https://stackoverflow.com/questions/26433856/why-would-path-be-getting-overwritten-after-shell-login#comment69745215_26434096
 #================================================================================
 # ASDF - Start
@@ -13,7 +14,7 @@
 
 #NOTE: asdf path should be first - i.e. before /user/local/bin and /usr/bin etc.
 #Hence it's set before all. SEE: PATH - IMP Section
-# the above function is also setting the asdf path but it will push below by /user/loca/bin.
+# the above function is also setting the asdf path but it will push below by /user/local/bin.
 # That's why in PATH-IMP section we have explicitly set the PATH for asdf,volta,brew,make
 # In General, language version managers like asdf, volta should be on top.
 # Then brew(/user/local/bin) and then everything else.
