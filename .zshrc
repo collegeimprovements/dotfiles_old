@@ -78,6 +78,7 @@ alias ds="dot status"
 alias da="dot add"
 alias dc="dot commit"
 alias dp="dot push -u origin master"
+alias drh="dot reset HEAD"
 
 dopen(){	
 	if [ $# -eq 0 ]; then
