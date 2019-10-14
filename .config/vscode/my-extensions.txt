@@ -56,6 +56,5 @@ svipas.control-snippets
 vincaslt.highlight-matching-tag
 VisualStudioExptTeam.vscodeintellicode
 vscode-icons-team.vscode-icons
-vscodevim.vim
 whizkydee.material-palenight-theme
 wmaurer.change-case
