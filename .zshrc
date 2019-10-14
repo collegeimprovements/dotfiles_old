@@ -1,4 +1,4 @@
-j NOTE: ORDERING IS IMPORTANT.  
+# NOTE: ORDERING IS IMPORTANT.  
 # Package Managers must be on top. As those languages can be used in shell scripts.
 # 1. ASDF 
 # 2. VOLTA
