@@ -13,7 +13,5 @@
         "plaintext",
         "shellscript"
     ],
-    "vim.sneak": true,
     "workbench.iconTheme": "vscode-icons",
-    "vim.sneakUseIgnorecaseAndSmartcase": true
 }
