@@ -1,5 +1,19 @@
 {
     "workbench.colorTheme": "Noctis",
     "window.zoomLevel": 2,
-    "files.autoSave": "onFocusChange"
+    "files.autoSave": "onFocusChange",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "spellright.language": [
+        "en"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext",
+        "shellscript"
+    ],
+    "vim.sneak": true,
+    "workbench.iconTheme": "vscode-icons",
+    "vim.sneakUseIgnorecaseAndSmartcase": true
 }
