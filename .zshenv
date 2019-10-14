@@ -19,8 +19,8 @@ zmodload -i zsh/complist
 # setopt NO_CASE_GLOB
 
 #correction
-setopt CORRECT
-setopt CORRECT_ALL
+# setopt CORRECT
+# setopt CORRECT_ALL
 
 #history - let's have more and extended history
 HISTSIZE=50000
