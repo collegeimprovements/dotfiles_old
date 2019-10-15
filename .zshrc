@@ -103,14 +103,16 @@ dotbrew(){
 }
 
 updatebrew(){
-    brew update
+    # parallel brew ::: update upgrade
+    brew update 
     brew upgrade
 }
 
 brewit(){
     brew cleanup
-    brew update 
-    brew upgrade
+    # brew update 
+    # brew upgrade
+    updatebrew
     echo "brewed it - `date`"
 }
 #================================================================================
@@ -172,7 +174,15 @@ vscode-dump-extensions-list-to-file() {
     code --list-extensions > ~/.config/vscode/my-extensions.txt
 }
 vscode-install-extensions-from-file() {
-    while read line; do  code --install-extension "$line"; done < ~/.config/vscode/my-extensions.txt 
+    # Non-Parallel version
+    # while read line; do code --install-extension "$line"; done < ~/.config/vscode/my-extensions.txt 
+    
+    # parallel version - doesn't work -  improve later
+    # cat ~/.config/vscode/my-extensions.txt  | xargs -n1 parallel code --install-extension 
+    # the below one works great. TIL: xargs is not required here with parallel.
+
+    #working Parallel version
+    cat ~/.config/vscode/my-extensions.txt | parallel code --install-extension 
     vscode-dump-extensions-list-to-file
 }
 

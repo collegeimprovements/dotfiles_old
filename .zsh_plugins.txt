@@ -5,6 +5,7 @@ zsh-users/zsh-syntax-highlighting
 
 # denysdovhan/spaceship-prompt - another good shell.
 subnixr/minimal # current shell - it's quite nice.
+popstas/zsh-command-time
 
 changyuheng/fz
 rupa/z
