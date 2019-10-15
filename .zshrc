@@ -2,7 +2,7 @@
 # Package Managers must be on top. As those languages can be used in shell scripts.
 # 1. ASDF 
 # 2. VOLTA
-# 3. 
+# 3. Brew
 
 # ALSO - .zshenv is not a good place for setting PATH on macos. https://stackoverflow.com/questions/26433856/why-would-path-be-getting-overwritten-after-shell-login#comment69745215_26434096
 #================================================================================
