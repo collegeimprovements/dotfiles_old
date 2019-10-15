@@ -228,6 +228,8 @@ alias t2="tree -L 2"
 alias t3="tree -L 3"
 alias t4="tree -L 4"
 
+alias allowapp="sudo xattr -rd com.apple.quarantine"
+
 #spelling mistakes
 alias claer="clear"
 alias oepn="open"
@@ -235,6 +237,7 @@ alias oepn="open"
 #suffix aliases
 # alias -s {zip,ZIP}="unzip -l"
 # alias -s {mp4,MP4,mov,MOV}="background vlc"
+alias -s {png}=""
 
 
 
