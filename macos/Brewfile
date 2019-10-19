@@ -23,7 +23,7 @@ brew "ctop"
 brew "curl"
 brew "devd"
 brew "diskus"
-brew "docker"
+brew "docker", link: false
 brew "docker-compose"
 brew "exa"
 brew "fd"
