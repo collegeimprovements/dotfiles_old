@@ -14,4 +14,8 @@
         "shellscript"
     ],
     "workbench.iconTheme": "vscode-icons",
+    "[elixir]": {
+        "editor.defaultFormatter": "JakeBecker.elixir-ls"
+    },
+    "editor.formatOnSave": true,
 }
