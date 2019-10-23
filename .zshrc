@@ -1,6 +1,6 @@
-# NOTE: ORDERING IS IMPORTANT.  
+# NOTE: ORDERING IS IMPORTANT.
 # Package Managers must be on top. As those languages can be used in shell scripts.
-# 1. ASDF 
+# 1. ASDF
 # 2. VOLTA
 # 3. Brew
 
@@ -10,7 +10,6 @@
 #================================================================================
 # . $(brew --prefix asdf)/asdf.sh # https://github.com/asdf-vm/asdf/issues/428
 . /usr/local/opt/asdf/asdf.sh # THIS IS MUCH FASTER THAN THE ABOVE -> . $(brew --prefix asdf)/asdf.sh
-
 
 #NOTE: asdf path should be first - i.e. before /user/local/bin and /usr/bin etc.
 #Hence it's set before all. SEE: PATH - IMP Section
@@ -22,8 +21,8 @@
 # Note: later we have set android paths. I don't need java except for react-native yet.
 # Hence I'm not installing java explicitly. We will rely on react-native's java guide.
 
-asdfreshim(){
-   asdf reshim erlang elixir golang rust ruby java     
+asdfreshim() {
+    asdf reshim erlang elixir golang rust ruby java
 }
 #================================================================================
 # ASDF - END
@@ -32,9 +31,9 @@ asdfreshim(){
 #================================================================================
 # VOLTA Javascript Package Manager - Start
 #================================================================================
-export VOLTA_HOME="$HOME/.volta" 
+export VOLTA_HOME="$HOME/.volta"
 [ -s "$VOLTA_HOME/load.sh" ] && . "$VOLTA_HOME/load.sh"
-# export PATH=$VOLTA_HOME/bin:$PATH #SET VOLATA in PATH 
+# export PATH=$VOLTA_HOME/bin:$PATH #SET VOLATA in PATH
 # NOTE: volta path needs to come before /user/local/bin => For that it's path is set below. SEE: PATH - IMP Section
 
 alias vlist="volta list  --format=plain"
@@ -50,9 +49,9 @@ alias vlist="volta list  --format=plain"
 export PATH=/usr/local/opt/make/libexec/gnubin:$PATH #for make
 export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH #grep
 
-export PATH=/usr/local/bin:$PATH #for homebrew
-export PATH=/usr/local/sbin:$PATH #for homebrew
-export PATH=$VOLTA_HOME/bin:$PATH #SET VOLATA in PATH
+export PATH=/usr/local/bin:$PATH    #for homebrew
+export PATH=/usr/local/sbin:$PATH   #for homebrew
+export PATH=$VOLTA_HOME/bin:$PATH   #SET VOLATA in PATH
 export PATH=$HOME/.asdf/shims:$PATH #https://github.com/asdf-vm/asdf/issues/107#issuecomment-257282018
 
 #================================================================================
@@ -69,7 +68,7 @@ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 #================================================================================
 
 #================================================================================
-# DOTFILE Management - Start 
+# DOTFILE Management - Start
 #================================================================================
 # dot command should be before we use it in some function. (e.g. dotbrew)
 #  echo "alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> ~/.zshrc
@@ -81,12 +80,12 @@ alias dc="dot commit"
 alias dp="dot push -u origin master"
 alias drh="dot reset HEAD"
 
-dopen(){	
-	if [ $# -eq 0 ]; then
-		open https://github.com/collegeimprovements/dotfiles
-	else
-		open http://localhost:$1
-	fi
+dopen() {
+    if [ $# -eq 0 ]; then
+        open https://github.com/collegeimprovements/dotfiles
+    else
+        open http://localhost:$1
+    fi
 }
 #================================================================================
 # DOTFILE Management - End
@@ -95,25 +94,25 @@ dopen(){
 #================================================================================
 # HomeBrew
 #================================================================================
-dotbrew(){
+dotbrew() {
     rm $HOME/macos/Brewfile
     brew bundle dump --file=$HOME/macos/Brewfile
     dot add $HOME/macos/Brewfile
     dot commit -m "updates brewfile"
 }
 
-updatebrew(){
+updatebrew() {
     # parallel brew ::: update upgrade
-    brew update 
+    brew update
     brew upgrade
 }
 
-brewit(){
+brewit() {
     brew cleanup
-    # brew update 
+    # brew update
     # brew upgrade
     updatebrew
-    echo "brewed it - `date`"
+    echo "brewed it - $(date)"
 }
 #================================================================================
 # HomeBrew - END
@@ -128,7 +127,7 @@ source ~/.zsh_plugins.sh
 
 # Update Zsh plugins
 updatezsh() {
-    antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+    antibody bundle <~/.zsh_plugins.txt >~/.zsh_plugins.sh
     antibody update
     source ~/.zshrc
 }
@@ -136,28 +135,24 @@ updatezsh() {
 # Antibody - Plugin Manager - END
 #================================================================================
 
-
-
 #================================================================================
 # VOLTA Javascript Package Manager - Start
 #================================================================================
-# export VOLTA_HOME="$HOME/.volta" 
+# export VOLTA_HOME="$HOME/.volta"
 # [ -s "$VOLTA_HOME/load.sh" ] && . "$VOLTA_HOME/load.sh"
 # export PATH=$VOLTA_HOME/bin:$PATH #SET VOLATA in PATH
 #================================================================================
 # VOLTA Javascript Package Manager - End
 #================================================================================
 
-
 #================================================================================
 # rupa z - Start
 #================================================================================
-# z - frecency based cd 
- . /usr/local/etc/profile.d/z.sh
+# z - frecency based cd
+. /usr/local/etc/profile.d/z.sh
 #================================================================================
 # rupa z - End
 #================================================================================
-
 
 #================================================================================
 # FZF - Start
@@ -171,28 +166,31 @@ updatezsh() {
 # VSCODE - Start
 #================================================================================
 vscode-dump-extensions-list-to-file() {
-    code --list-extensions > ~/.config/vscode/my-extensions.txt
+    code --list-extensions >~/.config/vscode/my-extensions.txt
 }
 vscode-install-extensions-from-file() {
     # Non-Parallel version
-    # while read line; do code --install-extension "$line"; done < ~/.config/vscode/my-extensions.txt 
-    
+    # while read line; do code --install-extension "$line"; done < ~/.config/vscode/my-extensions.txt
+
     # parallel version - doesn't work -  improve later
-    # cat ~/.config/vscode/my-extensions.txt  | xargs -n1 parallel code --install-extension 
+    # cat ~/.config/vscode/my-extensions.txt  | xargs -n1 parallel code --install-extension
     # the below one works great. TIL: xargs is not required here with parallel.
 
     #working Parallel version
-    cat ~/.config/vscode/my-extensions.txt | parallel code --install-extension 
+    cat ~/.config/vscode/my-extensions.txt | parallel code --install-extension
     vscode-dump-extensions-list-to-file
 }
 
-vscode-install-extension(){
+vscode-install-extension() {
     if [ $# -eq 0 ]; then
-		echo "provide name of extension. Note: currently we just assume name is valid"
-	else
-        for word in "$@"; do  code --install-extension "$word"; echo "$word" >> ~/.config/vscode/my-extensions.txt; done
+        echo "provide name of extension. Note: currently we just assume name is valid"
+    else
+        for word in "$@"; do
+            code --install-extension "$word"
+            echo "$word" >>~/.config/vscode/my-extensions.txt
+        done
         vscode-dump-extensions-list-to-file
-	fi
+    fi
 }
 
 alias vix="vscode-install-extension"
@@ -201,8 +199,6 @@ alias vinstall="vscode-install-extension"
 #================================================================================
 # VSCODE - End
 #================================================================================
-
-
 
 #================================================================================
 # COMMON ALIASES - Start
@@ -240,8 +236,12 @@ alias oepn="open"
 # alias -s {mp4,MP4,mov,MOV}="background vlc"
 alias -s {png}=""
 
-
-
+# Git Aliases
+alias gopen="git-open"
+alias ga="git add"
+alias gc="git commit -m"
+alias gp="git push"
+alias gs="git status"
 
 # IP addresses - https://github.com/mathiasbynens/dotfiles/blob/master/.aliases
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -268,4 +268,3 @@ alias cal="cal -3"
 #================================================================================
 # COMMON ALIASES - End
 #================================================================================
-
