@@ -114,6 +114,12 @@ brewit() {
     updatebrew
     echo "brewed it - $(date)"
 }
+
+brewall() {
+    brewit
+    dotbrew
+}
+
 #================================================================================
 # HomeBrew - END
 #================================================================================
@@ -229,6 +235,7 @@ alias allowapp="sudo xattr -rd com.apple.quarantine"
 
 #spelling mistakes
 alias claer="clear"
+alias cler="clear"
 alias oepn="open"
 
 #suffix aliases
