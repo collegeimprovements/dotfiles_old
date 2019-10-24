@@ -76,7 +76,7 @@ alias dot='/usr/bin/git --git-dir=/Users/arpit/.dotfiles/ --work-tree=/Users/arp
 
 alias ds="dot status"
 alias da="dot add"
-alias dc="dot commit"
+alias dc="dot commit -m"
 alias dp="dot push -u origin master"
 alias drh="dot reset HEAD"
 
