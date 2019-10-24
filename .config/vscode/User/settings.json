@@ -18,4 +18,59 @@
         "editor.defaultFormatter": "JakeBecker.elixir-ls"
     },
     "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "files.exclude": {
+        ".vscode": false,
+        "**/_build": true,
+        "**/.cache": true,
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.idea": true,
+        "**/.svn": true,
+        "**/.vscode": true,
+        "**/android": true,
+        "**/bower_components": true,
+        "**/deps": true,
+        "**/dist": true,
+        "**/ios": true,
+        "**/node_modules": true,
+        "**/tmp": true,
+        "**/yarn.lock": true,
+        "**/.elixir_ls": true
+    },
+    "files.watcherExclude": {
+        "**/_build": true,
+        "**/.cache": true,
+        "**/.git/objects/**": true,
+        "**/node_modules/**": true,
+        "**/tmp": true,
+        "**/.elixir_ls": true
+    },
+    "search.exclude": {
+        "**/.cache": true,
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/bower_components": true,
+        "**/coverage": true,
+        "**/node_modules": true,
+        "**/tmp": true,
+        "**/.elixir_ls": true
+    },
+    "files.associations": {
+        "*.mdx": "markdown",
+        ".env": "makefile",
+        ".env.development": "makefile",
+        ".env.production": "makefile"
+    },
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "html": "html"
+    },
+    "terminal.external.osxExec": "kitty.app",
+    "emmet.showSuggestionsAsSnippets": true,
+    "emmet.triggerExpansionOnTab": true,
 }
