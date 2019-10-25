@@ -1,20 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@collegeimprovements 
-1
-8814pawelgrzybek/dotfiles
- Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights
-dotfiles/setup-macos.sh
-@pawelgrzybek pawelgrzybek enable a three fingers drag window on prefs
-59872a3 on 27 Jun 2018
-Executable File  103 lines (66 sloc)  3.95 KB
-  
 # System Preferences > General > Click in the scrollbar to: Jump to the spot that's clicked
 defaults write -globalDomain "AppleScrollerPagingBehavior" -bool true
 
@@ -54,19 +37,22 @@ defaults write com.apple.dock show-process-indicators -bool true
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# System Preferences > Mission Controll > Automatically rearrange Spaces based on most recent use
+# System Preferences > Mission Control > Automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
 
-# System Preferences > Mission Controll > Dashboard
+# System Preferences > Mission Control > Dashboard
 defaults write com.apple.dock dashboard-in-overlay -bool true
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Ref: https://timber.io/snippets/increase-keyboard-repeat-rate-on-mac/
+# https://apple.stackexchange.com/questions/10467/how-to-increase-keyboard-key-repeat-rate-on-os-x
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # System Preferences > Keyboard >
-defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain KeyRepeat -int 1
 
 # System Preferences > Keyboard >
-defaults write NSGlobalDomain InitialKeyRepeat -int 15
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -112,7 +98,7 @@ defaults write com.apple.dashboard mcx-disabled -bool true
 
 # Kill affected apps
 for app in "Dock" "Finder"; do
-  killall "${app}" > /dev/null 2>&1
+  killall "${app}" >/dev/null 2>&1
 done
 
 # Done
