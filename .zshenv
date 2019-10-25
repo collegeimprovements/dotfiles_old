@@ -40,7 +40,6 @@ setopt auto_pushd
 unsetopt pushd_ignore_dups
 setopt pushd_minus
 
-
 # Completion
 setopt auto_menu
 setopt always_to_end
@@ -72,26 +71,24 @@ export HOMEBREW_AUTO_UPDATE_SECS=864000 #24*60*60*10 -> 10 days
 # HomeBrew Variables - End
 #================================================================================
 
-
-
 #================================================================================
 # General Functions - Start
 #================================================================================
 
 # Search aliases/functions
 falias() {
-    CMD=$(
-        (
-            (alias)
-            (functions | grep "()" | cut -d ' ' -f1 | grep -v "^_" )
-        ) | fzf | cut -d '=' -f1
-    );
+  CMD=$(
+    ( 
+      (alias)
+      (functions | grep "()" | cut -d ' ' -f1 | grep -v "^_")
+    ) | fzf | cut -d '=' -f1
+  )
 
-    eval $CMD
+  eval $CMD
 }
 
 # down <url> - Download <url> and save to current dir.
-download(){
+download() {
   curl -O "$1"
 }
 # copy current working directory path
@@ -106,7 +103,7 @@ ram() {
     echo "First argument - pattern to grep from processes"
   else
     sum=0
-    for i in `ps aux | grep -i "$app" | grep -v "grep" | awk '{print $6}'`; do
+    for i in $(ps aux | grep -i "$app" | grep -v "grep" | awk '{print $6}'); do
       sum=$(($i + $sum))
     done
     sum=$(echo "scale=2; $sum / 1024.0" | bc)
@@ -118,16 +115,19 @@ ram() {
   fi
 }
 
+# creates zip file for all tracked files in git
+function gitzip() {
+  git archive -o $@.zip HEAD
+}
+
 # xo <xcode-proj> - Open Xcode project.
-xo(){
-  if test -n "$(find . -maxdepth 1 -name '*.xcworkspace' -print -quit)"
-  then
+xo() {
+  if test -n "$(find . -maxdepth 1 -name '*.xcworkspace' -print -quit)"; then
     echo "Opening workspace"
     open *.xcworkspace
     return
   else
-    if test -n "$(find . -maxdepth 1 -name '*.xcodeproj' -print -quit)"
-    then
+    if test -n "$(find . -maxdepth 1 -name '*.xcodeproj' -print -quit)"; then
       echo "Opening project"
       open *.xcodeproj
       return
@@ -139,22 +139,22 @@ xo(){
 
 # dirfiles <dir> - Give number of files found inside given directory.
 dirfiles() {
-    find "$1" -type f | wc -l
+  find "$1" -type f | wc -l
 }
 
 # cfile <file> - Copy content of file to clipboard
-cfile(){
+cfile() {
   cat $1 | pbcopy
 }
 
 # md <folder-name> - Create (a single) folder and cd to it
-md(){
+md() {
   mkdir "$1"
   cd "$1"
 }
 
-#yarn add 
-ya(){
+#yarn add
+ya() {
   if [ $# -eq 0 ]; then
     yarn
   else
@@ -163,7 +163,7 @@ ya(){
 }
 
 #yarn start
-ys(){
+ys() {
   if [ $# -eq 0 ]; then
     yarn && yarn start
   else
@@ -171,13 +171,12 @@ ys(){
   fi
 }
 
-
-findEmptyDirsAndFiles(){
+findEmptyDirsAndFiles() {
   find . -type f -exec bash -c 'if [ `cat "{}" |wc -w` -eq 0 ]; then echo "file - {}";fi' \; -or -empty -exec bash -c "echo dir - {}" \;
 }
 
 # bin <binary>. Move <binary> to /usr/local/bin (in my PATH).
-binmove(){
+binmove() {
   mv "$@" /usr/local/bin
 }
 
@@ -200,12 +199,12 @@ allowapp() {
 
 # Make any number of directories, passing options to mkdir. Then cd to the last-mentioned directory.
 
-mkcd() { 
-    mkdir "$@" || return
-    shift "$(( $# - 1 ))"
-    cd -- "$1"
+mkcd() {
+  mkdir "$@" || return
+  shift "$(($# - 1))"
+  cd -- "$1"
 }
- 
+
 #================================================================================
 # General Functions - End
 #================================================================================
