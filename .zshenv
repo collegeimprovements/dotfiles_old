@@ -171,6 +171,11 @@ ys() {
   fi
 }
 
+# Run NPM bin from project e.g. `npm-run gitdocs serve` will run `./node_modules/.bin/gitdocs` local to the project.
+npm-run() {
+  $(npm bin)/$*
+}
+
 findEmptyDirsAndFiles() {
   find . -type f -exec bash -c 'if [ `cat "{}" |wc -w` -eq 0 ]; then echo "file - {}";fi' \; -or -empty -exec bash -c "echo dir - {}" \;
 }
