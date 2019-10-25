@@ -44,12 +44,10 @@ Prisma.vscode-graphql
 qezhu.gitlink
 rebornix.ruby
 rebornix.toggle
-ritwickdey.LiveServer
 rogalmic.bash-debug
 rogalmic.zsh-debug
 sadesyllas.elixir-module-autoname
 samuel-pordeus.elixir-test
-saratravi.elixir-formatter
 shd101wyy.markdown-preview-enhanced
 shinnn.stylelint
 svipas.control-snippets
