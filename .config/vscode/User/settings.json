@@ -73,4 +73,5 @@
     "terminal.external.osxExec": "kitty.app",
     "emmet.showSuggestionsAsSnippets": true,
     "emmet.triggerExpansionOnTab": true,
+    "todo-tree.highlights.enabled": true,
 }

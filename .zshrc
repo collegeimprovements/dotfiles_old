@@ -244,6 +244,11 @@ alias oepn="open"
 # alias -s {zip,ZIP}="unzip -l"
 # alias -s {mp4,MP4,mov,MOV}="background vlc"
 alias -s {png}=""
+alias -s html='brave'
+alias -s {pdf,PDF}='preview'
+alias -s {mp4,MP4,mov,MOV}='vlc'
+alias -s {zip,ZIP}="unzip -l"
+alias -s {txt,css,js,mdx,md,ex,exs,jsx,zshrc,zsh_profile}="code"
 
 # Git Aliases
 alias gopen="git-open"
