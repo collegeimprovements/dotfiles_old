@@ -16,12 +16,15 @@ deerawan.vscode-dash
 drKnoxy.eslint-disable-snippets
 eamodio.gitlens
 emilast.LogFileHighlighter
+fabiospampinato.vscode-todo-plus
 FallenMax.styled-components-extractor
 florinpatrascu.vscode-elixir-snippets
 formulahendry.auto-close-tag
 formulahendry.auto-rename-tag
 foxundermoon.shell-format
 ghmcadams.lintlens
+GitHub.vscode-pull-request-github
+Gruntfuggly.todo-tree
 howardzuo.vscode-git-tags
 humao.rest-client
 inu1255.easy-snippet
@@ -37,6 +40,7 @@ liviuschera.noctis
 mdickin.markdown-shortcuts
 mhutchie.git-graph
 mjmcloug.vscode-elixir
+ms-edgedevtools.vscode-edge-devtools
 ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
 mushan.vscode-paste-image
@@ -60,5 +64,6 @@ vincaslt.highlight-matching-tag
 vincentkos.snippet-creator
 VisualStudioExptTeam.vscodeintellicode
 vscode-icons-team.vscode-icons
+wayou.vscode-todo-highlight
 whizkydee.material-palenight-theme
 wmaurer.change-case
