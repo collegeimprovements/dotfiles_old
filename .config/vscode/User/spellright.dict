@@ -40,3 +40,6 @@ zshenv
 zshenv
 zshrc
 xattr
+deps
+iex
+phx

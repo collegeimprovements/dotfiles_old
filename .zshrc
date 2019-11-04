@@ -256,6 +256,13 @@ alias gc="git commit -m"
 alias gp="git push"
 alias gs="git status"
 
+# Elixir Aliases
+alias mg="mix deps.get"
+alias mc="mix deps.compile"
+alias mgc="mix deps.get && mix deps.compile && mix compile"
+alias ix="iex -S mix"
+alias ips="iex -S mix phx.server"
+
 # IP addresses - https://github.com/mathiasbynens/dotfiles/blob/master/.aliases
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
