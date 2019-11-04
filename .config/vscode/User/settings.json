@@ -62,6 +62,7 @@
     },
     "files.associations": {
         "*.mdx": "markdown",
+        "*.exs": "elixir",
         ".env": "makefile",
         ".env.development": "makefile",
         ".env.production": "makefile"
@@ -75,4 +76,7 @@
     "emmet.triggerExpansionOnTab": true,
     "todo-tree.highlights.enabled": true,
     "workbench.activityBar.visible": true,
+    "terminal.integrated.fontSize": 14,
+    "editor.fontSize": 14,
+    "editor.renderWhitespace": "boundary",
 }
