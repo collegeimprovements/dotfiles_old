@@ -1,6 +1,6 @@
 {
     "workbench.colorTheme": "Noctis",
-    "window.zoomLevel": 2,
+    "window.zoomLevel": 1,
     "files.autoSave": "onFocusChange",
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -74,4 +74,5 @@
     "emmet.showSuggestionsAsSnippets": true,
     "emmet.triggerExpansionOnTab": true,
     "todo-tree.highlights.enabled": true,
+    "workbench.activityBar.visible": true,
 }
