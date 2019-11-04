@@ -107,12 +107,11 @@ updatebrew() {
     # parallel brew ::: update upgrade
     brew update
     brew upgrade
+    echo "Brew updated and upgraded"
 }
 
 brewit() {
     brew cleanup
-    # brew update
-    # brew upgrade
     updatebrew
     echo "brewed it - $(date)"
 }
