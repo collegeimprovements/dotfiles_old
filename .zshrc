@@ -261,6 +261,8 @@ alias mg="mix deps.get"
 alias mc="mix deps.compile"
 alias mgc="mix deps.get && mix deps.compile && mix compile"
 alias ix="iex -S mix"
+alias x="iex -S mix"
+alias xp="iex -S mix phx.server"
 alias ips="iex -S mix phx.server"
 
 # IP addresses - https://github.com/mathiasbynens/dotfiles/blob/master/.aliases
