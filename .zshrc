@@ -255,6 +255,7 @@ alias ga="git add"
 alias gc="git commit -m"
 alias gp="git push"
 alias gs="git status"
+alias gd="git diff"
 
 # Elixir Aliases
 alias mg="mix deps.get"
