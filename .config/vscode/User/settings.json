@@ -80,4 +80,5 @@
     "editor.fontSize": 14,
     "editor.renderWhitespace": "boundary",
     "workbench.sideBar.location": "left",
+    "typescript.updateImportsOnFileMove.enabled": "always",
 }
