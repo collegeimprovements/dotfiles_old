@@ -265,6 +265,7 @@ alias ix="iex -S mix"
 alias x="iex -S mix"
 alias xp="iex -S mix phx.server"
 alias ips="iex -S mix phx.server"
+alias lxp="MIX_ENV=local iex -S mix phx.server"
 
 # IP addresses - https://github.com/mathiasbynens/dotfiles/blob/master/.aliases
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
