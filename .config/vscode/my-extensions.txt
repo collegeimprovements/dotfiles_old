@@ -1,9 +1,11 @@
+74th.vimStyle
 adpyke.vscode-sql-formatter
 AlDuncanson.react-hooks-snippets
 alefragnani.project-manager
 arturock.gitstash
 azemoh.one-monokai
 ban.spellright
+benvp.vscode-hex-pm-intellisense
 bierner.color-info
 BriteSnow.vscode-toggle-quotes
 ChakrounAnas.turbo-console-log
@@ -40,6 +42,7 @@ liviuschera.noctis
 mdickin.markdown-shortcuts
 mhutchie.git-graph
 mjmcloug.vscode-elixir
+ms-azuretools.vscode-docker
 ms-edgedevtools.vscode-edge-devtools
 ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
@@ -66,4 +69,5 @@ VisualStudioExptTeam.vscodeintellicode
 vscode-icons-team.vscode-icons
 wayou.vscode-todo-highlight
 whizkydee.material-palenight-theme
+wingrunr21.vscode-ruby
 wmaurer.change-case
