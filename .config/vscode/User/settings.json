@@ -14,6 +14,7 @@
         "shellscript"
     ],
     "workbench.iconTheme": "vscode-icons",
+    // "editor.defaultFormatter": "esbenp.prettier-vscode",
     "[elixir]": {
         "editor.defaultFormatter": "JakeBecker.elixir-ls"
     },
@@ -69,7 +70,8 @@
     },
     "emmet.includeLanguages": {
         "javascript": "javascriptreact",
-        "html": "html"
+        "html": "html",
+        "tsx": "typescriptreact"
     },
     "terminal.external.osxExec": "kitty.app",
     "emmet.showSuggestionsAsSnippets": true,
@@ -80,5 +82,33 @@
     "editor.fontSize": 14,
     "editor.renderWhitespace": "boundary",
     "workbench.sideBar.location": "left",
-    "typescript.updateImportsOnFileMove.enabled": "always",
+    // "typescript.updateImportsOnFileMove.enabled": "always",
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
+    "[javascript]": {
+        "editor.formatOnSave": false
+    },
+    "[javascriptreact]": {
+        "editor.formatOnSave": false
+    },
+    "[typescript]": {
+        "editor.formatOnSave": false
+    },
+    "[typescriptreact]": {
+        "editor.formatOnSave": false,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true,
+            // "source.organizeImports": true,
+        }
+    },
+    "eslint.format.enable": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.auto"
 }
