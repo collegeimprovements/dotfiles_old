@@ -1,5 +1,6 @@
 runtime node@13.1.0 (default)
 package-manager yarn@1.19.1 (default)
+package eslint@6.8.0 / eslint / node@13.5.0 npm@built-in (default)
 package fkill-cli@5.2.0 / fkill / node@13.1.0 npm@built-in (default)
 package fx@14.1.0 / fx / node@13.1.0 npm@built-in (default)
 package gtop@1.0.1 / gtop / node@13.1.0 npm@built-in (default)

@@ -1,4 +1,3 @@
-74th.vimStyle
 adpyke.vscode-sql-formatter
 AlDuncanson.react-hooks-snippets
 alefragnani.project-manager
@@ -18,6 +17,7 @@ deerawan.vscode-dash
 drKnoxy.eslint-disable-snippets
 eamodio.gitlens
 emilast.LogFileHighlighter
+esbenp.prettier-vscode
 fabiospampinato.vscode-todo-plus
 FallenMax.styled-components-extractor
 florinpatrascu.vscode-elixir-snippets
