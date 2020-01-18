@@ -16,6 +16,7 @@ dbaeumer.vscode-eslint
 deerawan.vscode-dash
 drKnoxy.eslint-disable-snippets
 eamodio.gitlens
+elixir-lsp.elixir-ls
 emilast.LogFileHighlighter
 esbenp.prettier-vscode
 fabiospampinato.vscode-todo-plus
