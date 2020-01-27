@@ -55,6 +55,7 @@ export PATH=/usr/local/bin:$PATH    #for homebrew
 export PATH=/usr/local/sbin:$PATH   #for homebrew
 export PATH=$VOLTA_HOME/bin:$PATH   #SET VOLATA in PATH
 export PATH=$HOME/.asdf/shims:$PATH #https://github.com/asdf-vm/asdf/issues/107#issuecomment-257282018
+export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 
 #================================================================================
 # PATH - IMP - End
