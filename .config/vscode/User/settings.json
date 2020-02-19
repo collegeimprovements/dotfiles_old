@@ -16,7 +16,7 @@
     "workbench.iconTheme": "vscode-icons",
     // "editor.defaultFormatter": "esbenp.prettier-vscode",
     "[elixir]": {
-        "editor.defaultFormatter": "JakeBecker.elixir-ls"
+        "editor.defaultFormatter": "elixir-lsp.elixir-ls"
     },
     "editor.formatOnSave": true,
     "editor.tabSize": 2,

@@ -248,7 +248,7 @@ alias oepn="open"
 alias -s {pdf,PDF}='preview'
 alias -s {mp4,MP4,mov,MOV}='vlc'
 alias -s {zip,ZIP}="unzip -l"
-alias -s {txt,css,js,mdx,md,ex,exs,jsx,zshrc,zsh_profile}="code"
+alias -s {txt,css,js,mdx,md,ex,exs,jsx,zshrc,zsh_profile,json,xml}="code"
 
 # Git Aliases
 alias gopen="git-open"
@@ -293,3 +293,5 @@ alias cal="cal -3"
 #================================================================================
 # COMMON ALIASES - End
 #================================================================================
+
+source /Users/arpit/Library/Preferences/org.dystroy.broot/launcher/bash/br
