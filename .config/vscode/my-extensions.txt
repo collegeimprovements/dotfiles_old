@@ -30,9 +30,11 @@ GitHub.vscode-pull-request-github
 Gruntfuggly.todo-tree
 howardzuo.vscode-git-tags
 humao.rest-client
+iampeterbanjo.elixirlinter
 inu1255.easy-snippet
 ionutvmi.path-autocomplete
 JakeBecker.elixir-ls
+jduponchelle.rainbow-end
 jock.svg
 jonkwheeler.styled-components-snippets
 jpoissonnier.vscode-styled-components
