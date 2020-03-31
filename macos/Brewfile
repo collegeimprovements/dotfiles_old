@@ -114,7 +114,6 @@ cask "hammerspoon"
 cask "insomnia"
 cask "keka"
 cask "kitty"
-cask "microsoft-remote-desktop-beta"
 cask "minikube"
 cask "openconnect-gui"
 cask "postgres"
@@ -138,4 +137,5 @@ cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
 cask "xpra"
+mas "Microsoft Remote Desktop", id: 1295203466
 mas "Xcode", id: 497799835
