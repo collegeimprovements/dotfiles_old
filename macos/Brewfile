@@ -60,7 +60,7 @@ brew "rename"
 brew "ripgrep"
 brew "screenfetch"
 brew "speedtest-cli"
-brew "ssh-copy-id"
+brew "ssh-copy-id", link: true
 brew "telnet"
 brew "tig"
 brew "tldr"
