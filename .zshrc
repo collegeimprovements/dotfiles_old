@@ -231,6 +231,7 @@ alias o="open ."
 alias desk="cd ~/Desktop"
 alias cat="bat"
 alias l="exa -l"
+alias ls="exa"
 alias ll="exa -lha"
 alias la="exa -a"
 alias cls="printf '\033[2J\033[3J\033[1;1H'" # kitty - cmd+k - clears scrollback
@@ -265,6 +266,8 @@ alias gc="git commit -m"
 alias gp="git push"
 alias gs="git status"
 alias gd="git diff"
+alias gr='cd "$(git rev-parse --show-toplevel)"'
+
 
 # Elixir Aliases
 alias mg="mix deps.get"
@@ -297,6 +300,11 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 
 #cal - show previous and future month as well
 alias cal="cal -3"
+
+#python
+alias python=python3
+alias pip=pip3
+
 
 #================================================================================
 # COMMON ALIASES - End

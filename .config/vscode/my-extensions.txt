@@ -2,6 +2,7 @@ adpyke.vscode-sql-formatter
 AlDuncanson.react-hooks-snippets
 alefragnani.project-manager
 arturock.gitstash
+asvetliakov.vscode-neovim
 azemoh.one-monokai
 ban.spellright
 benvp.vscode-hex-pm-intellisense
@@ -38,7 +39,6 @@ jduponchelle.rainbow-end
 jock.svg
 jonkwheeler.styled-components-snippets
 jpoissonnier.vscode-styled-components
-jpotterm.simple-vim
 kisstkondoros.vscode-gutter-preview
 konstantin.wrapSelection
 liviuschera.noctis

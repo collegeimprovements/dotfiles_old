@@ -110,5 +110,21 @@
     },
     "eslint.format.enable": true,
     "eslint.alwaysShowStatus": true,
-    "eslint.auto"
+    "eslint.auto": true,
+    "elixirLS.mixEnv": "dev",
+    "rest-client.environmentVariables": {
+        "dev": {
+            "host": "localhost:4000/api"
+        },
+        "production": {
+            "host": "forums.clsa.com/api"
+        },
+        "sandbox": {
+            "host": "sandbox.api.example.com"
+        }
+    },
+    "rest-client.defaultHeaders": {},
+    "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
+    "zenMode.centerLayout": false,
+    "zenMode.hideLineNumbers": false
 }

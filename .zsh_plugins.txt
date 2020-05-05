@@ -3,6 +3,8 @@ zsh-users/zsh-completions
 zsh-users/zsh-history-substring-search
 zsh-users/zsh-syntax-highlighting
 
+zpm-zsh/autoenv
+
 # denysdovhan/spaceship-prompt - another good shell.
 subnixr/minimal # current shell - it's quite nice.
 popstas/zsh-command-time
