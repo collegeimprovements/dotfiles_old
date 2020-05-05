@@ -1,5 +1,6 @@
 tap "blacksmoke16/tap"
 tap "cristianoliveira/tap"
+tap "eth-p/software"
 tap "getantibody/tap"
 tap "github/gh"
 tap "homebrew/bundle"
