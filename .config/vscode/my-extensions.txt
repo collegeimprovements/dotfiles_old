@@ -34,7 +34,6 @@ humao.rest-client
 iampeterbanjo.elixirlinter
 inu1255.easy-snippet
 ionutvmi.path-autocomplete
-JakeBecker.elixir-ls
 jduponchelle.rainbow-end
 jock.svg
 jonkwheeler.styled-components-snippets
@@ -61,7 +60,6 @@ rogalmic.bash-debug
 rogalmic.zsh-debug
 sadesyllas.elixir-module-autoname
 samuel-pordeus.elixir-test
-saratravi.elixir-formatter
 shaharkazaz.git-merger
 shd101wyy.markdown-preview-enhanced
 shinnn.stylelint

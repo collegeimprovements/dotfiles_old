@@ -236,6 +236,7 @@ alias ll="exa -lha"
 alias la="exa -a"
 alias cls="printf '\033[2J\033[3J\033[1;1H'" # kitty - cmd+k - clears scrollback
 alias rr="rm -rf"
+alias urm="command rm -i"
 alias t="tree"
 alias t1="tree -L 1"
 alias t2="tree -L 2"
@@ -268,8 +269,10 @@ alias gs="git status"
 alias gd="git diff"
 alias gr='cd "$(git rev-parse --show-toplevel)"'
 
-
 # Elixir Aliases
+alias m="mix ecto.migrations"
+alias mr="mix ecto.rollback"
+alias mm="mix ecto.migrate"
 alias mg="mix deps.get"
 alias mc="mix deps.compile"
 alias mgc="mix deps.get && mix deps.compile && mix compile"
@@ -304,7 +307,6 @@ alias cal="cal -3"
 #python
 alias python=python3
 alias pip=pip3
-
 
 #================================================================================
 # COMMON ALIASES - End

@@ -14,7 +14,6 @@
         "shellscript"
     ],
     "workbench.iconTheme": "vscode-icons",
-    // "editor.defaultFormatter": "esbenp.prettier-vscode",
     "[elixir]": {
         "editor.defaultFormatter": "elixir-lsp.elixir-ls"
     },
@@ -82,7 +81,6 @@
     "editor.fontSize": 14,
     "editor.renderWhitespace": "boundary",
     "workbench.sideBar.location": "left",
-    // "typescript.updateImportsOnFileMove.enabled": "always",
     "eslint.validate": [
         "javascript",
         "javascriptreact",
@@ -104,8 +102,7 @@
     "[typescriptreact]": {
         "editor.formatOnSave": false,
         "editor.codeActionsOnSave": {
-            "source.fixAll": true,
-            // "source.organizeImports": true,
+            "source.fixAll": true
         }
     },
     "eslint.format.enable": true,
@@ -126,5 +123,6 @@
     "rest-client.defaultHeaders": {},
     "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
     "zenMode.centerLayout": false,
-    "zenMode.hideLineNumbers": false
+    "zenMode.hideLineNumbers": false,
+    "vscode-neovim.neovimInitPath": "/Users/arpit/.config/nvim/init.vim"
 }
