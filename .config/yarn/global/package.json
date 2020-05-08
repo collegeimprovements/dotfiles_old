@@ -1,3 +1,5 @@
 {
-  "dependencies": {}
+  "dependencies": {
+    "neovim": "^4.8.0"
+  }
 }
