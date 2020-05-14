@@ -1,0 +1,54 @@
+let mapleader = "<Space>"
+let barposition = "bottom"
+set autoupdategist
+set showtabindices
+set completeonopen	
+set defaultnewtabpage
+set noautofocus " The opposite of autofocus; this setting stops
+set typelinkhints
+
+map l nextTab
+map s previousTab
+map <Leader>l <C-6>
+map <Leader><Leader> :buffer<Space>
+
+map <Leader>b :buffer<Space>
+map R reloadTabUncached
+map <C-f> scrollFullPageDown
+map <C-b> scrollFullPageUp
+map <C-u> scrollPageUp
+map <C-e> scrollPageUp
+map <C-d> scrollPageDown
+map <C-e> createTabbedHint
+
+imap <C-a> beginningOfLine
+imap <C-w> deleteWord
+imap <C-d> deleteForwardChar
+
+
+map <Leader>yy :open!& https://youtube.com<CR>
+map <Leader>gh :open!& https://github.com/collegeimprovements<CR>
+map <Leader>so :open!& http://stackoverflow.com/questions/tagged/ruby?sort=frequent&pageSize=50<CR>
+map <Leader>e :open!& localhost:4200<CR>
+map <Leader>4 :open!& localhost:4000<CR>
+map <Leader>re :open!& http://bitbucket/projects/RI/repos/clsa_forums_api/commits<CR>
+map <Leader>rx :open!& http://bitbucket/pojects/RI/repos/clsa_forums_api/commits<CR>
+map <Leader>ae :open!& http://bitbucket/users/shaha/repos/clsa_mobile_arpit/commits<CR>
+map <Leader>ax :open!& http://bitbucket/users/shaha/repos/clsa_forums_api_arpit/commits<CR>
+
+
+site "https://www.youtube.com/*" {
+    set autofocus 
+    unmap ?
+    unmap mapleader
+    unmap k
+    unmap d
+    unmap s
+
+}
+
+site "https://www.google.co.*" {
+   set autofocus 
+}
+
+r
