@@ -374,4 +374,4 @@ au! BufWritePost $MYVIMRC source %
 " https://vi.stackexchange.com/questions/21051/reduce-size-of-undo-file
 " https://github.com/3N4N/dotFiles/blob/master/.config/nvim/init.vim
 " https://github.com/mhinz/vim-galore
-
+" https://github.com/ibhagwan/dots/blob/master/README-vim.md
