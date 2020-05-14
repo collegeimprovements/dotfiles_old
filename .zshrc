@@ -314,3 +314,4 @@ alias pip=pip3
 #================================================================================
 
 # source /Users/arpit/Library/Preferences/org.dystroy.broot/launcher/bash/br
+export PATH="$HOME/.apollo/bin:$PATH"
