@@ -9,10 +9,16 @@ set timeoutlen=1000
 " Useful leader mappings
 nnoremap <Leader>; :
 xnoremap <Leader>; :
+nnoremap <c-c> :
+xnoremap <c-c> :
 nnoremap <Leader>h :nohlsearch<CR>
-nnoremap <silent> <leader>b :CocCommand explorer<CR>
 
-noremap <silent> <D-s> :w<CR>
+" alt+b => cmd+b for Coc Explore
+nnoremap <silent>∫ :CocCommand explorer<CR>
+
+" alt+s = cmd+s for saving the file
+noremap ß :w<CR>
+nnoremap <Leader>w :w<CR>
 
 
 " Toggle key bindings
@@ -49,6 +55,10 @@ au FocusGained,BufEnter * checktime
 " ColorScheme
 "autocmd vimenter * colorscheme gruvbox
 colorscheme gruvbox
+" HighlightedyankRegion - vim plugin
+" HighlightedyankRegionpumvisible() ? "\" : "\
+highlight HighlightedyankRegion cterm=reverse gui=reverse
+
 
 
 " Mouse support
@@ -84,25 +94,32 @@ xnoremap Y <Esc>y$gv
 
 " Faster keyword completion - for <ctrl-j,k>, <ctrl-n,p>
 " disable scanning included files
-set complete-=i   
+set complete-=i
 
 " disable searching tags
-set complete-=t   
+set complete-=t
+
+" realtime search view
+set inccommand=nosplit
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Experimental
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:highlightedyank_highlight_duration = 50
+
 set autowriteall
 " treat dash separated words as a word text object"
 set iskeyword+=-
 let g:rooter_change_directory_for_non_project_files = 'current'
- 
-" This is good but makes vim slow - use zi,za,zc and frieds 
+
+" This is good but makes vim slow - use zi,za,zc and frieds
 " set nofoldenable
 set foldmethod=syntax
+set foldlevel=2
 
 " Syntax Highlight only first 200 columns - to keep vim fast
-set synmaxcol=200  
+set synmaxcol=200
 
 "Open DBUI drawer on right
 let g:db_ui_win_position = 'right'
@@ -110,6 +127,9 @@ let g:db_ui_win_position = 'right'
 "Use nerd fonts for DBUI
 let g:db_ui_use_nerd_fonts = 1
 let g:db_async = 1
+
+" auto-remove trailing whitespaces
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Tags
 " use relative paths for tags
@@ -123,8 +143,8 @@ let g:db_async = 1
 nnoremap ;; <C-^>
 
 augroup elixirbindings
-  autocmd! elixirbindings 
-  autocmd Filetype elixir imap <buffer> <silent> <C-l> \|> 
+  autocmd! elixirbindings
+  autocmd Filetype elixir imap <buffer> <silent> <C-l> \|>
 augroup end
 
 " Move Lines - Start
@@ -173,13 +193,19 @@ augroup end
 set nocompatible
 filetype off
 let &runtimepath.=',~/.vim/bundle/neoterm'
+silent! helptags ALL
 
 " Show tabs, empty spacces etc.
-let &listchars="tab:┆\ ,trail:▫,nbsp:_,extends:»,precedes:«,eol:¬"     
+let &listchars="tab:┆\ ,trail:▫,nbsp:_,extends:»,precedes:«,eol:¬"
 
 " Quickly add empty lines
 nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
 nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
+
+
+" ONLY KEEP LINES WHICH CONTAIN SEARCH
+nnoremap ,v :v/<C-R>//d<CR>gg
+nnoremap ,d :g/<C-R>//d<CR>gg
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Abbreviations
@@ -375,3 +401,4 @@ au! BufWritePost $MYVIMRC source %
 " https://github.com/3N4N/dotFiles/blob/master/.config/nvim/init.vim
 " https://github.com/mhinz/vim-galore
 " https://github.com/ibhagwan/dots/blob/master/README-vim.md
+" https://github.com/weirongxu/dotvim/blob/master/options.rc.vim

@@ -43,6 +43,11 @@ defaults write com.apple.dock mru-spaces -bool false
 # System Preferences > Mission Control > Dashboard
 defaults write com.apple.dock dashboard-in-overlay -bool true
 
+# don't show recently used softwares in dock
+defaults write com.apple.dock show-recents -bool FALSE
+
+
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Ref: https://timber.io/snippets/increase-keyboard-repeat-rate-on-mac/
 # https://apple.stackexchange.com/questions/10467/how-to-increase-keyboard-key-repeat-rate-on-os-x
