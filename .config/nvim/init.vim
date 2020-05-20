@@ -1,5 +1,5 @@
-"    ____      _ __        _         
-"   /  _/___  (_) /__   __(_)___ ___ 
+"    ____      _ __        _
+"   /  _/___  (_) /__   __(_)___ ___
 "   / // __ \/ / __/ | / / / __ `__ \
 " _/ // / / / / /__| |/ / / / / / / /
 "/___/_/ /_/_/\__(_)___/_/_/ /_/ /_/
@@ -38,6 +38,7 @@ source $HOME/.config/nvim/plug-config/vista.vim
 source $HOME/.config/nvim/plug-config/vim-gutentags.vim
 source $HOME/.config/nvim/plug-config/vim-dadbod-ui.vim
 source $HOME/.config/nvim/plug-config/vim-dadbod-completion.vim
+source $HOME/.config/nvim/plug-config/vim-easymotion.vim
 
 
 
@@ -46,7 +47,7 @@ source $HOME/.config/nvim/plug-config/vim-dadbod-completion.vim
 
 " References:
 " https://github.com/kristijanhusak/neovim-config
-" 
+"
 
 " References[Plugins]:
 " https://github.com/neoclide/coc.nvim

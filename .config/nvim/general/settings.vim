@@ -5,6 +5,8 @@
 " Set mapleader to space, and timeout length for the key is 8 sec now.
 let mapleader =" "
 set timeoutlen=1000
+" experimental redrawtime - Time in milliseconds for stopping display redraw
+set redrawtime=1500
 
 " Useful leader mappings
 nnoremap <Leader>; :
@@ -50,7 +52,8 @@ set cmdheight=2
 
 " Auto-reloading a file in VIM as soon as it changes on disk
 set autoread
-au FocusGained,BufEnter * checktime
+autocmd FocusGained,BufEnter * checktime
+
 
 " ColorScheme
 "autocmd vimenter * colorscheme gruvbox
@@ -96,11 +99,52 @@ xnoremap Y <Esc>y$gv
 " disable scanning included files
 set complete-=i
 
-" disable searching tags
-set complete-=t
 
 " realtime search view
 set inccommand=nosplit
+
+" Syntax Highlight only first 200 columns - to keep vim fast
+set synmaxcol=200
+
+set title
+" Title length.
+set titlelen=95
+" Title string.
+let &g:titlestring="
+      \ %{expand('%:p:~:.')}%(%m%r%w%)
+      \ %<\[%{fnamemodify(getcwd(), ':~')}\] - Neovim"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Searching
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" disable searching tags
+set complete-=t
+
+" Sane hl_search
+noremap <expr> <Plug>(StopHL) execute('nohlsearch')[-1]
+noremap! <expr> <Plug>(StopHL) execute('nohlsearch')[-1]
+
+fu! HlSearch()
+    let s:pos = match(getline('.'), @/, col('.') - 1) + 1
+    if s:pos != col('.')
+        call StopHL()
+    endif
+endfu
+
+fu! StopHL()
+    if !v:hlsearch || mode() isnot 'n'
+        return
+    else
+        sil call feedkeys("\<Plug>(StopHL)", 'm')
+    endif
+endfu
+
+augroup SearchHighlight
+au!
+    au CursorMoved * call HlSearch()
+    au InsertEnter * call StopHL()
+augroup end
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -111,15 +155,14 @@ let g:highlightedyank_highlight_duration = 50
 set autowriteall
 " treat dash separated words as a word text object"
 set iskeyword+=-
-let g:rooter_change_directory_for_non_project_files = 'current'
 
+
+let g:rooter_change_directory_for_non_project_files = 'current'
 " This is good but makes vim slow - use zi,za,zc and frieds
 " set nofoldenable
 set foldmethod=syntax
 set foldlevel=2
 
-" Syntax Highlight only first 200 columns - to keep vim fast
-set synmaxcol=200
 
 "Open DBUI drawer on right
 let g:db_ui_win_position = 'right'
@@ -164,30 +207,6 @@ augroup end
 
 
 
-" Sane hl_search
-noremap <expr> <Plug>(StopHL) execute('nohlsearch')[-1]
-noremap! <expr> <Plug>(StopHL) execute('nohlsearch')[-1]
-
-fu! HlSearch()
-    let s:pos = match(getline('.'), @/, col('.') - 1) + 1
-    if s:pos != col('.')
-        call StopHL()
-    endif
-endfu
-
-fu! StopHL()
-    if !v:hlsearch || mode() isnot 'n'
-        return
-    else
-        sil call feedkeys("\<Plug>(StopHL)", 'm')
-    endif
-endfu
-
-augroup SearchHighlight
-au!
-    au CursorMoved * call HlSearch()
-    au InsertEnter * call StopHL()
-augroup end
 
 " NeoTerm
 set nocompatible
@@ -278,7 +297,10 @@ syntax enable
 set background=dark
 
 " Always show tabs
-set showtabline=2
+" 0 - Hide tabline
+" 1 - Show tabline when we explicitly create a new tab
+" 2 - Always show the tabline
+set showtabline=1
 
 " We don't need to see things like -- INSERT -- anymore
 set noshowmode
@@ -390,6 +412,25 @@ au! BufWritePost $MYVIMRC source %
 
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" something related to automatically apply vim-file changes
+" https://github.com/hardcoreplayers/ThinkVim/blob/develop/core/filetype.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup user_plugin_filetype "{{{
+
+  autocmd!
+  " Reload vim config automatically
+  " $HOME/.config/nvim/general/paths.vim
+  autocmd BufWritePost $HOME/.config/{*.vim,*.yaml,vimrc} nested
+        \ source $MYVIMRC | redraw
+
+  " Reload Vim script automatically if setlocal autoread
+  autocmd BufWritePost,FileWritePost *.vim nested
+        \ if &l:autoread > 0 | source <afile> |
+        \   echo 'source ' . bufname('%') |
+        \ endif
+
+augroup END
 
 
 

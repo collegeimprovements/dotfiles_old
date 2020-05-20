@@ -1,5 +1,8 @@
 {
   "codeLens.enable": true,
+  "suggest.enablePreselect": true,
+  "suggest.timeout": 10000,
+  "elixirLS.suggestSpecs": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "markdown",
