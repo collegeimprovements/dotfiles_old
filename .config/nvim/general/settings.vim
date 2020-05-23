@@ -3,10 +3,9 @@
 " => MapLeader - Space as MapLeader
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set mapleader to space, and timeout length for the key is 8 sec now.
+" Require less than one second between keys for mappings to work correctly
 let mapleader =" "
 set timeoutlen=1000
-" experimental redrawtime - Time in milliseconds for stopping display redraw
-set redrawtime=1500
 
 " Useful leader mappings
 nnoremap <Leader>; :
@@ -193,16 +192,16 @@ augroup end
 
 " Move Lines - Start
 " Normal mode
-" nnoremap <C-j> :m .+1<CR>==
-" nnoremap <C-k> :m .-2<CR>==
+nnoremap <M-Down> :m .+1<CR>==
+nnoremap <M-Up>   :m .-2<CR>==
 
 " Insert mode
-" inoremap <C-j> <ESC>:m .+1<CR>==gi
-" inoremap <C-k> <ESC>:m .-2<CR>==gi
+inoremap <M-Down> <ESC>:m .+1<CR>==gi
+inoremap <M-Up>   <ESC>:m .-2<CR>==gi
 
 " Visual mode
-" vnoremap <C-j> :m '>+1<CR>gv=gv
-" vnoremap <C-k> :m '<-2<CR>gv=gv
+vnoremap <M-Down> :m '>+1<CR>gv=gv
+vnoremap <M-Up>   :m '<-2<CR>gv=gv
 
 " Move Lines - End
 

@@ -21,6 +21,9 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   " Plug 'tpope/vim-surround'
   " Plug 'jiangmiao/auto-pairs'
   " Plug 'tpope/vim-endwise'
+  " Plug 'arthurxavierx/vim-caser'
+  Plug 'AndrewRadev/splitjoin.vim'
+  Plug 'AndrewRadev/switch.vim'
   Plug 'airblade/vim-rooter'
   Plug 'andyl/vim-textobj-elixir'
   Plug 'andymass/vim-matchup'
@@ -33,6 +36,7 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/limelight.vim'
+  Plug 'junegunn/vim-peekaboo'
   Plug 'kana/vim-textobj-user'
   Plug 'kassio/neoterm'
   Plug 'kristijanhusak/vim-dadbod-ui'
@@ -47,11 +51,12 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'pechorin/any-jump.vim'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'terryma/vim-expand-region'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dadbod'
   Plug 'tpope/vim-projectionist'
-  Plug 'terryma/vim-expand-region'
   Plug 'voldikss/vim-floaterm'
+  Plug 'yilin-yang/vim-markbar'
 call plug#end()
 
 
