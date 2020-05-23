@@ -19,7 +19,6 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   " Plug 'rhysd/git-messenger.vim'
   " Plug 'sbdchd/neoformat'
   " Plug 'tpope/vim-surround'
-  " Plug 'voldikss/vim-floaterm'
   " Plug 'jiangmiao/auto-pairs'
   " Plug 'tpope/vim-endwise'
   Plug 'airblade/vim-rooter'
@@ -52,6 +51,7 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   Plug 'tpope/vim-dadbod'
   Plug 'tpope/vim-projectionist'
   Plug 'terryma/vim-expand-region'
+  Plug 'voldikss/vim-floaterm'
 call plug#end()
 
 
