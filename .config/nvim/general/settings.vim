@@ -162,6 +162,7 @@ let g:rooter_change_directory_for_non_project_files = 'current'
 " set nofoldenable
 set foldmethod=syntax
 set foldlevel=2
+let g:startify_change_to_dir = 0
 
 
 "Open DBUI drawer on right
@@ -225,6 +226,19 @@ nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 " ONLY KEEP LINES WHICH CONTAIN SEARCH
 nnoremap ,v :v/<C-R>//d<CR>gg
 nnoremap ,d :g/<C-R>//d<CR>gg
+
+
+function StripTrailingWhiteSpace()
+  if !&binary && &filetype != 'diff'
+    normal mz
+    normal Hmy
+    %s/\s\+$//e
+    normal 'yz<CR>
+    normal `z
+  endif
+endfunction
+command! StripTrailingWhiteSpace call StripTrailingWhiteSpace()
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Abbreviations
