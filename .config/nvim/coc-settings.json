@@ -24,7 +24,7 @@
   "json.format.enable": true,
   "snippets.ultisnips.directories": [
     "UltiSnips",
-    "~/.config/nvim/utils/snips"
+    "~/.config/nvim/utils/snippets"
   ],
   "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
@@ -57,6 +57,7 @@
     "typescript",
     "typescriptreact"
   ],
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
   "snippets.extends": {
     "javascriptreact": [
       "javascript"

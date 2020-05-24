@@ -134,14 +134,6 @@ let g:rooter_change_directory_for_non_project_files = 'current'
 set foldmethod=syntax
 set foldlevel=2
 
-
-"Open DBUI drawer on right
-let g:db_ui_win_position = 'right'
-
-"Use nerd fonts for DBUI
-let g:db_ui_use_nerd_fonts = 1
-let g:db_async = 1
-
 " auto-remove trailing whitespaces
 " autocmd BufWritePre * :%s/\s\+$//e
 
@@ -155,8 +147,6 @@ let g:db_async = 1
 " nnoremap <leader>lf <C-^>
 " Switch to previous buffer
 nnoremap ;; <C-^>
-
-
 
 " ONLY KEEP LINES WHICH CONTAIN SEARCH
 nnoremap ,v :v/<C-R>//d<CR>gg
@@ -178,7 +168,7 @@ endfunction
 command! StripTrailingWhiteSpace call StripTrailingWhiteSpace()
 
 " Quickly add empty lines
-nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
+nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>
 nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 
 

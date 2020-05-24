@@ -58,6 +58,8 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   Plug 'tpope/vim-projectionist'
   Plug 'voldikss/vim-floaterm'
   Plug 'yilin-yang/vim-markbar'
+  Plug 'antoinemadec/coc-fzf'
+  Plug 'vn-ki/coc-clap'
 call plug#end()
 
 

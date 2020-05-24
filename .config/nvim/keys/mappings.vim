@@ -1,6 +1,3 @@
-" Fast saving
-nmap <leader>w :w!<cr>
-
 " Reload vimrc
 nnoremap <space>r :source $MYVIMRC<cr>
 
@@ -17,8 +14,12 @@ nnoremap <silent>‚à´ :CocCommand explorer<CR>
 
 
 " alt+s = cmd+s for saving the file
-noremap ß :w<CR>
+" Fast saving
 nnoremap <Leader>w :w<CR>
+nnoremap <silent>ß :w<CR>
+vnoremap <silent>ß  <C-C>:update<CR>
+inoremap <silent>ß  <C-O>:update<CR>
+
 
 " Toggle key bindings
 nnoremap <silent> <Leader>tc :let &colorcolumn=(&cc==0)?81:0<CR>

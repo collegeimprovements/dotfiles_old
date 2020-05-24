@@ -6,14 +6,14 @@
 
 let g:neoterm_autoscroll = '1'
 let g:neoterm_size = 16
-let g:neoterm_default_mode = 'vertical'
-let g:neoterm_position = 'horizontal'
+let g:neoterm_default_mode = ':vertical'
 
 nnoremap <leader>tt :Ttoggle<CR>
 nnoremap <leader>tt :Ttoggle<CR>
 nnoremap <leader>tl :TREPLSendLine<CR>
 nnoremap <c-l> :TREPLSendLine<CR>
 nnoremap <leader>ts :TREPLSendSelection<CR>
+vnoremap <leader>ts :TREPLSendSelection<CR>
 
 
 " Use gx{text-object} in normal mode
@@ -24,3 +24,5 @@ xmap gx <Plug>(neoterm-repl-send)
 
 " Send lines to Neoterm repl
 nmap gxx <Plug>(neoterm-repl-send-line)
+
+
