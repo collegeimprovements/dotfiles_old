@@ -40,10 +40,15 @@
   "explorer.keyMappings": {
     "<cr>": [
       "expandable?",
-      "expandOrCollapse",
+      [
+        "expanded?",
+        "collapse",
+        "expand"
+      ],
       "open"
     ],
-    "v": "open:vsplit"
+    "v": "open:vsplit",
+    "go": "workspaceFolders"
   },
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": [

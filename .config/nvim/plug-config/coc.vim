@@ -192,8 +192,44 @@ nmap <Leader>cc <Plug>(coc-calc-result-append)
 nmap <Leader>cC <Plug>(coc-calc-result-replace)
 
 
-
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CoC Explorer
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <Leader>ee :CocCommand explorer<CR>
+nmap <Leader>ef :CocCommand explorer --preset floating<CR>
+nmap <Leader>ee :CocCommand explorer<CR>
+nmap <Leader>ef :CocCommand explorer --preset floating<CR>
+nmap <Leader>eh :CocCommand explorer --preset floatingLeftside<CR>
+nmap <Leader>el :CocCommand explorer --preset floatingRightside<CR>
+nmap <Leader>ev :CocCommand explorer --preset .vim<CR>
+nmap <Leader>ec :CocCommand explorer --preset cocConfig<CR>
+let g:coc_explorer_global_presets = {
+\   '.vim': {
+\      'root-uri': '~/.config/nvim'
+\   },
+\   'cocConfig': {
+\      'root-uri': '~/.config/coc',
+\   },
+\   'floating': {
+\      'position': 'floating',
+\      'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingLeftside': {
+\      'position': 'floating',
+\      'floating-position': 'left-center',
+\      'floating-width': 50,
+\      'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingRightside': {
+\      'position': 'floating',
+\      'floating-position': 'right-center',
+\      'floating-width': 50,
+\      'open-action-strategy': 'sourceWindow',
+\   },
+\   'simplify': {
+\     'file.child.template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+\   }
+\ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CoC VIM - End

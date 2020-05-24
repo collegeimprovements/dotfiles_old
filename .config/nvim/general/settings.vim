@@ -1,4 +1,3 @@
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => MapLeader - Space as MapLeader
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -6,34 +5,6 @@
 " Require less than one second between keys for mappings to work correctly
 let mapleader =" "
 set timeoutlen=1000
-
-" Useful leader mappings
-nnoremap <Leader>; :
-xnoremap <Leader>; :
-nnoremap <c-c> :
-xnoremap <c-c> :
-nnoremap <Leader>h :nohlsearch<CR>
-
-" alt+b => cmd+b for Coc Explore
-nnoremap <silent>∫ :CocCommand explorer<CR>
-
-" alt+s = cmd+s for saving the file
-noremap ß :w<CR>
-nnoremap <Leader>w :w<CR>
-
-
-" Toggle key bindings
-nnoremap <silent> <Leader>tc :let &colorcolumn=(&cc==0)?81:0<CR>
-nnoremap <silent> <Leader>te :set expandtab!<Bar>set expandtab?<CR>
-nnoremap <silent> <Leader>th :set hlsearch!<Bar>set hlsearch?<CR>
-nnoremap <silent> <Leader>tln :set nu!<Cr>
-nnoremap <silent> <Leader>tr :set relativenumber!<Cr>
-nnoremap <silent> <Leader>tf :set foldenable!<Cr>
-nnoremap <silent> <Leader>tp :set paste!<Bar>set paste?<CR>
-nnoremap <silent> <Leader>ts :setlocal spell!<Bar>setlocal spell?<CR>
-nnoremap <silent> <Leader>tw :set wrap!<Bar>set wrap?<CR>
-nnoremap <silent> <Leader>tm :let &mouse=(&mouse==#""?"a":"")<Bar>
-			\ echo "mouse ".(&mouse==#""?"off":"on")<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -60,7 +31,6 @@ colorscheme gruvbox
 " HighlightedyankRegion - vim plugin
 " HighlightedyankRegionpumvisible() ? "\" : "\
 highlight HighlightedyankRegion cterm=reverse gui=reverse
-
 
 
 " Mouse support
@@ -113,15 +83,17 @@ let &g:titlestring="
       \ %{expand('%:p:~:.')}%(%m%r%w%)
       \ %<\[%{fnamemodify(getcwd(), ':~')}\] - Neovim"
 
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Searching
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" disable searching tags
+" disable searching tags. Try to keep vim fast.
 set complete-=t
 
 " Sane hl_search
-noremap <expr> <Plug>(StopHL) execute('nohlsearch')[-1]
+noremap  <expr> <Plug>(StopHL) execute('nohlsearch')[-1]
 noremap! <expr> <Plug>(StopHL) execute('nohlsearch')[-1]
 
 fu! HlSearch()
@@ -151,7 +123,7 @@ augroup end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:highlightedyank_highlight_duration = 50
 
-set autowriteall
+" set autowriteall
 " treat dash separated words as a word text object"
 set iskeyword+=-
 
@@ -161,7 +133,6 @@ let g:rooter_change_directory_for_non_project_files = 'current'
 " set nofoldenable
 set foldmethod=syntax
 set foldlevel=2
-let g:startify_change_to_dir = 0
 
 
 "Open DBUI drawer on right
@@ -172,7 +143,7 @@ let g:db_ui_use_nerd_fonts = 1
 let g:db_async = 1
 
 " auto-remove trailing whitespaces
-autocmd BufWritePre * :%s/\s\+$//e
+" autocmd BufWritePre * :%s/\s\+$//e
 
 " Tags
 " use relative paths for tags
@@ -185,11 +156,35 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Switch to previous buffer
 nnoremap ;; <C-^>
 
-augroup elixirbindings
-  autocmd! elixirbindings
-  autocmd Filetype elixir imap <buffer> <silent> <C-l> \|>
-augroup end
 
+
+" ONLY KEEP LINES WHICH CONTAIN SEARCH
+nnoremap ,v :v/<C-R>//d<CR>gg
+nnoremap ,d :g/<C-R>//d<CR>gg
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => StripTrailingWhiteSpace, Quickly add empty lines
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function StripTrailingWhiteSpace()
+  if !&binary && &filetype != 'diff'
+    normal mz
+    normal Hmy
+    %s/\s\+$//e
+    normal 'yz<CR>
+    normal `z
+  endif
+endfunction
+command! StripTrailingWhiteSpace call StripTrailingWhiteSpace()
+
+" Quickly add empty lines
+nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
+nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Move Lines with Alt-Up and Alt-Down
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Move Lines - Start
 " Normal mode
 nnoremap <M-Down> :m .+1<CR>==
@@ -204,39 +199,6 @@ vnoremap <M-Down> :m '>+1<CR>gv=gv
 vnoremap <M-Up>   :m '<-2<CR>gv=gv
 
 " Move Lines - End
-
-
-
-
-" NeoTerm
-set nocompatible
-filetype off
-let &runtimepath.=',~/.vim/bundle/neoterm'
-silent! helptags ALL
-
-" Show tabs, empty spacces etc.
-let &listchars="tab:┆\ ,trail:▫,nbsp:_,extends:»,precedes:«,eol:¬"
-
-" Quickly add empty lines
-nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
-nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
-
-
-" ONLY KEEP LINES WHICH CONTAIN SEARCH
-nnoremap ,v :v/<C-R>//d<CR>gg
-nnoremap ,d :g/<C-R>//d<CR>gg
-
-
-function StripTrailingWhiteSpace()
-  if !&binary && &filetype != 'diff'
-    normal mz
-    normal Hmy
-    %s/\s\+$//e
-    normal 'yz<CR>
-    normal `z
-  endif
-endfunction
-command! StripTrailingWhiteSpace call StripTrailingWhiteSpace()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -262,6 +224,7 @@ set wildignore+=*DS_Store*
 set wildignore+=vendor/rails/**
 set wildignore+=vendor/cache/**
 set wildignore+=*.gem
+set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
@@ -271,13 +234,10 @@ set wildignore+=*/.nx/**,*.app
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Arrow Keys - Normal Mode - Buffer - Tabs navigation
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <left> :bprev<CR>
+nnoremap <left>  :bprev<CR>
 nnoremap <right> :bnext<CR>
-nnoremap <up> :tabnext<CR>
-nnoremap <down> :tabprev<CR>
-
-
-
+nnoremap <up>    :tabnext<CR>
+nnoremap <down>  :tabprev<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -285,6 +245,7 @@ nnoremap <down> :tabprev<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Leader>tc :tabe<CR>
 nnoremap <Leader>tx :tabclose<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -322,6 +283,8 @@ set noshowmode
 set pumheight=10
 
 
+" Show tabs, empty spacces etc.
+let &listchars="tab:┆\ ,trail:▫,nbsp:_,extends:»,precedes:«,eol:¬"
 
 " Enable theming support
 " As I'm using kitty - it's not required for now.
@@ -386,8 +349,6 @@ set autoindent
 set smartindent
 
 
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Undos
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -417,6 +378,12 @@ set undoreload=2000
 " Elixir
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let g:mix_format_on_save = 1
+augroup elixirbindings
+  autocmd! elixirbindings
+  autocmd Filetype elixir imap <buffer> <silent> <C-l> \|>
+  autocmd Filetype elixir imap <buffer> <silent> <C-h> %{}
+augroup end
+
 
 
 au! BufWritePost $MYVIMRC source %
@@ -444,8 +411,6 @@ augroup user_plugin_filetype "{{{
         \ endif
 
 augroup END
-
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " References

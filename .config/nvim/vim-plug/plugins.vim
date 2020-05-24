@@ -22,6 +22,7 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   " Plug 'jiangmiao/auto-pairs'
   " Plug 'tpope/vim-endwise'
   " Plug 'arthurxavierx/vim-caser'
+  " Plug 'farmergreg/vim-lastplacegit'
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'AndrewRadev/switch.vim'
   Plug 'airblade/vim-rooter'
