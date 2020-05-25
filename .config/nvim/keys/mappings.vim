@@ -8,6 +8,16 @@ nnoremap <c-c> :
 xnoremap <c-c> :
 nnoremap <Leader>h :nohlsearch<CR>
 
+
+
+"CodeLens 
+command! CodeLensEnable call coc#config('codeLens', {'enable': v:true})
+command! CodeLensDisable call coc#config('codeLens', {'enable': v:false})
+
+command! StripTrailingWhiteSpace call StripTrailingWhiteSpace()
+
+
+
 " alt+b => cmd+b for Coc Explore
 nnoremap <silent>‚à´ :CocCommand explorer<CR>
 
