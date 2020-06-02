@@ -18,3 +18,5 @@
 	required = true
 [commit]
 	template = /Users/arpit/.stCommitMsg
+[http]
+	postBuffer = 157286400

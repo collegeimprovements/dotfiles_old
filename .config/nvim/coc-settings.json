@@ -26,6 +26,7 @@
     "UltiSnips",
     "~/.config/nvim/utils/snippets"
   ],
+  "yank.highlight.duration": 50,
   "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
   "explorer.file.column.git.icon.added": "✚",
@@ -38,15 +39,7 @@
   "explorer.openAction.for.directory": "expandOrCollapse",
   "explorer.previewAction.onHover": false,
   "explorer.keyMappings": {
-    "<cr>": [
-      "expandable?",
-      [
-        "expanded?",
-        "collapse",
-        "expand"
-      ],
-      "open"
-    ],
+    "<cr>": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
     "v": "open:vsplit",
     "go": "workspaceFolders"
   },
@@ -59,12 +52,8 @@
   ],
   "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
   "snippets.extends": {
-    "javascriptreact": [
-      "javascript"
-    ],
-    "typescriptreact": [
-      "typescript"
-    ]
+    "javascriptreact": ["javascript"],
+    "typescriptreact": ["typescript"]
   },
   "diagnostic.checkCurrentLine": true,
   "diagnostic.errorSign": "✖",
@@ -72,14 +61,8 @@
   "diagnostic.infoSign": "●",
   "diagnostic.hintSign": "○",
   "diagnostic-languageserver.filetypes": {
-    "elixir": [
-      "mix_credo",
-      "mix_credo_compile"
-    ],
-    "eelixir": [
-      "mix_credo",
-      "mix_credo_compile"
-    ]
+    "elixir": ["mix_credo", "mix_credo_compile"],
+    "eelixir": ["mix_credo", "mix_credo_compile"]
   },
   "diagnostic-languageserver.formatFiletypes": {
     "elixir": "mix_format",
@@ -88,3 +71,4 @@
   "cursors.nextKey": "<C-j>",
   "cursors.previousKey": "<C-p>"
 }
+

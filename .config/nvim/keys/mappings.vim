@@ -39,7 +39,9 @@ nnoremap <silent> <Leader>tln :set nu!<Cr>
 nnoremap <silent> <Leader>tr :set relativenumber!<Cr>
 nnoremap <silent> <Leader>tf :set foldenable!<Cr>
 nnoremap <silent> <Leader>tp :set paste!<Bar>set paste?<CR>
-nnoremap <silent> <Leader>ts :setlocal spell!<Bar>setlocal spell?<CR>
+" nnoremap <silent> <Leader>ts :setlocal spell!<Bar>setlocal spell?<CR>
+nnoremap <silent> <Leader>ts :syntax off<CR>
+nnoremap <silent> <Leader>to :syntax on<CR>
 nnoremap <silent> <Leader>tw :set wrap!<Bar>set wrap?<CR>
 nnoremap <silent> <Leader>tm :let &mouse=(&mouse==#""?"a":"")<Bar>
 			\ echo "mouse ".(&mouse==#""?"off":"on")<CR>

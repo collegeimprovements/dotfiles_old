@@ -42,7 +42,7 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   Plug 'kassio/neoterm'
   Plug 'kristijanhusak/vim-dadbod-ui'
   Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
-  Plug 'machakann/vim-highlightedyank'
+  " Plug 'machakann/vim-highlightedyank'
   Plug 'machakann/vim-sandwich'
   Plug 'machakann/vim-swap'
   Plug 'mhartington/oceanic-next'

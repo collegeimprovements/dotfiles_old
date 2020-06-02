@@ -2,10 +2,11 @@
 " CoC VIM - Start
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:coc_global_extensions = ['coc-elixir', 'coc-explorer',
+let g:coc_global_extensions = ['coc-elixir', 'coc-explorer', 'coc-yank', 'coc-pairs',
+      \ 'coc-html', 'coc-css', 'coc-prettier', 'coc-yaml', 'coc-json', 'coc-xml',
       \'coc-tabnine', 'coc-git', 'coc-snippets', 'coc-post',
       \'coc-highlight', 'coc-db', 'coc-diagnostic', 'coc-eslint', 'coc-floaterm',
-      \'coc-tsserver', 'coc-json', 'coc-vimlsp', 'coc-lists', 'coc-calc',
+      \'coc-tsserver', 'coc-vimlsp', 'coc-lists', 'coc-calc',
       \ 'https://github.com/florinpatrascu/vscode-elixir-snippets' ]
 
 
@@ -26,10 +27,10 @@ set signcolumn=yes
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+      \ pumvisible() ? "\<C-j>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-k>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -71,7 +72,7 @@ function! s:show_documentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -230,6 +231,23 @@ let g:coc_explorer_global_presets = {
 \     'file.child.template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
 \   }
 \ }
+
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CoC Yank
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+
+
+
+
+
+" Set ultisnips triggers
+let g:UltiSnipsExpandTrigger="<tab>"                                            
+let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CoC VIM - End

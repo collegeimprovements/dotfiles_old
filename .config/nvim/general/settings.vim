@@ -121,7 +121,7 @@ augroup end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Experimental
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:highlightedyank_highlight_duration = 50
+" let g:highlightedyank_highlight_duration = 50
 
 " set autowriteall
 " treat dash separated words as a word text object"
