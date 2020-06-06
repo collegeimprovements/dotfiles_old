@@ -64,6 +64,11 @@ nnoremap Y y$
 xnoremap Y <Esc>y$gv
 
 
+" From https://github.com/sheerun/dotfiles/blob/master/vimrc 
+" Let's Keep only M from H(high) M(middle) L(low)
+nnoremap H 0
+nnoremap L $
+
 " Faster keyword completion - for <ctrl-j,k>, <ctrl-n,p>
 " disable scanning included files
 set complete-=i
