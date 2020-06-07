@@ -56,6 +56,7 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dadbod'
   Plug 'tpope/vim-projectionist'
+  Plug 'tpope/vim-unimpaired'
   Plug 'voldikss/vim-floaterm'
   Plug 'yilin-yang/vim-markbar'
   Plug 'antoinemadec/coc-fzf'

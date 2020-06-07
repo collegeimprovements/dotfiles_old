@@ -22,6 +22,9 @@ command! StripTrailingWhiteSpace call StripTrailingWhiteSpace()
 nnoremap <silent>‚à´ :CocCommand explorer<CR>
 
 
+" Goto File
+nnoremap <Leader>g gf
+
 
 " alt+s = cmd+s for saving the file
 " Fast saving

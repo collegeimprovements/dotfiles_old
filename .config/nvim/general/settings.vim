@@ -69,6 +69,12 @@ xnoremap Y <Esc>y$gv
 nnoremap H 0
 nnoremap L $
 
+" Allow easy navigation between wrapped lines.
+vmap j gj
+vmap k gk
+nmap j gj
+nmap k gk
+
 " Faster keyword completion - for <ctrl-j,k>, <ctrl-n,p>
 " disable scanning included files
 set complete-=i
@@ -156,6 +162,10 @@ nnoremap ;; <C-^>
 " ONLY KEEP LINES WHICH CONTAIN SEARCH
 nnoremap ,v :v/<C-R>//d<CR>gg
 nnoremap ,d :g/<C-R>//d<CR>gg
+
+" Visually select the text that was last edited/pasted (Vimcast#26). #sheerun
+noremap gV `[v`]
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -416,3 +426,4 @@ augroup END
 " https://github.com/mhinz/vim-galore
 " https://github.com/ibhagwan/dots/blob/master/README-vim.md
 " https://github.com/weirongxu/dotvim/blob/master/options.rc.vim
+" https://github.com/sheerun/vimrc

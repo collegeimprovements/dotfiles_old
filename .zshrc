@@ -330,3 +330,24 @@ alias pip=pip3
 
 # source /Users/arpit/Library/Preferences/org.dystroy.broot/launcher/bash/br
 export PATH="$HOME/.apollo/bin:$PATH"
+
+
+
+
+
+#================================================================================
+# Useful Functions
+# https://github.com/mdumitru/fancy-ctrl-z/blob/master/fancy-ctrl-z.zsh
+#================================================================================
+
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
