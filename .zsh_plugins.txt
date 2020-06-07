@@ -19,3 +19,6 @@ unixorn/tumult.plugin.zsh #https://github.com/unixorn/tumult.plugin.zsh -> For u
 MichaelAquilina/zsh-you-should-use
 
 paulirish/git-open
+
+#experimental
+wfxr/forgit
