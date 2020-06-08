@@ -23,6 +23,7 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   " Plug 'tpope/vim-endwise'
   " Plug 'arthurxavierx/vim-caser'
   " Plug 'farmergreg/vim-lastplacegit'
+  " Plug 'machakann/vim-highlightedyank'
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'AndrewRadev/switch.vim'
   Plug 'airblade/vim-rooter'
@@ -42,7 +43,6 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   Plug 'kassio/neoterm'
   Plug 'kristijanhusak/vim-dadbod-ui'
   Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
-  " Plug 'machakann/vim-highlightedyank'
   Plug 'machakann/vim-sandwich'
   Plug 'machakann/vim-swap'
   Plug 'mhartington/oceanic-next'

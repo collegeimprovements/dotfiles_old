@@ -20,16 +20,25 @@ let g:lightline = {
   \   ],
   \   'right':[
   \     [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ],
-  \     [ 'blame' ]
+  \     [ 'blame', 'branch' ]
   \   ],
   \ },
   \ 'component_function': {
-  \   'blame': 'LightlineGitBlame',
+  \     'blame': 'LightlineGitBlame',
+  \     'branch': 'LightlineGitBranch'
+  \   }
   \ }
-\ }
+
 
 function! LightlineGitBlame() abort
   let blame = get(b:, 'coc_git_blame', '')
   " return blame
   return winwidth(0) > 120 ? blame : ''
+endfunction
+" g:coc_git_status
+
+function! LightlineGitBranch() abort
+  let branch = get(g:, 'coc_git_status', '')
+  " return blame
+  return winwidth(0) > 120 ? branch : ''
 endfunction
