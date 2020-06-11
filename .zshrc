@@ -283,6 +283,10 @@ alias gc="git commit -m"
 alias gp="git push"
 alias gs="git status"
 alias gd="git diff"
+alias gco="git checkout"
+alias gpo="git pull origin"
+alias gpo="git pull origin master"
+alias gm="git checkout master && git pull origin master && git push all master"
 alias gr='cd "$(git rev-parse --show-toplevel)"'
 
 # Elixir Aliases
