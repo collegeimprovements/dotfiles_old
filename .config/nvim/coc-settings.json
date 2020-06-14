@@ -3,6 +3,7 @@
   "suggest.enablePreselect": true,
   "suggest.timeout": 10000,
   "elixirLS.suggestSpecs": true,
+  "cSpell.import": ["~/.config/nvim/general"],
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "markdown",
@@ -70,6 +71,20 @@
     "eelixir": "mix_format"
   },
   "cursors.nextKey": "<C-j>",
-  "cursors.previousKey": "<C-p>"
+  "cursors.previousKey": "<C-p>",
+  "cSpell.userWords": [
+    "Nerdfont",
+    "Ulti",
+    "eelixir",
+    "floaterm",
+    "funcobj",
+    "gstatus",
+    "mygroup",
+    "nvim",
+    "prevchunk",
+    "ultisnips",
+    "untracked",
+    "vsplit"
+  ]
 }
 
