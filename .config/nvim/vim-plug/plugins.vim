@@ -61,7 +61,7 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   Plug 'yilin-yang/vim-markbar'
   Plug 'antoinemadec/coc-fzf'
   Plug 'vn-ki/coc-clap'
-  Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+  " Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 
 call plug#end()
 

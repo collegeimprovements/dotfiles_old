@@ -3,6 +3,7 @@
   "suggest.enablePreselect": true,
   "suggest.timeout": 10000,
   "elixirLS.suggestSpecs": true,
+  "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh",
   "cSpell.import": ["~/.config/nvim/general"],
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
@@ -91,4 +92,3 @@
     "vsplit"
   ]
 }
-
