@@ -2,12 +2,13 @@
 " CoC VIM - Start
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:coc_global_extensions = ['coc-marketplace','coc-syntax','coc-dictionary' ,'coc-elixir', 'coc-explorer', 'coc-yank', 'coc-pairs',
+let g:coc_global_extensions = ['coc-marketplace','coc-syntax','coc-dictionary', 'coc-elixir', 'coc-explorer', 'coc-yank', 'coc-pairs',
       \ 'coc-html', 'coc-css', 'coc-prettier', 'coc-yaml', 'coc-json', 'coc-xml', 'coc-sql',
       \'coc-tabnine', 'coc-git', 'coc-snippets', 'coc-post', 'coc-markmap',
       \'coc-highlight', 'coc-db', 'coc-diagnostic', 'coc-eslint', 'coc-floaterm',
-      \'coc-tsserver', 'coc-vimlsp', 'coc-lists', 'coc-calc', 'coc-spell-checker',
+      \'coc-tsserver', 'coc-vimlsp', 'coc-lists', 'coc-calc', 
       \ 'https://github.com/florinpatrascu/vscode-elixir-snippets' ]
+" 'coc-spell-checker',
 
 
 "

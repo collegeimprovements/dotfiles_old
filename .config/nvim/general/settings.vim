@@ -28,10 +28,15 @@ autocmd FocusGained,BufEnter * checktime
 " ColorScheme
 "autocmd vimenter * colorscheme gruvbox
 colorscheme gruvbox
+
 " HighlightedyankRegion - vim plugin
 " HighlightedyankRegionpumvisible() ? "\" : "\
-highlight HighlightedyankRegion cterm=reverse gui=reverse
+" highlight HighlightedyankRegion cterm=reverse gui=reverse
 
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000)
+augroup END
 
 " Mouse support
 set mouse=a

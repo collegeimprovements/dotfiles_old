@@ -5,11 +5,11 @@
 " silent! helptags ALL
 
 let g:neoterm_autoscroll = '1'
-let g:neoterm_size = 16
-let g:neoterm_default_mode = ':vertical'
+" let g:neoterm_size = 16
+let g:neoterm_default_mod = 'vertical'
 
-" nnoremap <leader>tt :Ttoggle<CR>
-" nnoremap <leader>tt :Ttoggle<CR>
+nnoremap <leader>tt :Ttoggle<CR>
+nnoremap <leader>tt :Ttoggle<CR>
 " nnoremap <leader>tl :TREPLSendLine<CR>
 " nnoremap <c-l> :TREPLSendLine<CR>
 " nnoremap <leader>ts :TREPLSendSelection<CR>
