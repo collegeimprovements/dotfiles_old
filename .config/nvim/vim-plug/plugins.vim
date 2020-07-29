@@ -24,6 +24,7 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   " Plug 'arthurxavierx/vim-caser'
   " Plug 'farmergreg/vim-lastplacegit'
   " Plug 'machakann/vim-highlightedyank'
+  " Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'AndrewRadev/switch.vim'
   Plug 'airblade/vim-rooter'
@@ -61,8 +62,8 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   Plug 'yilin-yang/vim-markbar'
   Plug 'antoinemadec/coc-fzf'
   Plug 'vn-ki/coc-clap'
-  " Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
-
+  Plug 'leafgarland/typescript-vim'
+  Plug 'peitalin/vim-jsx-typescript'
 call plug#end()
 
 
