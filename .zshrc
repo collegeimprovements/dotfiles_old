@@ -70,6 +70,23 @@ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 # Android & Android Studio - End
 #================================================================================
 
+
+#================================================================================
+# Tmux - Start
+#================================================================================
+alias ta="tmux attach"
+alias ta0="tmux attach-session -t 0"
+alias ta1="tmux attach-session -t 1"
+alias ta2="tmux attach-session -t 2"
+alias ta3="tmux attach-session -t 3"
+alias ta4="tmux attach-session -t 4"
+alias ta5="tmux attach-session -t 5"
+#================================================================================
+# Tmux - End
+#================================================================================
+
+
+
 #================================================================================
 # DOTFILE Management - Start
 #================================================================================
@@ -243,6 +260,7 @@ alias o="open ."
 alias desk="cd ~/Desktop"
 alias down="cd ~/Downloads"
 alias api="cd ~/Documents/projects/main-projects/ultramans/ultra_api"
+alias ui="cd ~/Documents/projects/main-projects/ultramans/ultra-ui"
 alias infra="cd ~/Documents/projects/infrastructure"
 alias cat="bat"
 alias l="exa -l"
