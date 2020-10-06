@@ -22,7 +22,7 @@
 # Hence I'm not installing java explicitly. We will rely on react-native's java guide.
 
 asdfreshim() {
-    asdf reshim erlang elixir golang rust ruby java
+    asdf reshim erlang elixir golang rust ruby java python
 }
 #================================================================================
 # ASDF - END
