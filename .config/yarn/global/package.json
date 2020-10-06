@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "expo-cli": "^3.20.9",
+    "expo-cli": "^3.27.13",
     "neovim": "^4.9.0"
   }
 }
