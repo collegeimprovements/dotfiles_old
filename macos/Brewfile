@@ -95,7 +95,6 @@ brew "watchman"
 brew "wget"
 brew "wifi-password"
 brew "xsv"
-brew "yarn"
 brew "youtube-dl"
 brew "yq"
 brew "z"
@@ -145,3 +144,4 @@ cask "vlc"
 cask "whatsapp"
 cask "zoomus"
 mas "Microsoft Remote Desktop", id: 1295203466
+mas "Xcode", id: 497799835
