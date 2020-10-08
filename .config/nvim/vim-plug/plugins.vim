@@ -23,7 +23,6 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   " Plug 'tpope/vim-endwise'
   " Plug 'arthurxavierx/vim-caser'
   " Plug 'farmergreg/vim-lastplacegit'
-  " Plug 'machakann/vim-highlightedyank'
   " Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'AndrewRadev/switch.vim'

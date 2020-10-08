@@ -343,8 +343,8 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 alias cal="cal -3"
 
 #python
-alias python=python3
-alias pip=pip3
+# alias python=python3
+# alias pip=pip3
 
 #================================================================================
 # COMMON ALIASES - End
