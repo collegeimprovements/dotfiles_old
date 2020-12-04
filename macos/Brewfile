@@ -146,6 +146,7 @@ cask "typora"
 cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
+cask "zoom"
 cask "zoomus"
 mas "DevCleaner", id: 1388020431
 mas "Microsoft Remote Desktop", id: 1295203466
