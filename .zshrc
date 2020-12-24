@@ -304,7 +304,7 @@ alias gd="git diff"
 alias gco="git checkout"
 alias gpo="git pull origin"
 alias gpo="git pull origin master"
-alias gm="git checkout master && git pull origin master && git push all master"
+alias gm="git checkout master && git pull origin master && git push all master && gco rex"
 alias gr='cd "$(git rev-parse --show-toplevel)"'
 
 # Elixir Aliases
