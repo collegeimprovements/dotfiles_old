@@ -72,23 +72,5 @@
     "eelixir": "mix_format"
   },
   "cursors.nextKey": "<C-j>",
-  "cursors.previousKey": "<C-p>",
-  "cSpell.userWords": [
-    "Nerdfont",
-    "RABBITMQ",
-    "Ulti",
-    "YUGY",
-    "eelixir",
-    "floaterm",
-    "funcobj",
-    "gstatus",
-    "majorjaja",
-    "mygroup",
-    "nvim",
-    "postgres",
-    "prevchunk",
-    "ultisnips",
-    "untracked",
-    "vsplit"
-  ]
+  "cursors.previousKey": "<C-p>"
 }
