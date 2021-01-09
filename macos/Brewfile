@@ -31,7 +31,7 @@ brew "curl"
 brew "devd"
 brew "diskus"
 brew "docker", link: false
-brew "docker-compose"
+brew "docker-compose", link: false
 brew "wxmac"
 brew "exa"
 brew "fd"
