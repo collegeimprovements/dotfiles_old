@@ -35,7 +35,7 @@ colorscheme gruvbox
 
 augroup highlight_yank
     autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000)
+    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=100 }
 augroup END
 
 " Mouse support
@@ -69,7 +69,7 @@ nnoremap Y y$
 xnoremap Y <Esc>y$gv
 
 
-" From https://github.com/sheerun/dotfiles/blob/master/vimrc 
+" From https://github.com/sheerun/dotfiles/blob/master/vimrc
 " Let's Keep only M from H(high) M(middle) L(low)
 nnoremap H 0
 nnoremap L $
@@ -137,7 +137,6 @@ set complete-=t
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Experimental
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:highlightedyank_highlight_duration = 50
 
 " set autowriteall
 " treat dash separated words as a word text object"
@@ -170,7 +169,6 @@ nnoremap ,d :g/<C-R>//d<CR>gg
 
 " Visually select the text that was last edited/pasted (Vimcast#26). #sheerun
 noremap gV `[v`]
-
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -224,6 +222,8 @@ cnoreabbrev Bd bd
 cnoreabbrev wrap set wrap
 cnoreabbrev nowrap set nowrap
 cnoreabbrev E e
+cnoreabbrev b Buffers
+cnoreabbrev H History
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Wildmode (experimental)
