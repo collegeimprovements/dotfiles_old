@@ -34,8 +34,10 @@ vnoremap <silent>ß  <C-C>:update<CR>
 inoremap <silent>ß  <C-O>:update<CR>
 
 
+
+
 " Toggle key bindings
-nnoremap <silent> <Leader>tc :let &colorcolumn=(&cc==0)?81:0<CR>
+"  noremap <silent> <Leader>tc :let &colorcolumn=(&cc==0)?81:0<CR>
 nnoremap <silent> <Leader>te :set expandtab!<Bar>set expandtab?<CR>
 nnoremap <silent> <Leader>th :set hlsearch!<Bar>set hlsearch?<CR>
 nnoremap <silent> <Leader>tln :set nu!<Cr>
