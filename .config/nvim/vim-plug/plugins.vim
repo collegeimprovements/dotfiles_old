@@ -24,6 +24,8 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   " Plug 'arthurxavierx/vim-caser'
   " Plug 'farmergreg/vim-lastplacegit'
   " Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+  " Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+  " Plug 'vn-ki/coc-clap'
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'AndrewRadev/switch.vim'
   Plug 'airblade/vim-rooter'
@@ -42,7 +44,6 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   Plug 'kana/vim-textobj-user'
   Plug 'kassio/neoterm'
   Plug 'kristijanhusak/vim-dadbod-ui'
-  Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
   Plug 'machakann/vim-sandwich'
   Plug 'machakann/vim-swap'
   Plug 'mhartington/oceanic-next'
@@ -60,7 +61,6 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   Plug 'voldikss/vim-floaterm'
   Plug 'yilin-yang/vim-markbar'
   Plug 'antoinemadec/coc-fzf'
-  Plug 'vn-ki/coc-clap'
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
 call plug#end()
