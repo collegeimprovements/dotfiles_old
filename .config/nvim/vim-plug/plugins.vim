@@ -26,6 +26,7 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   " Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
   " Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
   " Plug 'vn-ki/coc-clap'
+  " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'AndrewRadev/switch.vim'
   Plug 'airblade/vim-rooter'

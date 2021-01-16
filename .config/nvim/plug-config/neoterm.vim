@@ -25,4 +25,3 @@ xmap gx <Plug>(neoterm-repl-send)
 " Send lines to Neoterm repl
 nmap gxx <Plug>(neoterm-repl-send-line)
 
-

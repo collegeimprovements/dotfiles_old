@@ -100,6 +100,11 @@ let &g:titlestring="
       \ %<\[%{fnamemodify(getcwd(), ':~')}\] - Neovim"
 
 
+" Paste the last thing you yanked, not deleted
+nmap ,p "0p
+nmap ,P "0P
+
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Searching
