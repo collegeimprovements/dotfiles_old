@@ -63,7 +63,7 @@ brew "magic-wormhole"
 brew "make"
 brew "mas"
 brew "ncdu"
-brew "neovim", args: ["HEAD"]
+brew "neovim"
 brew "nmap"
 brew "parallel"
 brew "peco"
