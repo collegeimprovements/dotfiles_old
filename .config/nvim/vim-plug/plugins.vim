@@ -64,6 +64,7 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   Plug 'antoinemadec/coc-fzf'
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
+  Plug 'vim-test/vim-test'
 call plug#end()
 
 
