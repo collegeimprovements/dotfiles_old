@@ -90,7 +90,6 @@ brew "tmux"
 brew "tokei"
 brew "tree"
 brew "ttyd"
-brew "unrar"
 brew "up"
 brew "vault"
 brew "vegeta"
@@ -159,3 +158,6 @@ cask "vlc"
 cask "whatsapp"
 cask "zoom"
 cask "zoomus"
+mas "DevCleaner", id: 1388020431
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Xcode", id: 497799835
