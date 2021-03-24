@@ -67,3 +67,6 @@ node_modules
 *.vscdb
 .config/vscode/User/workspaceStorage/1570698008797/state.vscdb
 
+# elixir
+.elixir_ls
+.elixir_ls

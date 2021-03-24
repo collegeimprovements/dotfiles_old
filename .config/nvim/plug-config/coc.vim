@@ -241,6 +241,14 @@ let g:coc_explorer_global_presets = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CoC Multiple Cursors
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
+
+" nmap <silent> <C-d> <Plug>(coc-cursors-word)*
+" xmap <silent> <C-d> y/\V<C-r>=escape(@",'/\')<CR><CR>gN<Plug>(coc-cursors-range)gn
+
 
 
 

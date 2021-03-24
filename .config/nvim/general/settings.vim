@@ -6,6 +6,8 @@
 let mapleader =" "
 set timeoutlen=1000
 
+" Set terminal to vim-test
+let g:test#strategy = 'terminal'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Bare Essentials
@@ -417,7 +419,8 @@ set undoreload=2000
 augroup elixirbindings
   autocmd! elixirbindings
   autocmd Filetype elixir imap <buffer> <silent> <C-l> \|>
-  autocmd Filetype elixir imap <buffer> <silent> <C-h> %{}
+  autocmd Filetype elixir imap <buffer> <silent> <C-h> \|> IO.inspect(label: "Here")
+  " autocmd Filetype elixir imap <buffer> <silent> <C-m> %{}
 augroup end
 
 

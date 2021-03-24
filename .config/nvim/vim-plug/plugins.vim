@@ -27,6 +27,7 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   " Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
   " Plug 'vn-ki/coc-clap'
   " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  " Plug 'mhartington/oceanic-next'
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'AndrewRadev/switch.vim'
   Plug 'airblade/vim-rooter'
@@ -47,7 +48,6 @@ call plug#begin('~/.config/nvim/vim-plug/plugged')
   Plug 'kristijanhusak/vim-dadbod-ui'
   Plug 'machakann/vim-sandwich'
   Plug 'machakann/vim-swap'
-  Plug 'mhartington/oceanic-next'
   Plug 'mhinz/vim-signify'
   Plug 'mhinz/vim-startify'
   Plug 'morhetz/gruvbox'

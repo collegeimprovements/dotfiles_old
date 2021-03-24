@@ -229,6 +229,8 @@ alias vinstall="vscode-install-extension"
 # ELIXIR - Start
 #================================================================================
 export ERL_AFLAGS="-kernel shell_history enabled"
+export KERL_BUILD_DOCS="yes"
+
 #================================================================================
 # ELIXIR - End
 #================================================================================
@@ -257,9 +259,11 @@ alias cz="code ~/.zshrc"
 alias ce="code ~/.zshenv"
 alias cze="code ~/.zshrc ~/.zshenv"
 alias o="open ."
+alias or="~/Documents/projects/orchestrator"
 alias desk="cd ~/Desktop"
 alias down="cd ~/Downloads"
 alias api="~/Documents/projects/ultra_api"
+alias p="~/Documents/projects"
 alias ui="/Users/arpit/Documents/projects/ultra-ui"
 alias infra="cd ~/Documents/projects/infrastructure"
 alias cat="bat"
@@ -316,7 +320,7 @@ alias mc="mix deps.compile"
 alias mgc="mix deps.get && mix deps.compile && mix compile"
 alias ix="iex -S mix"
 alias x="iex -S mix"
-alias xp="iex -S mix phx.server"
+alias xp="gr && iex -S mix phx.server"
 alias ips="iex -S mix phx.server"
 alias lxp="MIX_ENV=local iex -S mix phx.server"
 
@@ -373,3 +377,5 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+export PATH="$HOME/.poetry/bin:$PATH"

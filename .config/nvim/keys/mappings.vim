@@ -19,7 +19,7 @@ command! StripTrailingWhiteSpace call StripTrailingWhiteSpace()
 
 
 " alt+b => cmd+b for Coc Explore
-nnoremap <silent>‚à´ :CocCommand explorer<CR>
+nnoremap <silent>∫ :CocCommand explorer<CR>
 
 
 " Goto File
