@@ -22,3 +22,5 @@ paulirish/git-open
 
 #experimental
 wfxr/forgit
+# jeffreytse/zsh-vi-mode
+
