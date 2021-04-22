@@ -4,6 +4,9 @@
 # 2. VOLTA
 # 3. Brew
 
+# USERNAME
+export USERNAME=apple
+
 # ALSO - .zshenv is not a good place for setting PATH on macos. https://stackoverflow.com/questions/26433856/why-would-path-be-getting-overwritten-after-shell-login#comment69745215_26434096
 #================================================================================
 # ASDF - Start
@@ -64,7 +67,7 @@ export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 #================================================================================
 # Android & Android Studio - Start
 #================================================================================
-export ANDROID_HOME=/Users/arpit/Library/Android/sdk/
+export ANDROID_HOME=/Users/$USERNAME/Library/Android/sdk/
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 #================================================================================
 # Android & Android Studio - End
@@ -92,7 +95,7 @@ alias ta5="tmux attach-session -t 5"
 #================================================================================
 # dot command should be before we use it in some function. (e.g. dotbrew)
 #  echo "alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> ~/.zshrc
-alias dot='/usr/bin/git --git-dir=/Users/arpit/.dotfiles/ --work-tree=/Users/arpit'
+alias dot='/usr/bin/git --git-dir=/Users/$USERNAME/.dotfiles/ --work-tree=/Users/$USERNAME'
 
 alias ds="dot status"
 alias da="dot add"
@@ -266,7 +269,7 @@ alias api="~/Documents/projects/ultra_api"
 alias emt="~/Documents/projects/ex_modern_treasury"
 alias emd="~/Documents/projects/ex_modern_treasury"
 alias p="~/Documents/projects"
-alias ui="/Users/arpit/Documents/projects/ultra-ui"
+alias ui="/Users/$USERNAME/Documents/projects/ultra-ui"
 alias infra="cd ~/Documents/projects/infrastructure"
 alias cat="bat"
 alias l="exa -l"

@@ -70,3 +70,4 @@ node_modules
 # elixir
 .elixir_ls
 .elixir_ls
+.dotfiles
