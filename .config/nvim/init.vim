@@ -41,7 +41,7 @@ source $HOME/.config/nvim/plug-config/vim-rooter.vim
 source $HOME/.config/nvim/plug-config/vim-surround.vim
 source $HOME/.config/nvim/plug-config/vim-which-key.vim
 source $HOME/.config/nvim/plug-config/vista.vim
-source $HOME/.config/nvim/plug-config/switch.vim
+" source $HOME/.config/nvim/plug-config/switch.vim
 " source $HOME/.config/nvim/plug-config/vim-expand-region.vim
 " source $HOME/.config/nvim/plug-config/rnvimr.vim
 
