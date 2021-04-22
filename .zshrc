@@ -233,6 +233,7 @@ alias vinstall="vscode-install-extension"
 #================================================================================
 export ERL_AFLAGS="-kernel shell_history enabled"
 export KERL_BUILD_DOCS="yes"
+export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl)"
 
 #================================================================================
 # ELIXIR - End
@@ -262,7 +263,7 @@ alias cz="code ~/.zshrc"
 alias ce="code ~/.zshenv"
 alias cze="code ~/.zshrc ~/.zshenv"
 alias o="open ."
-alias or="~/Documents/projects/orchestrator"
+alias or="~/Projects/CAPCHASE/orchestrator"
 alias desk="cd ~/Desktop"
 alias down="cd ~/Downloads"
 alias api="~/Documents/projects/ultra_api"
