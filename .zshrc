@@ -51,7 +51,8 @@ alias vlist="volta list  --format=plain && save_vlist"
 # PATH - IMP - Start
 #================================================================================
 # If you come from bash you might have to change your $PATH.
-export PATH=/usr/local/opt/make/libexec/gnubin:$PATH #for make
+export PATH=$HOME/.asdf/installs/elixir/1.12.0-rc.0-otp-23/.mix/escripts/:$PATH
+export PATH=/usr/local/opt/make/libexec/gnubin:$PATH #for make 
 export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH #grep
 
 export PATH=/usr/local/bin:$PATH    #for homebrew
@@ -266,7 +267,8 @@ alias o="open ."
 alias or="~/Projects/CAPCHASE/orchestrator"
 alias desk="cd ~/Desktop"
 alias down="cd ~/Downloads"
-alias api="~/Documents/projects/ultra_api"
+alias api="~/Projects/CLSA/ultra_api"
+alias ca="/Users/apple/Projects/ZAKI/cloche_api"
 alias emt="~/Documents/projects/ex_modern_treasury"
 alias emd="~/Documents/projects/ex_modern_treasury"
 alias p="~/Documents/projects"
