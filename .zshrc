@@ -235,6 +235,9 @@ alias vinstall="vscode-install-extension"
 export ERL_AFLAGS="-kernel shell_history enabled"
 export KERL_BUILD_DOCS="yes"
 export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl)"
+export EGREP=egrep 
+export CPP="clang++ -E "
+export CC=clang
 
 #================================================================================
 # ELIXIR - End

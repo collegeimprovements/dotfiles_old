@@ -15,7 +15,8 @@ rupa/z
 caarlos0/zsh-mkc
 mattmc3/zsh-safe-rm
 
-unixorn/tumult.plugin.zsh #https://github.com/unixorn/tumult.plugin.zsh -> For useful commands
+# unixorn/tumult.plugin.zsh #https://github.com/unixorn/tumult.plugin.zsh -> For useful commands
+# unixorn/tumult.plugin.zsh
 MichaelAquilina/zsh-you-should-use
 
 paulirish/git-open
