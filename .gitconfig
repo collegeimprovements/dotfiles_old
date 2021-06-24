@@ -1,7 +1,0 @@
-[init]
-	defaultBranch = main
-[user]
-	name = arpit
-	email = collegeimprovements@gmail.com
-[core]
-	excludesFile = ~/.gitignore

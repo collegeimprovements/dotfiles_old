@@ -1,1 +1,0 @@
-echo "\ninclude custom-kitty.conf\n" >> kitty.conf
