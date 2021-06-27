@@ -1,0 +1,2 @@
+" set statusline+=%{gutentags#statusline()}
+

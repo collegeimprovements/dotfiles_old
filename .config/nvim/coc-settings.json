@@ -1,0 +1,76 @@
+{
+  "codeLens.enable": true,
+  "suggest.enablePreselect": true,
+  "suggest.timeout": 10000,
+  "elixirLS.suggestSpecs": true,
+  "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "graphql",
+    "html",
+    "yaml",
+    "json",
+    "jsonc",
+    "elixir",
+    "python",
+    "javascript",
+    "js",
+    "typescript",
+    "javascript.jsx",
+    "javascriptreact",
+    "typescriptreact",
+    "typescript.tsx",
+    "typescriptreact"
+  ],
+  "json.format.enable": true,
+  "snippets.ultisnips.directories": [
+    "UltiSnips",
+    "~/.config/nvim/utils/snippets"
+  ],
+  "yank.highlight.duration": 50,
+  "git.addGBlameToBufferVar": true,
+  "explorer.width": 30,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.file.column.git.icon.added": "✚",
+  "explorer.file.column.git.icon.deleted": "✖",
+  "explorer.file.column.git.icon.renamed": "➜",
+  "explorer.file.column.git.icon.unmerged": "═",
+  "explorer.file.column.git.icon.untracked": "?",
+  "explorer.file.column.git.icon.modified": "✹",
+  "explorer.file.column.git.icon.ignored": "☒",
+  "explorer.openAction.for.directory": "expandOrCollapse",
+  "explorer.previewAction.onHover": false,
+  "explorer.keyMappings.global": {
+    "<cr>": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
+    "v": "open:vsplit",
+    "go": "workspaceFolders"
+  },
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescriptreact": ["typescript"]
+  },
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.errorSign": "✖",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.infoSign": "●",
+  "diagnostic.hintSign": "○",
+  "diagnostic-languageserver.filetypes": {
+    "elixir": ["mix_credo", "mix_credo_compile"],
+    "eelixir": ["mix_credo", "mix_credo_compile"]
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "elixir": "mix_format",
+    "eelixir": "mix_format"
+  },
+  "cursors.nextKey": "<C-j>",
+  "cursors.previousKey": "<C-p>"
+}
