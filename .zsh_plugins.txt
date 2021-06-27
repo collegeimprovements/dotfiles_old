@@ -1,0 +1,27 @@
+zsh-users/zsh-autosuggestions branch:develop
+zsh-users/zsh-completions
+zsh-users/zsh-history-substring-search
+zsh-users/zsh-syntax-highlighting
+
+zpm-zsh/autoenv
+
+# denysdovhan/spaceship-prompt - another good shell.
+subnixr/minimal # current shell - it's quite nice.
+popstas/zsh-command-time
+
+changyuheng/fz
+rupa/z
+
+caarlos0/zsh-mkc
+mattmc3/zsh-safe-rm
+
+# unixorn/tumult.plugin.zsh #https://github.com/unixorn/tumult.plugin.zsh -> For useful commands
+# unixorn/tumult.plugin.zsh
+MichaelAquilina/zsh-you-should-use
+
+paulirish/git-open
+
+#experimental
+wfxr/forgit
+# jeffreytse/zsh-vi-mode
+

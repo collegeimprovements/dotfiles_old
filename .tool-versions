@@ -1,0 +1,8 @@
+erlang 24.0.2
+elixir 1.12.1-otp-24
+rust 1.51.0
+nodejs 16.4.0
+python 3.9.5 2.7.18
+golang 1.16.3
+rabbitmq 3.8.17
+postgres 14beta2
