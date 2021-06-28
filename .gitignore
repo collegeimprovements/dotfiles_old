@@ -71,3 +71,8 @@ node_modules
 .elixir_ls
 .elixir_ls
 .dotfiles
+
+# node
+npm-debug.log
+logfile
+.in
