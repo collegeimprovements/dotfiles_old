@@ -1,6 +1,3 @@
-#
-#
-#
 # NOTE: ORDERING IS IMPORTANT.
 # Package Managers must be on top. As those languages can be used in shell scripts.
 # 1. ASDF
@@ -235,12 +232,12 @@ alias vinstall="vscode-install-extension"
 #================================================================================
 # ELIXIR - Start
 #================================================================================
-export ERL_AFLAGS="-kernel shell_history enabled"
-export KERL_BUILD_DOCS="yes"
-export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl)"
-export EGREP=egrep 
-export CPP="clang++ -E "
-export CC=clang
+# export ERL_AFLAGS="-kernel shell_history enabled"
+# export KERL_BUILD_DOCS="yes"
+# export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl)"
+# export EGREP=egrep 
+# export CPP="clang++ -E "
+# export CC=clang
 
 #================================================================================
 # ELIXIR - End
@@ -267,6 +264,7 @@ alias vim="nvim"
 alias vi="nvim"
 alias n="nvim"
 alias cz="code ~/.zshrc"
+alias zrc="code ~/.zshrc"
 alias ce="code ~/.zshenv"
 alias cze="code ~/.zshrc ~/.zshenv"
 alias o="open ."
@@ -278,6 +276,7 @@ alias ca="/Users/apple/Projects/ZAKI/cloche_api"
 alias emt="~/Documents/projects/ex_modern_treasury"
 alias emd="~/Documents/projects/ex_modern_treasury"
 alias p="~/Documents/projects"
+alias b="~/Projects/blockfi-mystique"
 alias ui="/Users/$USERNAME/Documents/projects/ultra-ui"
 alias infra="cd ~/Documents/projects/infrastructure"
 alias cat="bat"
