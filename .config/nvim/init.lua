@@ -3,7 +3,7 @@ require "paq" {
     -- libs
     "tjdevries/nlua.nvim", "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim", "rktjmp/lush.nvim", -- tools
     "ahmedkhalf/lsp-rooter.nvim", "b3nj5m1n/kommentary", "blackCauldron7/surround.nvim", "kassio/neoterm", "tpope/vim-repeat",
-    "windwp/nvim-autopairs", "pechorin/any-jump.vim", "phaazon/hop.nvim", "mhartington/formatter.nvim", -- languages
+    "windwp/nvim-autopairs", "pechorin/any-jump.vim", "phaazon/hop.nvim", -- languages
     "elixir-editors/vim-elixir", -- appearance
     "kyazdani42/nvim-tree.lua", "kyazdani42/nvim-web-devicons", "lifepillar/vim-gruvbox8", "lukas-reineke/indent-blankline.nvim",
     "onsails/lspkind-nvim", "folke/trouble.nvim", "folke/lsp-colors.nvim", "ojroques/nvim-hardline", "lewis6991/gitsigns.nvim", -- lsp
@@ -191,6 +191,20 @@ vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>", {silent =
 vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", {silent = true, noremap = true})
 
+-- treesitter
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    highlight = {
+        enable = true, -- false will disable the whole extension
+        disable = {"c", "rust"}, -- list of language that will be disabled
+        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+        -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+        -- Using this option may slow down your editor, and you may see some duplicate highlights.
+        -- Instead of true it can also be a list of languages
+        additional_vim_regex_highlighting = false
+    }
+}
+
 -- key-bindings
 local function map(mode, lhs, rhs, opts)
     local options = {noremap = true, silent = true}
@@ -284,30 +298,10 @@ nvim_lsp.sumneko_lua.setup {
     }
 }
 
--- vim.api.nvim_command("au BufWritePost *.lua lua vim.lsp.buf.formatting()")
--- vim.api.nvim_command("au BufWritePost *.ex lua vim.lsp.buf.formatting()")
--- vim.api.nvim_command("au BufWritePost *.exs lua vim.lsp.buf.formatting()")
-
-nvim_lsp.efm.setup {
-    filetypes = {"lua", "elixir"}
-    -- on_attach = function(client, bufnr)
-    --   print(client.resolved_capabilities)
-    --     client.resolved_capabilities.document_formatting = false
-    -- end
-    -- settings = {
-    --     languages = {
-    --         lua = {
-    --             {
-    --                 formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=150 --break-after-table-lb",
-    --                 formatStdin = true
-    --             }
-    --         }
-    --     }
-    -- }
-}
+nvim_lsp.efm.setup {filetypes = {"lua", "elixir"}}
 
 vim.api.nvim_command("autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_seq_sync(nil, 200)")
-vim.api.nvim_command("autocmd BufWritePost *.ex,*.exs lua vim.lsp.buf.formatting_seq_sync(nil, 200)")
+vim.api.nvim_command("autocmd BufWritePre *.ex,*.exs lua vim.lsp.buf.formatting_seq_sync(nil, 200)")
 
 local path_to_elixirls = vim.fn.expand("/Users/" .. USER .. "/language-servers/elixir-ls/rel/language_server.sh")
 nvim_lsp.elixirls.setup({
@@ -326,3 +320,4 @@ nvim_lsp.elixirls.setup({
         }
     }
 })
+
