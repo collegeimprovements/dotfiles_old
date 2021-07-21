@@ -3,12 +3,16 @@ require "paq" {
     -- libs
     "tjdevries/nlua.nvim", "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim", "rktjmp/lush.nvim", -- tools
     "ahmedkhalf/lsp-rooter.nvim", "b3nj5m1n/kommentary", "blackCauldron7/surround.nvim", "kassio/neoterm", "tpope/vim-repeat",
-    "windwp/nvim-autopairs", "pechorin/any-jump.vim", "phaazon/hop.nvim", -- languages
+    "windwp/nvim-autopairs", "pechorin/any-jump.vim", "phaazon/hop.nvim", "mhartington/formatter.nvim", -- languages
     "elixir-editors/vim-elixir", -- appearance
     "kyazdani42/nvim-tree.lua", "kyazdani42/nvim-web-devicons", "lifepillar/vim-gruvbox8", "lukas-reineke/indent-blankline.nvim",
-    "ojroques/nvim-hardline", "lewis6991/gitsigns.nvim", -- lsp
-    "hrsh7th/nvim-compe", "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ", "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim",
-    "nvim-treesitter/nvim-treesitter", "nvim-treesitter/nvim-treesitter-textobjects", "ray-x/lsp_signature.nvim"
+    "onsails/lspkind-nvim", "folke/trouble.nvim", "folke/lsp-colors.nvim", "ojroques/nvim-hardline", "lewis6991/gitsigns.nvim", -- lsp
+    "hrsh7th/nvim-compe", "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ", "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", {
+        'nvim-treesitter/nvim-treesitter',
+        run = function()
+            vim.cmd 'TSUpdate'
+        end
+    }, "nvim-treesitter/nvim-treesitter-textobjects", "ray-x/lsp_signature.nvim"
 }
 
 local opt = vim.opt
@@ -17,6 +21,7 @@ local g = vim.g
 -- Options
 
 opt.autoread = true
+vim.cmd("au FocusGained * :checktime")
 opt.background = "dark"
 opt.backspace = {"indent", "eol", "start"}
 opt.backupdir = vim.fn.expand("~/.tmp/backup")
@@ -64,6 +69,7 @@ opt.visualbell = true
 opt.wrap = true
 opt.timeoutlen = 1000
 opt.shortmess:append("sI") -- disable nvim intro
+opt.title = true
 
 vim.cmd("let &fcs='eob: '") -- disable tilde on end of buffer: https://github.com/  neovim/neovim/pull/8546#issuecomment-643643758
 
@@ -75,8 +81,8 @@ g.loaded_zipPlugin = 0
 g.loaded_2html_plugin = 0
 g.loaded_netrw = 0
 g.loaded_netrwPlugin = 0
-g.loaded_matchit = 0
-g.loaded_matchparen = 0
+-- g.loaded_matchit = 0
+-- g.loaded_matchparen = 0
 g.loaded_spec = 0
 
 -- colorscheme
@@ -86,8 +92,31 @@ vim.cmd [[color gruvbox8]]
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Highlight on yank
+-- cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
+vim.cmd "au TextYankPost * silent! lua vim.highlight.on_yank()"
+
+-- Auto format
+-- vim.api.nvim_exec([[
+-- augroup auto_fmt
+--     autocmd!
+--     autocmd BufWritePre *.ex,*.exs mix format %
+-- aug END
+-- ]], false)
+
 -- kommentary
 require("kommentary.config").configure_language("lua", {prefer_single_line_comments = true})
+
+-- surround
+require"surround".setup {}
+vim.g.surround_prefix = "m"
+
+-- NVimTree
+vim.g.nvim_tree_gitignore = 1
+vim.g.nvim_tree_hide_dotfiles = 0
+vim.g.nvim_tree_highlight_opened_files = 1
+vim.g.nvim_tree_lsp_diagnostics = 1
+vim.g.nvim_tree_update_cwd = 1
 
 -- Hardline
 require("hardline").setup {
@@ -150,6 +179,18 @@ require("lsp-rooter").setup {}
 -- gitsigns
 require("gitsigns").setup()
 
+-- LSP Kind
+require("lspkind").init()
+
+-- Trouble
+require("trouble").setup {}
+vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>xw", "<cmd>Trouble lsp_workspace_diagnostics<cr>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>xd", "<cmd>Trouble lsp_document_diagnostics<cr>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", {silent = true, noremap = true})
+
 -- key-bindings
 local function map(mode, lhs, rhs, opts)
     local options = {noremap = true, silent = true}
@@ -158,7 +199,7 @@ local function map(mode, lhs, rhs, opts)
 end
 map("n", "<leader>n", [[ <Cmd> set nu!<CR>]], opt)
 map("n", "<leader>r", [[ <Cmd> source ~/.config/nvim/init.lua<CR>]], opt)
-map("n", "ß", [[<Cmd>update<CR>]], opt)
+map("n", "ß", [[<Cmd>:w <CR>]], opt)
 map("i", "ß", [[<Cmd>:w <CR>]], opt)
 map("n", "<leader>hl", [[<Cmd>set invhlsearch<CR>]], opt)
 map("n", "<leader>d", [[ <Cmd> bd<CR>]])
@@ -170,6 +211,7 @@ map("n", "ƒ", [[<Cmd> Telescope find_files<CR>]])
 -- map("n", "<leader>f", [[<Cmd> Telescope live_grep<CR>]])
 map("n", "<C-p>", [[<Cmd> Telescope git_files<CR>]])
 map("n", "π", [[<Cmd> Telescope commands<CR>]])
+map("n", "<S-s>", [[<Cmd> <Nop><CR>]])
 
 -----------------------------------------------------------------------------------------------
 ---  LSP
@@ -209,11 +251,11 @@ local custom_attach = function(client, bufnr)
     buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
     buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
     buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 100)<CR>", opts)
+    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 300)<CR>", opts)
 
     -- vim.api.nvim_command("au BufWritePost <buffer> lua vim.lsp.buf.formatting()")
     -- vim.api.nvim_command("au BufWritePost <buffer> lua vim.lsp.buf.formatting_sync(nil, 100)")
-    -- autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100)
+    -- vim.api.nvim_command("autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100)")
 end
 
 USER = vim.fn.expand("$USER")
@@ -246,22 +288,26 @@ nvim_lsp.sumneko_lua.setup {
 -- vim.api.nvim_command("au BufWritePost *.ex lua vim.lsp.buf.formatting()")
 -- vim.api.nvim_command("au BufWritePost *.exs lua vim.lsp.buf.formatting()")
 
-require"lspconfig".efm.setup {
-    init_options = {documentFormatting = true},
-    filetypes = {"lua", "elixir"},
-    settings = {
-        rootMarkers = {".git/"},
-        languages = {
-            -- lua = {
-            --     {
-            --         formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=150 --break-after-table-lb",
-            --         formatStdin = true
-            --     }
-            -- }
-            elixir = {formatCommand = "mix format", formatStdin = true}
-        }
-    }
+nvim_lsp.efm.setup {
+    filetypes = {"lua", "elixir"}
+    -- on_attach = function(client, bufnr)
+    --   print(client.resolved_capabilities)
+    --     client.resolved_capabilities.document_formatting = false
+    -- end
+    -- settings = {
+    --     languages = {
+    --         lua = {
+    --             {
+    --                 formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=150 --break-after-table-lb",
+    --                 formatStdin = true
+    --             }
+    --         }
+    --     }
+    -- }
 }
+
+vim.api.nvim_command("autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_seq_sync(nil, 200)")
+vim.api.nvim_command("autocmd BufWritePost *.ex,*.exs lua vim.lsp.buf.formatting_seq_sync(nil, 200)")
 
 local path_to_elixirls = vim.fn.expand("/Users/" .. USER .. "/language-servers/elixir-ls/rel/language_server.sh")
 nvim_lsp.elixirls.setup({
