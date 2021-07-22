@@ -23,5 +23,7 @@ paulirish/git-open
 
 #experimental
 wfxr/forgit
+
+Valiev/almostontop
 # jeffreytse/zsh-vi-mode
 

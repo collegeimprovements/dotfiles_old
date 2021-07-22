@@ -6,12 +6,15 @@
 
 # USERNAME
 export USERNAME=apple
+export TERM=xterm-256color
 
 # ALSO - .zshenv is not a good place for setting PATH on macos. https://stackoverflow.com/questions/26433856/why-would-path-be-getting-overwritten-after-shell-login#comment69745215_26434096
 #================================================================================
 # ASDF - Start
 #================================================================================
 # . $(brew --prefix asdf)/asdf.sh # https://github.com/asdf-vm/asdf/issues/428
+export PATH=~/language-servers/elixir-ls/rel:$PATH # Language Servers
+export PATH=~/language-servers/lua-language-server/bin/macOS:$PATH
 . /usr/local/opt/asdf/asdf.sh # THIS IS MUCH FASTER THAN THE ABOVE -> . $(brew --prefix asdf)/asdf.sh
 
 #NOTE: asdf path should be first - i.e. before /user/local/bin and /usr/bin etc.
@@ -51,9 +54,10 @@ alias vlist="volta list  --format=plain && save_vlist"
 # PATH - IMP - Start
 #================================================================================
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.asdf/installs/elixir/1.12.0-rc.0-otp-23/.mix/escripts/:$PATH
+# export PATH=$HOME/.asdf/installs/elixir/1.12.0-rc.0-otp-23/.mix/escripts/:$PATH
 export PATH=/usr/local/opt/make/libexec/gnubin:$PATH #for make 
 export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH #grep
+export PATH=/usr/local/lib/luarocks/rocks-5.4/luaformatter/scm-1/bin:$PATH
 
 export PATH=/usr/local/bin:$PATH    #for homebrew
 export PATH=/usr/local/sbin:$PATH   #for homebrew
@@ -358,6 +362,7 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 
 #cal - show previous and future month as well
 alias cal="cal -3"
+alias att="almostontop toggle"
 
 #python
 # alias python=python3
@@ -396,3 +401,5 @@ bindkey '^Z' fancy-ctrl-z
 # Python Related Things - CAPCHASE
 #================================================================================
 export PATH="$HOME/.poetry/bin:$PATH"
+export PATH=~/language-servers/elixir-ls/rel:$PATH # Language Servers
+export PATH=~/language-servers/lua-language-server/bin/macOS:$PATH
