@@ -5,14 +5,16 @@ require "paq" {
     "ahmedkhalf/lsp-rooter.nvim", "b3nj5m1n/kommentary", "blackCauldron7/surround.nvim", "kassio/neoterm", "tpope/vim-repeat",
     "windwp/nvim-autopairs", "pechorin/any-jump.vim", "phaazon/hop.nvim", -- languages
     "elixir-editors/vim-elixir", -- appearance
-    "kyazdani42/nvim-tree.lua", "kyazdani42/nvim-web-devicons", "lifepillar/vim-gruvbox8", "lukas-reineke/indent-blankline.nvim",
-    "onsails/lspkind-nvim", "folke/trouble.nvim", "folke/lsp-colors.nvim", "ojroques/nvim-hardline", "lewis6991/gitsigns.nvim", -- lsp
+    "kyazdani42/nvim-tree.lua", "kyazdani42/nvim-web-devicons", "lifepillar/vim-gruvbox8", "sonph/onehalf", "chriskempson/base16-vim",
+    "lukas-reineke/indent-blankline.nvim", "onsails/lspkind-nvim", "folke/trouble.nvim", "folke/lsp-colors.nvim", "ojroques/nvim-hardline",
+    "lewis6991/gitsigns.nvim", -- lsp
     "hrsh7th/nvim-compe", "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ", "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", {
         'nvim-treesitter/nvim-treesitter',
         run = function()
             vim.cmd 'TSUpdate'
         end
-    }, "nvim-treesitter/nvim-treesitter-textobjects", "ray-x/lsp_signature.nvim"
+    }, "nvim-treesitter/nvim-treesitter-textobjects", "ray-x/lsp_signature.nvim", "vim-test/vim-test"
+
 }
 
 local opt = vim.opt
@@ -109,7 +111,7 @@ require("kommentary.config").configure_language("lua", {prefer_single_line_comme
 
 -- surround
 require"surround".setup {}
-vim.g.surround_prefix = "m"
+-- vim.g.surround_prefix = "m"
 
 -- NVimTree
 vim.g.nvim_tree_gitignore = 1
@@ -138,6 +140,14 @@ require("hardline").setup {
     }
 }
 
+-- indent line
+-- vim.g.indentLine_faster = 1
+-- vim.g.indentLine_setConceal = 2
+-- vim.g.indentLine_concealcursor = ""
+-- vim.g.indentLine_bufNameExclude = {"term:.*"}
+vim.g.indentLine_char = "│"
+vim.g.indent_blankline_char = '│'
+
 -- Compe
 require"compe".setup {
     enabled = true,
@@ -164,7 +174,7 @@ require"compe".setup {
 }
 
 -- hop
-vim.api.nvim_set_keymap("n", "s", "<cmd>lua require'hop'.hint_char1()<cr>", {})
+vim.api.nvim_set_keymap("n", "f", "<cmd>lua require'hop'.hint_char1()<cr>", {})
 
 -- nvim-autopairs
 require("nvim-autopairs").setup()
@@ -219,6 +229,7 @@ map("n", "<leader>hl", [[<Cmd>set invhlsearch<CR>]], opt)
 map("n", "<leader>d", [[ <Cmd> bd<CR>]])
 map("i", "<leader>u", [[ <Cmd> undo<CR>]])
 map("n", "<leader>e", [[ <Cmd> NvimTreeToggle<CR>]])
+map("n", "<leader>ps", [[ <Cmd> PaqSync<CR>]])
 map("n", "∫", [[ <Cmd> NvimTreeToggle<CR>]])
 map("n", "<C-e>", [[ <Cmd> NvimTreeToggle<CR>]])
 map("n", "ƒ", [[<Cmd> Telescope find_files<CR>]])
