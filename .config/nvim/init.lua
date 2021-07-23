@@ -7,7 +7,7 @@ require "paq" {
     "elixir-editors/vim-elixir", -- appearance
     "kyazdani42/nvim-tree.lua", "kyazdani42/nvim-web-devicons", "lifepillar/vim-gruvbox8", "sonph/onehalf", "chriskempson/base16-vim", "rakr/vim-one",
     "sainnhe/edge", "junegunn/seoul256.vim", "tjdevries/gruvbuddy.nvim", "lukas-reineke/indent-blankline.nvim", "onsails/lspkind-nvim",
-    "folke/trouble.nvim", "folke/lsp-colors.nvim", "ojroques/nvim-hardline", "lewis6991/gitsigns.nvim", -- lsp
+    "tpope/vim-dispatch", "folke/trouble.nvim", "folke/lsp-colors.nvim", "ojroques/nvim-hardline", "lewis6991/gitsigns.nvim", -- lsp
     "hrsh7th/nvim-compe", "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ", "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", {
         'nvim-treesitter/nvim-treesitter',
         run = function()
@@ -117,6 +117,8 @@ vim.cmd("cnoreabbrev nowrap set nowrap")
 
 vim.cmd("noswapfile")
 
+-- vim.cmd('let test#strategy = "neoterm"')
+
 -- disable builtin vim plugins
 opt.wildignore = opt.wildignore + {"*.o", "*~", "*.pyc", "*pycache*"}
 g.loaded_gzip = 0
@@ -167,6 +169,9 @@ vim.g.nvim_tree_hide_dotfiles = 0
 vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.nvim_tree_lsp_diagnostics = 1
 vim.g.nvim_tree_update_cwd = 1
+
+-- NeoTerm
+vim.g.neoterm_shell = "zsh"
 
 -- Hardline
 require("hardline").setup {
@@ -394,6 +399,8 @@ local custom_attach = function(client, bufnr)
     buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
     buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
     buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
+    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 300)<CR>", opts)
+
     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 300)<CR>", opts)
 
     -- vim.api.nvim_command("au BufWritePost <buffer> lua vim.lsp.buf.formatting()")
