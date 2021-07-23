@@ -14,14 +14,14 @@ require "paq" {
             vim.cmd 'TSUpdate'
         end
     }, "nvim-treesitter/nvim-treesitter-textobjects", "ray-x/lsp_signature.nvim", "vim-test/vim-test"
-
 }
+
+vim.cmd("au! BufWritePost $MYVIMRC source %")
 
 local opt = vim.opt
 local g = vim.g
 
 -- Options
-
 opt.autoread = true
 opt.exrc = true
 opt.backup = false
@@ -81,6 +81,9 @@ opt.title = true
 opt.synmaxcol = 1000
 opt.inccommand = "nosplit"
 
+-- No swapfile
+vim.cmd("noswapfile")
+
 -- Ignore compiled files
 opt.wildignore = "*.zip"
 opt.wildignore = opt.wildignore + {
@@ -98,14 +101,6 @@ opt.wildmode = opt.wildmode + {"longest", "full"}
 
 vim.cmd("let &fcs='eob: '") -- disable tilde on end of buffer: https://github.com/  neovim/neovim/pull/8546#issuecomment-643643758
 
--- " Move line(s) up and down
---[[ nnoremap <M-j> :m .+1<CR>==
-nnoremap <M-k> :m .-2<CR>==
-inoremap <M-j> <Esc>:m .+1<CR>==gi
-inoremap <M-k> <Esc>:m .-2<CR>==gi
-vnoremap <M-j> :m '>+1<CR>gv=gv
-vnoremap <M-k> :m '<-2<CR>gv=gv ]]
-
 vim.cmd("au FocusGained * checktime")
 
 vim.cmd("cnoreabbrev Wq wq")
@@ -114,8 +109,6 @@ vim.cmd("cnoreabbrev Q q")
 vim.cmd("cnoreabbrev Bd bd")
 vim.cmd("cnoreabbrev wrap set wrap")
 vim.cmd("cnoreabbrev nowrap set nowrap")
-
-vim.cmd("noswapfile")
 
 -- vim.cmd('let test#strategy = "neoterm"')
 
@@ -132,7 +125,7 @@ g.loaded_netrwPlugin = 0
 -- g.loaded_matchparen = 0
 g.loaded_spec = 0
 
--- colorscheme
+-- colorscheme : seoul256-236-as-background
 vim.cmd [[color seoul256]]
 vim.g.one_allow_italics = true
 vim.g.seoul256_background = 236
@@ -194,12 +187,12 @@ require("hardline").setup {
 }
 
 -- indent line
+vim.g.indentLine_char = "│"
+vim.g.indent_blankline_char = '│'
 -- vim.g.indentLine_faster = 1
 -- vim.g.indentLine_setConceal = 2
 -- vim.g.indentLine_concealcursor = ""
 -- vim.g.indentLine_bufNameExclude = {"term:.*"}
-vim.g.indentLine_char = "│"
-vim.g.indent_blankline_char = '│'
 
 -- Compe
 require'compe'.setup {
@@ -236,7 +229,7 @@ local check_back_space = function()
     return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
 end
 
--- Use (s-)tab to:
+--  Compe: Use (s-)tab to:
 --- move to prev/next item in completion menuone
 --- jump to prev/next snippet's placeholder
 _G.tab_complete = function()
@@ -250,6 +243,7 @@ _G.tab_complete = function()
         return vim.fn['compe#complete']()
     end
 end
+
 _G.s_tab_complete = function()
     if vim.fn.pumvisible() == 1 then
         return t "<C-p>"
@@ -319,6 +313,7 @@ local function map(mode, lhs, rhs, opts)
     if opts then options = vim.tbl_extend("force", options, opts) end
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
+
 map("n", "<leader>n", [[ <Cmd> set nu!<CR>]], opt)
 map("n", "<leader>r", [[ <Cmd> source ~/.config/nvim/init.lua<CR>]], opt)
 map("n", "ß", [[<Cmd>:w <CR>]], opt)
@@ -332,7 +327,6 @@ map("n", "∫", [[ <Cmd> NvimTreeToggle<CR>]])
 map("n", "<C-e>", [[ <Cmd> NvimTreeToggle<CR>]])
 map("n", "ƒ", [[<Cmd> Telescope find_files theme=get_dropdown<CR>]])
 map("n", "∆", [[<Cmd> TBD<CR>]])
--- map("n", "<leader>f", [[<Cmd> Telescope live_grep<CR>]])
 map("n", "<C-p>", [[<Cmd> Telescope git_files<CR>]], opt)
 map("n", "π", [[<Cmd> Telescope commands<CR>]], opt)
 map("n", "<S-s>", [[<Cmd> <Nop><CR>]], opt)
@@ -347,6 +341,7 @@ map("n", "k", "gk", opt)
 map("n", ",p", '"0p', opt)
 map("n", ",P", '"0P', opt)
 
+-- Buffer Navigation
 map("n", "<left>", [[<Cmd>:bprevious<CR>]], opt)
 map("n", "<right>", [[<Cmd>:bnext<CR>]], opt)
 map("n", "<up>", [[<Cmd>:tabnext<CR>]], opt)
@@ -399,15 +394,16 @@ local custom_attach = function(client, bufnr)
     buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
     buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
     buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 300)<CR>", opts)
 
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 300)<CR>", opts)
+    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting_seq_sync(nil, 300)<CR>", opts)
 
+    -- buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 300)<CR>", opts)
     -- vim.api.nvim_command("au BufWritePost <buffer> lua vim.lsp.buf.formatting()")
     -- vim.api.nvim_command("au BufWritePost <buffer> lua vim.lsp.buf.formatting_sync(nil, 100)")
     -- vim.api.nvim_command("autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100)")
 end
 
+-- LSP: LUA
 USER = vim.fn.expand("$USER")
 local sumneko_binary = "/Users/" .. USER .. "/language-servers/lua-language-server/bin/macOS/lua-language-server"
 local sumneko_root_path = "/Users/" .. USER .. "/language-servers/lua-language-server"
@@ -435,11 +431,14 @@ nvim_lsp.sumneko_lua.setup {
     }
 }
 
+-- EFM - Mainly for credo as of now
 nvim_lsp.efm.setup {filetypes = {"lua", "elixir"}}
 
+-- Format on save
 vim.api.nvim_command("autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_seq_sync(nil, 200)")
 vim.api.nvim_command("autocmd BufWritePre *.ex,*.exs lua vim.lsp.buf.formatting_seq_sync(nil, 200)")
 
+-- LSP: Elixir
 local path_to_elixirls = vim.fn.expand("/Users/" .. USER .. "/language-servers/elixir-ls/rel/language_server.sh")
 nvim_lsp.elixirls.setup({
     cmd = {path_to_elixirls},
@@ -459,7 +458,9 @@ nvim_lsp.elixirls.setup({
     }
 })
 
--- Elixir Pipes
+-- Elixir Pipes:
+-- Adds |> when we press <C-l>,
+-- Adds |> IO.inspect(label: "here") when we press <C-h>
 vim.api.nvim_exec([[
 augroup elixirbindings
   autocmd! elixirbindings
