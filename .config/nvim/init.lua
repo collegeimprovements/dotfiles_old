@@ -14,7 +14,7 @@ require "paq" {
             vim.cmd 'TSUpdate'
         end
     }, "nvim-treesitter/nvim-treesitter-textobjects", "ray-x/lsp_signature.nvim", "vim-test/vim-test", "sindrets/diffview.nvim",
-    "simrat39/symbols-outline.nvim", "ruifm/gitlinker.nvim", "TimUntersberger/neogit", "tanvirtin/vgit.nvim"
+    "simrat39/symbols-outline.nvim", "ruifm/gitlinker.nvim", "TimUntersberger/neogit", "tanvirtin/vgit.nvim", "rmagatti/auto-session",
 }
 
 -- key-bindings - function to map keys and commands
@@ -34,6 +34,7 @@ opt.autoread = true
 opt.exrc = true
 opt.backup = false
 opt.writebackup = false
+opt.wildmenu = true
 
 opt.background = "dark"
 opt.backspace = {"indent", "eol", "start"}
@@ -165,6 +166,11 @@ vim.api.nvim_exec([[
 
 -- Y yank until the end of line
 vim.api.nvim_set_keymap('n', 'Y', 'y$', {noremap = true})
+
+-- auto-session
+require('auto-session').setup {
+    auto_session_enable_last_session=true,
+}
 
 -- Neogit
 local neogit = require('neogit')
@@ -417,6 +423,7 @@ map("n", "<leader>r", [[ <Cmd> source ~/.config/nvim/init.lua<CR>]], opt)
 map("n", "ß", [[<Cmd>:w <CR>]], opt)
 map("i", "ß", [[<Cmd>:w <CR>]], opt)
 map("n", "∑", [[<Cmd>:q <CR>]], opt)
+map("n", "<C-w>", [[<Cmd>:q <CR>]], opt)
 map("n", "<leader>hl", [[<Cmd>set invhlsearch<CR>]], opt)
 map("n", "<leader>d", [[ <Cmd> bd<CR>]])
 map("i", "<leader>u", [[ <Cmd> undo<CR>]])
