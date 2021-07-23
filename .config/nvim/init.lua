@@ -13,8 +13,16 @@ require "paq" {
         run = function()
             vim.cmd 'TSUpdate'
         end
-    }, "nvim-treesitter/nvim-treesitter-textobjects", "ray-x/lsp_signature.nvim", "vim-test/vim-test"
+    }, "nvim-treesitter/nvim-treesitter-textobjects", "ray-x/lsp_signature.nvim", "vim-test/vim-test", "sindrets/diffview.nvim",
+    "simrat39/symbols-outline.nvim", "ruifm/gitlinker.nvim", "TimUntersberger/neogit", "tanvirtin/vgit.nvim"
 }
+
+-- key-bindings - function to map keys and commands
+local function map(mode, lhs, rhs, opts)
+    local options = {noremap = true, silent = true}
+    if opts then options = vim.tbl_extend("force", options, opts) end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
 
 vim.cmd("au! BufWritePost $MYVIMRC source %")
 
@@ -77,12 +85,13 @@ opt.wrap = true
 opt.timeoutlen = 1000
 opt.shortmess:append("sI") -- disable nvim intro
 opt.title = true
+vim.o.swapfile = false -- No swapfile
 
 opt.synmaxcol = 1000
 opt.inccommand = "nosplit"
 
 -- No swapfile
-vim.cmd("noswapfile")
+-- vim.cmd("noswapfile")
 
 -- Ignore compiled files
 opt.wildignore = "*.zip"
@@ -110,7 +119,7 @@ vim.cmd("cnoreabbrev Bd bd")
 vim.cmd("cnoreabbrev wrap set wrap")
 vim.cmd("cnoreabbrev nowrap set nowrap")
 
--- vim.cmd('let test#strategy = "neoterm"')
+vim.cmd('let test#strategy = "neoterm"')
 
 -- disable builtin vim plugins
 opt.wildignore = opt.wildignore + {"*.o", "*~", "*.pyc", "*pycache*"}
@@ -136,6 +145,14 @@ vim.g.seoul256_background = 236
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- " Keep the selection after indenting
+vim.api.nvim_set_keymap('x', '<', '<gv', {noremap = true})
+vim.api.nvim_set_keymap('x', '>', '>gv', {noremap = true})
+
+-- " Faster keyword completion - for <ctrl-j,k>, <ctrl-n,p>
+-- " disable scanning included files
+vim.cmd("set complete-=i")
+
 -- Highlight on yank
 -- cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
 -- vim.cmd "au TextYankPost * silent! lua vim.highlight.on_yank()" -- this is same as long version below.
@@ -149,6 +166,29 @@ vim.api.nvim_exec([[
 -- Y yank until the end of line
 vim.api.nvim_set_keymap('n', 'Y', 'y$', {noremap = true})
 
+-- Neogit
+local neogit = require('neogit')
+neogit.setup {}
+
+-- Vgit
+require('vgit').setup()
+
+-- gitlinker
+require"gitlinker".setup({
+    opts = {
+        remote = nil, -- force the use of a specific remote
+        -- adds current line nr in the url for normal mode
+        add_current_line_on_normal_mode = true,
+        -- callback for what to do with the url
+        action_callback = require"gitlinker.actions".copy_to_clipboard,
+        -- print the url after performing the action
+        print_url = true
+    },
+    callbacks = {["github.com"] = require"gitlinker.hosts".get_github_type_url, ["gitlab.com"] = require"gitlinker.hosts".get_gitlab_type_url},
+    -- default mapping to call url generation with action_callback
+    mappings = "<leader>gy"
+})
+
 -- kommentary
 require("kommentary.config").configure_language("lua", {prefer_single_line_comments = true})
 
@@ -157,7 +197,7 @@ require"surround".setup {}
 -- vim.g.surround_prefix = "m"
 
 -- NVimTree
-vim.g.nvim_tree_gitignore = 1
+vim.g.nvim_tree_gitignore = 0
 vim.g.nvim_tree_hide_dotfiles = 0
 vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.nvim_tree_lsp_diagnostics = 1
@@ -165,6 +205,20 @@ vim.g.nvim_tree_update_cwd = 1
 
 -- NeoTerm
 vim.g.neoterm_shell = "zsh"
+-- " let g:neoterm_size = 16
+vim.g.neoterm_autoscroll = "1"
+vim.g.neoterm_default_mod = "vertical"
+
+map("n", "<leader>tt", [[<Cmd>:Ttoggle<CR>]], opt)
+map("n", "<C-h>", [[<Cmd>:Ttoggle<CR>]], opt)
+map("n", "<leader>tl", [[<Cmd>:TREPLSendLine<CR>]], opt)
+map("n", "<leader>ts", [[<Cmd>:TREPLSendSelection<CR>]], opt)
+map("v", "<leader>ts", [[<Cmd>:TREPLSendSelection<CR>]], opt)
+
+map("n", "<C-j>", [[<Cmd>:TREPLSendLine<CR>]], opt)
+map("v", "<C-j>", [[<Cmd>:TREPLSendSelection<CR>]], opt)
+
+map("n", "<C-l>", [[<Cmd>:T clear<CR>]], opt)
 
 -- Hardline
 require("hardline").setup {
@@ -281,8 +335,59 @@ require("lsp-rooter").setup {}
 -- gitsigns
 require("gitsigns").setup()
 
+-- vim-test
+vim.api.nvim_set_keymap("n", "t<C-n>", "<Cmd>TestNearest<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "tn", "<Cmd>TestNearest<CR>", {silent = true, noremap = true})
+
+vim.api.nvim_set_keymap("n", "t<C-f>", "<Cmd>TestFile<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "tf", "<Cmd>TestFile<CR>", {silent = true, noremap = true})
+
+vim.api.nvim_set_keymap("n", "t<C-s>", "<Cmd>TestSuite<CR>", {silent = true, noremap = true})
+
+vim.api.nvim_set_keymap("n", "t<C-l>", "<Cmd>TestLast<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "tl", "<Cmd>TestLast<CR>", {silent = true, noremap = true})
+
 -- LSP Kind
 require("lspkind").init()
+
+-- Git Diffview
+local cb = require'diffview.config'.diffview_callback
+
+require'diffview'.setup {
+    diff_binaries = false, -- Show diffs for binaries
+    file_panel = {
+        width = 35,
+        use_icons = true -- Requires nvim-web-devicons
+    },
+    key_bindings = {
+        disable_defaults = false, -- Disable the default key bindings
+        -- The `view` bindings are active in the diff buffers, only when the current
+        -- tabpage is a Diffview.
+        view = {
+            ["<tab>"] = cb("select_next_entry"), -- Open the diff for the next file 
+            ["<s-tab>"] = cb("select_prev_entry"), -- Open the diff for the previous file
+            ["<leader>e"] = cb("focus_files"), -- Bring focus to the files panel
+            ["<leader>b"] = cb("toggle_files") -- Toggle the files panel.
+        },
+        file_panel = {
+            ["j"] = cb("next_entry"), -- Bring the cursor to the next file entry
+            ["<down>"] = cb("next_entry"),
+            ["k"] = cb("prev_entry"), -- Bring the cursor to the previous file entry.
+            ["<up>"] = cb("prev_entry"),
+            ["<cr>"] = cb("select_entry"), -- Open the diff for the selected entry.
+            ["o"] = cb("select_entry"),
+            ["<2-LeftMouse>"] = cb("select_entry"),
+            ["-"] = cb("toggle_stage_entry"), -- Stage / unstage the selected entry.
+            ["S"] = cb("stage_all"), -- Stage all entries.
+            ["U"] = cb("unstage_all"), -- Unstage all entries.
+            ["R"] = cb("refresh_files"), -- Update stats and entries in the file list.
+            ["<tab>"] = cb("select_next_entry"),
+            ["<s-tab>"] = cb("select_prev_entry"),
+            ["<leader>e"] = cb("focus_files"),
+            ["<leader>b"] = cb("toggle_files")
+        }
+    }
+}
 
 -- Trouble
 require("trouble").setup {}
@@ -307,17 +412,11 @@ require'nvim-treesitter.configs'.setup {
     }
 }
 
--- key-bindings
-local function map(mode, lhs, rhs, opts)
-    local options = {noremap = true, silent = true}
-    if opts then options = vim.tbl_extend("force", options, opts) end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
-
 map("n", "<leader>n", [[ <Cmd> set nu!<CR>]], opt)
 map("n", "<leader>r", [[ <Cmd> source ~/.config/nvim/init.lua<CR>]], opt)
 map("n", "ß", [[<Cmd>:w <CR>]], opt)
 map("i", "ß", [[<Cmd>:w <CR>]], opt)
+map("n", "∑", [[<Cmd>:q <CR>]], opt)
 map("n", "<leader>hl", [[<Cmd>set invhlsearch<CR>]], opt)
 map("n", "<leader>d", [[ <Cmd> bd<CR>]])
 map("i", "<leader>u", [[ <Cmd> undo<CR>]])
@@ -327,9 +426,9 @@ map("n", "∫", [[ <Cmd> NvimTreeToggle<CR>]])
 map("n", "<C-e>", [[ <Cmd> NvimTreeToggle<CR>]])
 map("n", "ƒ", [[<Cmd> Telescope find_files theme=get_dropdown<CR>]])
 map("n", "∆", [[<Cmd> TBD<CR>]])
-map("n", "<C-p>", [[<Cmd> Telescope git_files<CR>]], opt)
-map("n", "π", [[<Cmd> Telescope commands<CR>]], opt)
-map("n", "<S-s>", [[<Cmd> <Nop><CR>]], opt)
+map("n", "<C-p>", [[<Cmd> Telescope git_files theme=get_dropdown<CR>]], opt)
+map("n", "π", [[<Cmd> Telescope commands theme=get_dropdown<CR>]], opt)
+map("n", "<S-s>", [[<Cmd>Telescope builtin<CR>]], opt)
 
 -- Allow easy navigation between wrapped lines.
 map("v", "j", "gj", opt)
@@ -396,11 +495,6 @@ local custom_attach = function(client, bufnr)
     buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
 
     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting_seq_sync(nil, 300)<CR>", opts)
-
-    -- buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 300)<CR>", opts)
-    -- vim.api.nvim_command("au BufWritePost <buffer> lua vim.lsp.buf.formatting()")
-    -- vim.api.nvim_command("au BufWritePost <buffer> lua vim.lsp.buf.formatting_sync(nil, 100)")
-    -- vim.api.nvim_command("autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100)")
 end
 
 -- LSP: LUA
