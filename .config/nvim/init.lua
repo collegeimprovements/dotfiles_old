@@ -25,12 +25,14 @@ local function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-vim.cmd("au! BufWritePost $MYVIMRC source %")
+vim.cmd("au! BufWritePost $MYVIMRC source %") -- Source $MYVIMRC after saving
 
 local opt = vim.opt
 local g = vim.g
 
 -- Options
+opt.shortmess:append("sI") -- disable nvim intro
+
 opt.autoread = true
 opt.exrc = true
 opt.backup = false
@@ -40,11 +42,11 @@ opt.wildmenu = true
 opt.background = "dark"
 opt.backspace = {"indent", "eol", "start"}
 opt.backupdir = vim.fn.expand("~/.tmp/backup")
-opt.swapfile = false
-opt.clipboard = "unnamedplus"
+opt.directory = vim.fn.expand("~/.tmp/swp")
+opt.swapfile = false -- Don't keep swap file. Most projects have git.
+opt.clipboard = "unnamedplus" -- Use system's clipboard.
 opt.completeopt = "menuone,noselect"
 opt.cursorline = false
-opt.directory = vim.fn.expand("~/.tmp/swp")
 opt.encoding = "utf-8" -- Set default encoding to UTF-8
 opt.errorbells = false
 opt.expandtab = true
@@ -59,21 +61,21 @@ opt.ignorecase = true -- Ignore case
 opt.inccommand = "split" -- Get a preview of replacements
 opt.incsearch = true -- Shows the match while typing
 opt.joinspaces = false -- No double spaces with join
-opt.lazyredraw = true
+opt.lazyredraw = true -- Don't expand macros like we are running the commands manually.
 opt.linebreak = true -- Stop words being broken on wrap
 opt.list = false -- Show some invisible characters
 opt.mouse = "a" -- Mouse support
 opt.number = true -- Show line numbers
 opt.numberwidth = 1 -- Make the gutter wider by default
-opt.scrolloff = 8 -- Lines of context
+opt.scrolloff = 8 -- Lines of context. i.e. when pressing <c-d>, `L`, it will keep 8 lines at bottom.
+opt.sidescrolloff = 8 -- Columns of context
 opt.shiftround = true -- Round indent
 opt.shiftwidth = 2 -- Size of an indent
 opt.showmode = false -- Don't display mode
-opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = "number" -- always show signcolumns
 opt.smartcase = true -- Do not ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
-opt.spelllang = "en"
+opt.spelllang = "en" -- English
 opt.splitbelow = true -- Put new windows below current
 opt.splitright = true -- Put new windows right of current
 opt.tabstop = 2 -- Number of spaces tabs count for
@@ -83,14 +85,12 @@ opt.undofile = true
 opt.undolevels = 100
 opt.updatetime = 250 -- don't give |ins-completion-menu| messages.
 opt.visualbell = true
-opt.wrap = true
+opt.wrap = true -- there is also abbreviation for it
 opt.timeoutlen = 1000
-opt.shortmess:append("sI") -- disable nvim intro
-opt.title = true
+opt.title = true -- Title string is below. file_path_based_on_root_folder[root_folder_path]
 vim.o.swapfile = false -- No swapfile
-
-opt.synmaxcol = 1000
-opt.inccommand = "nosplit"
+opt.synmaxcol = 1000 -- After 1000 charcters in a line, turn off syntax highlighting. Keep it fast.
+opt.inccommand = "nosplit" --  if we want to show live results in a split window, set it as `split`
 
 -- No swapfile
 -- vim.cmd("noswapfile")
@@ -112,8 +112,9 @@ opt.wildmode = opt.wildmode + {"longest", "full"}
 
 vim.cmd("let &fcs='eob: '") -- disable tilde on end of buffer: https://github.com/  neovim/neovim/pull/8546#issuecomment-643643758
 
-vim.cmd("au FocusGained * checktime")
+vim.cmd("au FocusGained * checktime") -- AutoRead on buffer focusgained
 
+-- Command Mode Abbreviations
 vim.cmd("cnoreabbrev Wq wq")
 vim.cmd("cnoreabbrev W w")
 vim.cmd("cnoreabbrev Q q")
@@ -466,29 +467,29 @@ require'nvim-treesitter.configs'.setup {
     }
 }
 
-map("n", "<leader>n", [[ <Cmd> set nu!<CR>]], opt)
-map("n", "<leader>r", [[ <Cmd> source ~/.config/nvim/init.lua<CR>]], opt)
-map("n", "ß", [[<Cmd>:w <CR>]], opt)
-map("i", "ß", [[<Cmd>:w <CR>]], opt)
-map("n", "∑", [[<Cmd>:q <CR>]], opt)
-map("n", "bn", [[<Cmd>:q <CR>]], opt)
-map("n", "<leader>hl", [[<Cmd>set invhlsearch<CR>]], opt)
-map("n", "<leader>d", [[ <Cmd> bd<CR>]])
-map("i", "<leader>u", [[ <Cmd> undo<CR>]])
-map("n", "<leader>e", [[ <Cmd> NvimTreeToggle<CR>]])
-map("n", "<leader>ps", [[ <Cmd> PaqSync<CR>]])
-map("n", "∫", [[ <Cmd> NvimTreeToggle<CR>]])
-map("n", "<C-e>", [[ <Cmd> NvimTreeToggle<CR>]])
-map("n", "ƒ", [[<Cmd> Telescope find_files theme=get_dropdown<CR>]])
-map("n", "∆", [[<Cmd> TBD<CR>]])
+-- Key Mappings
+map("n", "<leader>n", [[ <Cmd> set nu!<CR>]], opt) -- Toggle Number
+map("n", "<leader>r", [[ <Cmd> source ~/.config/nvim/init.lua<CR>]], opt) -- Source $MYVIMRC
+map("n", "ß", [[<Cmd>:w <CR>]], opt) -- Save - Cmd+s
+map("i", "ß", [[<Cmd>:w <CR>]], opt) -- Save - Cmd+s
+map("n", "∑", [[<Cmd>:q <CR>]], opt) -- Quit - Cmd+w
+map("n", "bn", [[<Cmd>:q <CR>]], opt) -- Quit - `bn` in Normal mode
+map("n", "<leader>hl", [[<Cmd>set invhlsearch<CR>]], opt) -- Toggle Search Highlight
+map("n", "<leader>d", [[ <Cmd> bd<CR>]]) -- Close the buffer
+map("n", "bd", [[<Cmd> bd <CR>]], opt) -- Close the buffer
+map("n", "<leader>ps", [[ <Cmd> PaqSync<CR>]]) -- Sync = install + update the plugins
+map("n", "∫", [[ <Cmd> NvimTreeToggle<CR>]]) -- Cmd+b Open NvimTree Sidebar
+map("n", "<C-e>", [[ <Cmd> NvimTreeToggle<CR>]]) -- Open NvimTree Sidebar
+map("n", "ƒ", [[<Cmd> Telescope find_files theme=get_dropdown<CR>]]) -- Find Files
+map("n", "∆", [[<Cmd> TBD<CR>]]) -- Cmd+Shift+j unmapped for now
 map("n", "<C-p>", [[<Cmd> Telescope git_files theme=get_dropdown<CR>]], opt)
-map("n", "π", [[<Cmd> Telescope commands theme=get_dropdown<CR>]], opt)
-map("n", "<S-s>", [[<Cmd>Telescope builtin<CR>]], opt)
+map("n", "π", [[<Cmd> Telescope commands theme=get_dropdown<CR>]], opt) -- Cmd+p Dropdown with commands
+map("n", "<S-s>", [[<Cmd>Telescope builtin<CR>]], opt) -- Telescope builtin things
 map("n", ";;", "<C-^>", opt) -- goto pervious file fast
-map("n", "<leader>;", ":", opt)
-map("x", "<leader>;", ":", opt)
-map("n", "<c-c>", ":", opt)
-map("x", "<c-c>", ":", opt)
+map("n", "<leader>;", ":", opt) -- Run commad in command-mode. i.e. at bottom of nvim's commandline.
+map("x", "<leader>;", ":", opt) -- Run commad in command-mode. i.e. at bottom of nvim's commandline.
+map("n", "<c-c>", ":", opt) -- Run commad in command-mode. i.e. at bottom of nvim's commandline.
+map("x", "<c-c>", ":", opt) -- Run commad in command-mode. i.e. at bottom of nvim's commandline.
 
 -- Quickly add empty lines
 map("n", "[<space>", ":<c-u>put! =repeat(nr2char(10), v:count1)<cr>", opt)
@@ -505,10 +506,10 @@ map("n", ",p", '"0p', opt)
 map("n", ",P", '"0P', opt)
 
 -- Buffer Navigation
-map("n", "<left>", [[<Cmd>:bprevious<CR>]], opt)
-map("n", "<right>", [[<Cmd>:bnext<CR>]], opt)
-map("n", "<up>", [[<Cmd>:tabnext<CR>]], opt)
-map("n", "<down>", [[<Cmd>:tabprev<CR>]], opt)
+map("n", "<right>", [[<Cmd>:bnext<CR>]], opt) -- Next Buffer
+map("n", "<left>", [[<Cmd>:bprevious<CR>]], opt) -- Previous Buffer
+map("n", "<up>", [[<Cmd>:tabnext<CR>]], opt) -- Next Tab
+map("n", "<down>", [[<Cmd>:tabprev<CR>]], opt) -- Previous Tab
 
 -----------------------------------------------------------------------------------------------
 ---  LSP
@@ -553,6 +554,7 @@ local custom_attach = function(client, bufnr)
 end
 
 -- LSP: LUA
+-- Link: https://www.chrisatmachine.com/Neovim/28-neovim-lua-development/
 USER = vim.fn.expand("$USER")
 local sumneko_binary = "/Users/" .. USER .. "/language-servers/lua-language-server/bin/macOS/lua-language-server"
 local sumneko_root_path = "/Users/" .. USER .. "/language-servers/lua-language-server"
@@ -580,14 +582,18 @@ nvim_lsp.sumneko_lua.setup {
     }
 }
 
--- EFM - Mainly for credo as of now
+-- EFM - Mainly for credo, and luafmt as of now
 nvim_lsp.efm.setup {filetypes = {"lua", "elixir"}}
 
 -- Format on save
+-- When multiple LSPs are involved (e.g. elixirls & efm) then to avoid choosing which one to use, always use `formatting_seq_sync` instead of `formatting_sync`
 vim.api.nvim_command("autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_seq_sync(nil, 200)")
 vim.api.nvim_command("autocmd BufWritePre *.ex,*.exs lua vim.lsp.buf.formatting_seq_sync(nil, 200)")
 
 -- LSP: Elixir
+-- Don't forget to build the language-server first.
+-- Try to choose the most recent tag possible.
+-- Link: https://www.mitchellhanberg.com/how-to-set-up-neovim-for-elixir-development/?utm_medium=email&utm_source=elixir-radar
 local path_to_elixirls = vim.fn.expand("/Users/" .. USER .. "/language-servers/elixir-ls/rel/language_server.sh")
 nvim_lsp.elixirls.setup({
     cmd = {path_to_elixirls},
