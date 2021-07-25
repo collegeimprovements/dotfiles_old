@@ -8,13 +8,14 @@ require "paq" {
     "kyazdani42/nvim-tree.lua", "kyazdani42/nvim-web-devicons", "lifepillar/vim-gruvbox8", "sonph/onehalf", "chriskempson/base16-vim", "rakr/vim-one",
     "sainnhe/edge", "junegunn/seoul256.vim", "tjdevries/gruvbuddy.nvim", "lukas-reineke/indent-blankline.nvim", "onsails/lspkind-nvim",
     "tpope/vim-dispatch", "folke/trouble.nvim", "folke/lsp-colors.nvim", "ojroques/nvim-hardline", "lewis6991/gitsigns.nvim", -- lsp
-    "hrsh7th/nvim-compe", "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ", "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", {
+    "hrsh7th/nvim-compe", "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ", "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim",
+    "nvim-treesitter/nvim-treesitter-textobjects", "ray-x/lsp_signature.nvim", "vim-test/vim-test", "sindrets/diffview.nvim",
+    "simrat39/symbols-outline.nvim", "ruifm/gitlinker.nvim", "tanvirtin/vgit.nvim", "rmagatti/auto-session", "tpope/vim-endwise", {
         'nvim-treesitter/nvim-treesitter',
         run = function()
             vim.cmd 'TSUpdate'
         end
-    }, "nvim-treesitter/nvim-treesitter-textobjects", "ray-x/lsp_signature.nvim", "vim-test/vim-test", "sindrets/diffview.nvim",
-    "simrat39/symbols-outline.nvim", "ruifm/gitlinker.nvim", "TimUntersberger/neogit", "tanvirtin/vgit.nvim", "rmagatti/auto-session",
+    }
 }
 
 -- key-bindings - function to map keys and commands
@@ -120,6 +121,7 @@ vim.cmd("cnoreabbrev Bd bd")
 vim.cmd("cnoreabbrev wrap set wrap")
 vim.cmd("cnoreabbrev nowrap set nowrap")
 
+-- vim-test
 vim.cmd('let test#strategy = "neoterm"')
 
 -- disable builtin vim plugins
@@ -164,17 +166,63 @@ vim.api.nvim_exec([[
   augroup end
 ]], false)
 
+-- Move Lines with Alt-Up and Alt-Down
+vim.api.nvim_exec([[
+  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  " => Move Lines with Alt-Up and Alt-Down
+  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  " Move Lines - Start
+  " Normal mode
+  nnoremap <M-Down> :m .+1<CR>==
+  nnoremap <M-Up>   :m .-2<CR>==
+
+  " Insert mode
+  inoremap <M-Down> <ESC>:m .+1<CR>==gi
+  inoremap <M-Up>   <ESC>:m .-2<CR>==gi
+
+  " Visual mode
+  vnoremap <M-Down> :m '>+1<CR>gv=gv
+  vnoremap <M-Up>   :m '<-2<CR>gv=gv
+
+  " Move Lines - End
+]], false)
+
+-- Toggle Zoom
+vim.api.nvim_exec([[
+  function! ToggleZoom(zoom)
+    if exists("t:restore_zoom") && (a:zoom == v:true || t:restore_zoom.win != winnr())
+        exec t:restore_zoom.cmd
+        unlet t:restore_zoom
+    elseif a:zoom
+        let t:restore_zoom = { 'win': winnr(), 'cmd': winrestcmd() }
+        exec "normal \<C-W>\|\<C-W>_"
+    endif
+  endfunction
+
+  augroup restorezoom
+      au WinEnter * silent! :call ToggleZoom(v:false)
+  augroup END
+  nnoremap <silent> <Leader>+ :call ToggleZoom(v:true)<CR>
+]], false)
+
+-- Title String
+-- let &g:titlestring="%{expand('%:p:~:.')}%(%m%r%w%) %<\[%{fnamemodify(getcwd(), ':~')}\] - Neovim"
+vim.api.nvim_exec([[
+let &g:titlestring="%{expand('%:p:~:.')}%(%m%r%w%) %<\[%{fnamemodify(getcwd(), ':~')}\]"
+]], false)
+
 -- Y yank until the end of line
 vim.api.nvim_set_keymap('n', 'Y', 'y$', {noremap = true})
 
 -- auto-session
-require('auto-session').setup {
-    auto_session_enable_last_session=true,
-}
+require('auto-session').setup {auto_session_enable_last_session = true}
+
+-- lsp-rooter
+require("lsp-rooter").setup {ignore_lsp = {"efm"}}
 
 -- Neogit
-local neogit = require('neogit')
-neogit.setup {}
+--[[ local neogit = require('neogit')
+neogit.setup {} ]]
 
 -- Vgit
 require('vgit').setup()
@@ -209,13 +257,16 @@ vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.nvim_tree_lsp_diagnostics = 1
 vim.g.nvim_tree_update_cwd = 1
 
+-- symbols-outline
+map("n", "<leader>tt", [[<Cmd>:SymbolsOutline<CR>]], opt)
+
 -- NeoTerm
 vim.g.neoterm_shell = "zsh"
+vim.g.neoterm_auto_repl_cmd = 0
 -- " let g:neoterm_size = 16
 vim.g.neoterm_autoscroll = "1"
 vim.g.neoterm_default_mod = "vertical"
 
-map("n", "<leader>tt", [[<Cmd>:Ttoggle<CR>]], opt)
 map("n", "<C-h>", [[<Cmd>:Ttoggle<CR>]], opt)
 map("n", "<leader>tl", [[<Cmd>:TREPLSendLine<CR>]], opt)
 map("n", "<leader>ts", [[<Cmd>:TREPLSendSelection<CR>]], opt)
@@ -335,9 +386,6 @@ require("nvim-autopairs.completion.compe").setup({
     map_complete = true -- it will auto insert `(` after select function or method item
 })
 
--- lsp-rooter
-require("lsp-rooter").setup {}
-
 -- gitsigns
 require("gitsigns").setup()
 
@@ -370,7 +418,7 @@ require'diffview'.setup {
         -- The `view` bindings are active in the diff buffers, only when the current
         -- tabpage is a Diffview.
         view = {
-            ["<tab>"] = cb("select_next_entry"), -- Open the diff for the next file 
+            ["<tab>"] = cb("select_next_entry"), -- Open the diff for the next file
             ["<s-tab>"] = cb("select_prev_entry"), -- Open the diff for the previous file
             ["<leader>e"] = cb("focus_files"), -- Bring focus to the files panel
             ["<leader>b"] = cb("toggle_files") -- Toggle the files panel.
@@ -423,7 +471,7 @@ map("n", "<leader>r", [[ <Cmd> source ~/.config/nvim/init.lua<CR>]], opt)
 map("n", "ß", [[<Cmd>:w <CR>]], opt)
 map("i", "ß", [[<Cmd>:w <CR>]], opt)
 map("n", "∑", [[<Cmd>:q <CR>]], opt)
-map("n", "<C-w>", [[<Cmd>:q <CR>]], opt)
+map("n", "bn", [[<Cmd>:q <CR>]], opt)
 map("n", "<leader>hl", [[<Cmd>set invhlsearch<CR>]], opt)
 map("n", "<leader>d", [[ <Cmd> bd<CR>]])
 map("i", "<leader>u", [[ <Cmd> undo<CR>]])
@@ -436,6 +484,11 @@ map("n", "∆", [[<Cmd> TBD<CR>]])
 map("n", "<C-p>", [[<Cmd> Telescope git_files theme=get_dropdown<CR>]], opt)
 map("n", "π", [[<Cmd> Telescope commands theme=get_dropdown<CR>]], opt)
 map("n", "<S-s>", [[<Cmd>Telescope builtin<CR>]], opt)
+map("n", ";;", "<C-^>", opt) -- goto pervious file fast
+
+-- Quickly add empty lines
+map("n", "[<space>", ":<c-u>put! =repeat(nr2char(10), v:count1)<cr>", opt)
+map("n", "]<space>", ":<c-u>put =repeat(nr2char(10), v:count1)<cr>", opt)
 
 -- Allow easy navigation between wrapped lines.
 map("v", "j", "gj", opt)
@@ -452,15 +505,6 @@ map("n", "<left>", [[<Cmd>:bprevious<CR>]], opt)
 map("n", "<right>", [[<Cmd>:bnext<CR>]], opt)
 map("n", "<up>", [[<Cmd>:tabnext<CR>]], opt)
 map("n", "<down>", [[<Cmd>:tabprev<CR>]], opt)
-
--- map("n", "<M-up>", [[<Cmd> :m .-2<CR>==]], opt)
--- map("n", "<M-down>", [[<Cmd> :m .+1<CR>==]], opt)
-
--- map("i", "<M-up>", [[<Cmd> :m .-2<CR>]], opt)
--- map("i", "<M-down>", [[<Cmd> :m .+1<CR>]], opt)
-
--- map("v", "<M-up>", [[<Cmd> :m '>+1<CR>gv=gv]], opt)
--- map("v", "<M-down>", [[<Cmd> :m '<-2<CR>gv=gv]], opt)
 
 -----------------------------------------------------------------------------------------------
 ---  LSP
