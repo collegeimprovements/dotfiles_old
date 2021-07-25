@@ -473,6 +473,7 @@ map("n", "<leader>r", [[ <Cmd> source ~/.config/nvim/init.lua<CR>]], opt) -- Sou
 map("n", "ß", [[<Cmd>:w <CR>]], opt) -- Save - Cmd+s
 map("i", "ß", [[<Cmd>:w <CR>]], opt) -- Save - Cmd+s
 map("n", "∑", [[<Cmd>:q <CR>]], opt) -- Quit - Cmd+w
+map("n", "<c-q>", [[<Cmd>:q <CR>]], opt) -- Quit
 map("n", "bn", [[<Cmd>:q <CR>]], opt) -- Quit - `bn` in Normal mode
 map("n", "<leader>hl", [[<Cmd>set invhlsearch<CR>]], opt) -- Toggle Search Highlight
 map("n", "<leader>d", [[ <Cmd> bd<CR>]]) -- Close the buffer
