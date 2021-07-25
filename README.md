@@ -1,8 +1,9 @@
 # Dotfiles
 
-* This files currently assumes username as `arpit`. i.e. `whoami` returns arpit.
-  At few places we have used $HOME and at some place we have used `/Users/arpit` in settings. 
-
+* This files currently assumes username as `arpit`. i.e. `whoami` returns arpit. # Update: Most of the hard-coded things have been removed now.
+  
+* At few places we have used $HOME and at some place we have used `/Users/arpit` in settings. 
+  
 * All `macos` related files are in `$HOME/macos` folder.
 
   * `Brewfile` contains all the `homebrew` package.
@@ -20,7 +21,7 @@
   | Tool        | Description - Usage                                          |
   | ----------- | ------------------------------------------------------------ |
   | **ZSH**     | `.zshrc`, `.zshenv`, `.zsh_plugins.txt`                   |
-  | **ASDF**    | `elixir`,` erlang`, `rust`, `golang`, `postgres`  etc. |
+  | **ASDF**    | `elixir`,` erlang`, `rust`, `golang`, `postgres`, `rabbitmq`  etc. |
   | **macOS** | `Brewfile`,` setup-macos`, more coming soon.                 |
   | **Config**  | `Kitty`, global yarn packages                                |
   | **Git**     | `.gitignore(global gitignore)`,` gitconfig`                  |
@@ -76,10 +77,6 @@
   We use [anitbody](https://getantibody.github.io/) to install and update zsh plugins. 
 
   Our `zshrc` file have PATH config and some really nice functions like `fancy-ctrl-z`, ` almostontop`, `dot` commands for `dotfiles` management, aliases  etc.
-
-  
-
-  
 
   
 
