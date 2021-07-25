@@ -485,6 +485,10 @@ map("n", "<C-p>", [[<Cmd> Telescope git_files theme=get_dropdown<CR>]], opt)
 map("n", "π", [[<Cmd> Telescope commands theme=get_dropdown<CR>]], opt)
 map("n", "<S-s>", [[<Cmd>Telescope builtin<CR>]], opt)
 map("n", ";;", "<C-^>", opt) -- goto pervious file fast
+map("n", "<leader>;", ":", opt)
+map("x", "<leader>;", ":", opt)
+map("n", "<c-c>", ":", opt)
+map("x", "<c-c>", ":", opt)
 
 -- Quickly add empty lines
 map("n", "[<space>", ":<c-u>put! =repeat(nr2char(10), v:count1)<cr>", opt)
