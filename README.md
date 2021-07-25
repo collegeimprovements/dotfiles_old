@@ -16,7 +16,8 @@
 * We use `asdf` as our primary language version manager. 
   We manage `elixir`, `erlang`, `rust`, `golang` and other languages with `asdf`
 
-* For `node` we use volta for managing `node` versions and installing global executables of `node libraries`
+* For `node` we used to use volta for managing `node` versions and installing global executables of `node libraries`. 
+  But now we use `asdf` for node as well. And it's working well. 
 
   | Tool        | Description - Usage                                          |
   | ----------- | ------------------------------------------------------------ |
@@ -60,8 +61,6 @@
   * Use `asdf local elixir 1.10.3-otp-22` and `asdf list erlang 22.3.4.1`. And then build the `elixirls` language server build.
   * Once we migrate all the project to `erlang-24` and latest elixir then update the `elixirls`'s  versions accordingly and build again. 
 
-  
-
   # [Kitty](https://github.com/collegeimprovements/dotfiles/tree/master/.config/kitty)
 
   We use `JetbrainsMono Nerd Font` font.
@@ -69,8 +68,6 @@
   We use `gruvbox` theme.
 
   All keymappings and config can be found [here](https://github.com/collegeimprovements/dotfiles/blob/master/.config/kitty/custom-kitty.conf).
-
-  
 
   # [ZSH](https://github.com/collegeimprovements/dotfiles/blob/master/.zshrc)
 
