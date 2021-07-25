@@ -88,7 +88,8 @@ opt.visualbell = true
 opt.wrap = true -- there is also abbreviation for it
 opt.timeoutlen = 1000
 opt.title = true -- Title string is below. file_path_based_on_root_folder[root_folder_path]
-vim.o.swapfile = false -- No swapfile
+-- vim.o.swapfile = false -- No swapfile
+opt.swapfile = false -- No swapfile
 opt.synmaxcol = 1000 -- After 1000 charcters in a line, turn off syntax highlighting. Keep it fast.
 opt.inccommand = "nosplit" --  if we want to show live results in a split window, set it as `split`
 
@@ -209,7 +210,7 @@ vim.api.nvim_exec([[
 -- Title String
 -- let &g:titlestring="%{expand('%:p:~:.')}%(%m%r%w%) %<\[%{fnamemodify(getcwd(), ':~')}\] - Neovim"
 vim.api.nvim_exec([[
-let &g:titlestring="%{expand('%:p:~:.')}%(%m%r%w%) %<\[%{fnamemodify(getcwd(), ':~')}\]"
+  let &g:titlestring="%{expand('%:p:~:.')}%(%m%r%w%) %<\[%{fnamemodify(getcwd(), ':~')}\]"
 ]], false)
 
 -- Y yank until the end of line
@@ -453,7 +454,7 @@ vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>", {silent =
 vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", {silent = true, noremap = true})
 
--- treesitter
+-- Treesitter
 require'nvim-treesitter.configs'.setup {
     ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     highlight = {
