@@ -10,7 +10,7 @@ require "paq" {
     "tpope/vim-dispatch", "folke/trouble.nvim", "folke/lsp-colors.nvim", "ojroques/nvim-hardline", "lewis6991/gitsigns.nvim", -- lsp
     "hrsh7th/nvim-compe", "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ", "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim",
     "nvim-treesitter/nvim-treesitter-textobjects", "ray-x/lsp_signature.nvim", "vim-test/vim-test", "sindrets/diffview.nvim",
-    "simrat39/symbols-outline.nvim", "ruifm/gitlinker.nvim", "tanvirtin/vgit.nvim", "rmagatti/auto-session", "tpope/vim-endwise", {
+    "simrat39/symbols-outline.nvim", "ruifm/gitlinker.nvim", "tanvirtin/vgit.nvim", "tpope/vim-endwise", {
         'nvim-treesitter/nvim-treesitter',
         run = function()
             vim.cmd 'TSUpdate'
@@ -217,7 +217,7 @@ vim.api.nvim_exec([[
 vim.api.nvim_set_keymap('n', 'Y', 'y$', {noremap = true})
 
 -- auto-session
-require('auto-session').setup {auto_session_enable_last_session = true}
+-- require('auto-session').setup {auto_session_enable_last_session = true}
 
 -- lsp-rooter
 require("lsp-rooter").setup {ignore_lsp = {"efm"}}
