@@ -468,6 +468,33 @@ require'nvim-treesitter.configs'.setup {
     }
 }
 
+-- Telescope
+require("telescope").setup {
+    defaults = {
+        -- Your defaults config goes in here
+    },
+    pickers = {
+        -- Your special builtin config goes in here
+        buffers = {
+            sort_lastused = true,
+            theme = "dropdown",
+            -- previewer = false,
+            mappings = {
+                i = {
+                    ["<c-d>"] = require("telescope.actions").delete_buffer,
+                    -- Right hand side can also be the name of the action as a string
+                    ["<c-d>"] = "delete_buffer"
+                },
+                n = {["<c-d>"] = require("telescope.actions").delete_buffer}
+            }
+        },
+        find_files = {theme = "dropdown"}
+    },
+    extensions = {
+        -- Your extension config goes in here
+    }
+}
+
 -- Key Mappings
 map("n", "<leader>n", [[ <Cmd> set nu!<CR>]], opt) -- Toggle Number
 map("n", "<leader>r", [[ <Cmd> source ~/.config/nvim/init.lua<CR>]], opt) -- Source $MYVIMRC
@@ -483,6 +510,8 @@ map("n", "<leader>ps", [[ <Cmd> PaqSync<CR>]]) -- Sync = install + update the pl
 map("n", "∫", [[ <Cmd> NvimTreeToggle<CR>]]) -- Cmd+b Open NvimTree Sidebar
 map("n", "<C-e>", [[ <Cmd> NvimTreeToggle<CR>]]) -- Open NvimTree Sidebar
 map("n", "ƒ", [[<Cmd> Telescope find_files theme=get_dropdown<CR>]]) -- Find Files
+map("n", "<leader>b", [[<Cmd> Telescope buffers theme=get_dropdown<CR>]]) -- Find Buffers
+map("n", "<leader>s", [[<Cmd> Telescope live_grep theme=get_dropdown<CR>]]) -- Find Buffers
 map("n", "∆", [[<Cmd> TBD<CR>]]) -- Cmd+Shift+j unmapped for now
 map("n", "<C-p>", [[<Cmd> Telescope git_files theme=get_dropdown<CR>]], opt)
 map("n", "π", [[<Cmd> Telescope commands theme=get_dropdown<CR>]], opt) -- Cmd+p Dropdown with commands

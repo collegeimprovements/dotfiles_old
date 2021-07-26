@@ -1,25 +1,6 @@
 # Dotfiles
 
-* This files currently assumes username as `arpit`. i.e. `whoami` returns arpit. # Update: Most of the hard-coded things have been removed now.
-  
-* At few places we have used $HOME and at some place we have used `/Users/arpit` in settings. 
-  
-* All `macos` related files are in `$HOME/macos` folder.
-
-  * `Brewfile` contains all the `homebrew` package.
-  * `setup-macos` contains sane settings for `macos`. It's currently WIP.
-
-* For ZSH we track `.zshenv`, `.zshrc`, `.zsh_plugins.txt` file.
-  
-  * We use [Antigen](https://github.com/zsh-users/antigen) for managing `Zsh Packages`
-  
-* We use `asdf` as our primary language version manager. 
-  We manage `elixir`, `erlang`, `rust`, `golang` and other languages with `asdf`
-
-* For `node` we used to use volta for managing `node` versions and installing global executables of `node libraries`. 
-  But now we use `asdf` for node as well. And it's working well. 
-
-  | Tool        | Description - Usage                                          |
+* | Tool        | Description - Usage                                          |
   | ----------- | ------------------------------------------------------------ |
   | **ZSH**     | `.zshrc`, `.zshenv`, `.zsh_plugins.txt`                   |
   | **ASDF**    | `elixir`,` erlang`, `rust`, `golang`, `postgres`, `rabbitmq`  etc. |
@@ -29,6 +10,23 @@
   | **Hammerspoon** | For `contro-esc` key binding. It occasionally stops working. But restarting(i.e. open-quit-open) hammersoon seems to be fixing it. |
   | **Code**    | Contains all User settings related to `vscode`. ```rm -rf ~/Library/Application\ Support/Code/User <br />ln -s ~/.config/vscode/User` ~/Library/Application\ Support/Code/User``` |
   | **Language Servers** | Lua, Elixir, Efm |
+  
+  ---------
+  
+* This files currently assumes username as `arpit`. i.e. `whoami` returns arpit. # Update: Most of the hard-coded things have been removed now.
+
+  * At few places we have used $HOME and at some place we have used `/Users/arpit` in settings. 
+  * All `macos` related files are in `$HOME/macos` folder.
+
+    * `Brewfile` contains all the `homebrew` package.
+    * `setup-macos` contains sane settings for `macos`. It's currently WIP.
+  * For ZSH we track `.zshenv`, `.zshrc`, `.zsh_plugins.txt` file.
+
+    * We use [Antigen](https://github.com/zsh-users/antigen) for managing `Zsh Packages`
+  * We use `asdf` as our primary language version manager.: 
+    We manage `elixir`, `erlang`, `rust`, `golang` and other languages with `asdf`
+  * For `node` we used to use volta for managing `node` versions and installing global executables of `node libraries`. 
+    But now we use `asdf` for node as well. And it's working well. 
 
 * Note: For `vscode` we have ran the following commands.
 
