@@ -497,6 +497,7 @@ require("telescope").setup {
 
 -- Key Mappings
 map("n", "<leader>n", [[ <Cmd> set nu!<CR>]], opt) -- Toggle Number
+map("n", "<leader>m", [[ <Cmd> !mix format %<CR>]], {silent = true, noremap = true}) -- Toggle Number
 map("n", "<leader>r", [[ <Cmd> source ~/.config/nvim/init.lua<CR>]], opt) -- Source $MYVIMRC
 map("n", "ß", [[<Cmd>:w <CR>]], opt) -- Save - Cmd+s
 map("i", "ß", [[<Cmd>:w <CR>]], opt) -- Save - Cmd+s

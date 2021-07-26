@@ -1,18 +1,18 @@
 # Dotfiles
 
-* | Tool        | Description - Usage                                          |
-  | ----------- | ------------------------------------------------------------ |
-  | **ZSH**     | `.zshrc`, `.zshenv`, `.zsh_plugins.txt`                   |
-  | **ASDF**    | `elixir`,` erlang`, `rust`, `golang`, `postgres`, `rabbitmq`  etc. |
-  | **macOS** | `Brewfile`,` setup-macos`, more coming soon.                 |
-  | **Config**  | `Kitty`, global yarn packages                                |
-  | **Git**     | `.gitignore(global gitignore)`,` gitconfig`                  |
-  | **Hammerspoon** | For `contro-esc` key binding. It occasionally stops working. But restarting(i.e. open-quit-open) hammersoon seems to be fixing it. |
-  | **Code**    | Contains all User settings related to `vscode`. ```rm -rf ~/Library/Application\ Support/Code/User <br />ln -s ~/.config/vscode/User` ~/Library/Application\ Support/Code/User``` |
-  | **Language Servers** | Lua, Elixir, Efm |
-  
-  ---------
-  
+| Tool        | Description - Usage                                          |
+| ----------- | ------------------------------------------------------------ |
+| **ZSH**     | `.zshrc`, `.zshenv`, `.zsh_plugins.txt`                   |
+| **ASDF**    | `elixir`,` erlang`, `rust`, `golang`, `postgres`, `rabbitmq`  etc. |
+| **macOS** | `Brewfile`,` setup-macos`, more coming soon.                 |
+| **Config**  | `Kitty`, global yarn packages                                |
+| **Git**     | `.gitignore(global gitignore)`,` gitconfig`                  |
+| **Hammerspoon** | For `contro-esc` key binding. It occasionally stops working. But restarting(i.e. open-quit-open) hammersoon seems to be fixing it. |
+| **Code**    | Contains all User settings related to `vscode`. ```rm -rf ~/Library/Application\ Support/Code/User <br />ln -s ~/.config/vscode/User` ~/Library/Application\ Support/Code/User``` |
+| **Language Servers** | Lua, Elixir, Efm |
+
+---------
+
 * This files currently assumes username as `arpit`. i.e. `whoami` returns arpit. # Update: Most of the hard-coded things have been removed now.
 
   * At few places we have used $HOME and at some place we have used `/Users/arpit` in settings. 
