@@ -582,7 +582,7 @@ local custom_attach = function(client, bufnr)
     buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
     buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
 
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting_seq_sync(nil, 300)<CR>", opts)
+    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting_seq_sync(nil, 2000)<CR>", opts)
 end
 
 -- LSP: LUA
@@ -619,8 +619,8 @@ nvim_lsp.efm.setup {filetypes = {"lua", "elixir"}}
 
 -- Format on save
 -- When multiple LSPs are involved (e.g. elixirls & efm) then to avoid choosing which one to use, always use `formatting_seq_sync` instead of `formatting_sync`
-vim.api.nvim_command("autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_seq_sync(nil, 200)")
-vim.api.nvim_command("autocmd BufWritePre *.ex,*.exs lua vim.lsp.buf.formatting_seq_sync(nil, 200)")
+vim.api.nvim_command("autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_seq_sync(nil, 2000)")
+vim.api.nvim_command("autocmd BufWritePre *.ex,*.exs lua vim.lsp.buf.formatting_seq_sync(nil, 2000)")
 
 -- LSP: Elixir
 -- Don't forget to build the language-server first.
