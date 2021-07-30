@@ -373,7 +373,6 @@ alias att="almostontop toggle"
 # alias python=python3
 # alias pip=pip3
 
-cd ~/Projects/blockfi-mystique
 #================================================================================
 # COMMON ALIASES - End
 #================================================================================
