@@ -5,7 +5,7 @@
 # 3. Brew
 
 # USERNAME
-export USERNAME=apple
+# export USERNAME=apple
 export TERM=xterm-256color
 
 # ALSO - .zshenv is not a good place for setting PATH on macos. https://stackoverflow.com/questions/26433856/why-would-path-be-getting-overwritten-after-shell-login#comment69745215_26434096
@@ -174,16 +174,6 @@ updatezsh() {
 #================================================================================
 
 #================================================================================
-# VOLTA Javascript Package Manager - Start
-#================================================================================
-# export VOLTA_HOME="$HOME/.volta"
-# [ -s "$VOLTA_HOME/load.sh" ] && . "$VOLTA_HOME/load.sh"
-# export PATH=$VOLTA_HOME/bin:$PATH #SET VOLATA in PATH
-#================================================================================
-# VOLTA Javascript Package Manager - End
-#================================================================================
-
-#================================================================================
 # rupa z - Start
 #================================================================================
 # z - frecency based cd
@@ -273,17 +263,14 @@ alias vim="nvim"
 alias vi="nvim"
 alias n="nvim"
 alias cz="code ~/.zshrc"
+alias cnz="nvim ~/.zshrc"
 alias zrc="code ~/.zshrc"
 alias ce="code ~/.zshenv"
 alias cze="code ~/.zshrc ~/.zshenv"
 alias o="open ."
-alias or="~/Projects/CAPCHASE/orchestrator"
 alias desk="cd ~/Desktop"
 alias down="cd ~/Downloads"
-alias api="~/Projects/CLSA/ultra_api"
-alias ca="/Users/apple/Projects/ZAKI/cloche_api"
-alias emt="~/Documents/projects/ex_modern_treasury"
-alias emd="~/Documents/projects/ex_modern_treasury"
+alias ca="~/Projects/ZAKI/cloche_api"
 alias p="~/Documents/projects"
 alias b="~/Projects/blockfi-mystique"
 alias ui="/Users/$USERNAME/Documents/projects/ultra-ui"
@@ -302,7 +289,6 @@ alias t2="tree -L 2"
 alias t3="tree -L 3"
 alias t4="tree -L 4"
 alias weather="curl wttr.in"
-alias mt="MIX_ENV=test iex -S mix"
 
 alias allowapp="sudo xattr -rd com.apple.quarantine"
 
@@ -344,6 +330,7 @@ alias mgc="mix deps.get && mix deps.compile && mix compile"
 alias ix="iex -S mix"
 alias x="iex -S mix"
 alias xp="gr && iex -S mix phx.server"
+alias mt="MIX_ENV=test iex -S mix"
 alias ips="iex -S mix phx.server"
 alias lxp="MIX_ENV=local iex -S mix phx.server"
 
@@ -381,10 +368,6 @@ alias att="almostontop toggle"
 # source /Users/arpit/Library/Preferences/org.dystroy.broot/launcher/bash/br
 export PATH="$HOME/.apollo/bin:$PATH"
 
-
-
-
-
 #================================================================================
 # Useful Functions
 # https://github.com/mdumitru/fancy-ctrl-z/blob/master/fancy-ctrl-z.zsh
@@ -401,7 +384,6 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
-
 
 #================================================================================
 # Python Related Things - CAPCHASE
