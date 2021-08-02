@@ -1,7 +1,7 @@
 erlang 24.0.3
 elixir 1.12.2-otp-24
 rust 1.51.0
-nodejs 16.4.0
+nodejs 14.17.3
 python 3.9.5 2.7.18
 golang 1.16.3
 rabbitmq 3.8.17
