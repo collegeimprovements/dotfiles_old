@@ -40,7 +40,7 @@ brew "curl"
 brew "devd"
 brew "diskonaut"
 brew "diskus"
-brew "docker"
+brew "docker", link: false
 brew "docker-compose"
 brew "dotenv-linter"
 brew "efm-langserver"
