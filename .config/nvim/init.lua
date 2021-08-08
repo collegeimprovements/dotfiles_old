@@ -258,6 +258,7 @@ vim.g.nvim_tree_hide_dotfiles = 0
 vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.nvim_tree_lsp_diagnostics = 1
 vim.g.nvim_tree_update_cwd = 1
+vim.g.nvim_tree_follow = 1
 
 -- symbols-outline
 map("n", "<leader>tt", [[<Cmd>:SymbolsOutline<CR>]], opt)
