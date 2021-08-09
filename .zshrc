@@ -289,6 +289,7 @@ alias t2="tree -L 2"
 alias t3="tree -L 3"
 alias t4="tree -L 4"
 alias weather="curl wttr.in"
+alias ball="brewall"
 
 alias allowapp="sudo xattr -rd com.apple.quarantine"
 
