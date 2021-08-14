@@ -659,3 +659,11 @@ augroup elixirbindings
 augroup end
 ]], false)
 
+-- Set Syntax for different file extension
+vim.api.nvim_exec([[
+augroup extension_syntax_setting
+  autocmd! extension_syntax_setting
+  autocmd BufNewFile,BufRead *.env,*.local,*.uat,*.prod set syntax=zsh
+augroup end
+]], false)
+
