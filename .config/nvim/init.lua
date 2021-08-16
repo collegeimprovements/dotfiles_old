@@ -545,6 +545,10 @@ map("n", "<left>", [[<Cmd>:bprevious<CR>]], opt) -- Previous Buffer
 map("n", "<up>", [[<Cmd>:tabnext<CR>]], opt) -- Next Tab
 map("n", "<down>", [[<Cmd>:tabprev<CR>]], opt) -- Previous Tab
 
+-- Press * to search for the term under the cursor or a visual selection and
+-- then press a key below to replace all instances of it in the current file.
+map("n", "<leader>r", [[:%s///g<Left><Left>]])
+map("n", "<leader>rc", [[:%s///gc<Left><Left><Left>]])
 -----------------------------------------------------------------------------------------------
 ---  LSP
 -----------------------------------------------------------------------------------------------
