@@ -667,7 +667,7 @@ augroup end
 vim.api.nvim_exec([[
 augroup extension_syntax_setting
   autocmd! extension_syntax_setting
-  autocmd BufNewFile,BufRead *.env,*.local,*.uat,*.prod set syntax=zsh
+  autocmd BufNewFile,BufRead *.env,*.local,*.uat,*.prod,*.envrc set syntax=zsh
 augroup end
 ]], false)
 
