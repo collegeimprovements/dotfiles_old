@@ -413,10 +413,8 @@ local cb = require'diffview.config'.diffview_callback
 
 require'diffview'.setup {
     diff_binaries = false, -- Show diffs for binaries
-    file_panel = {
-        width = 35,
-        use_icons = true -- Requires nvim-web-devicons
-    },
+    use_icons = true, -- Requires nvim-web-devicons
+    file_panel = {width = 35},
     key_bindings = {
         disable_defaults = false, -- Disable the default key bindings
         -- The `view` bindings are active in the diff buffers, only when the current
@@ -668,6 +666,7 @@ vim.api.nvim_exec([[
 augroup extension_syntax_setting
   autocmd! extension_syntax_setting
   autocmd BufNewFile,BufRead *.env,*.local,*.env.local,*.uat,*.prod,*.envrc,*.in set syntax=zsh
+  autocmd BufNewFile,BufRead *.env.local set syntax=zsh
 augroup end
 ]], false)
 
