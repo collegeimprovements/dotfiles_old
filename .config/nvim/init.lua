@@ -5,9 +5,9 @@ require "paq" {
     "ahmedkhalf/lsp-rooter.nvim", "b3nj5m1n/kommentary", "blackCauldron7/surround.nvim", "kassio/neoterm", "tpope/vim-repeat",
     "tpope/vim-projectionist", "windwp/nvim-autopairs", "pechorin/any-jump.vim", "phaazon/hop.nvim", -- languages
     "elixir-editors/vim-elixir", -- appearance
-    "kyazdani42/nvim-tree.lua", "kyazdani42/nvim-web-devicons", "lifepillar/vim-gruvbox8", "sonph/onehalf", "chriskempson/base16-vim", "rakr/vim-one",
-    "sainnhe/edge", "junegunn/seoul256.vim", "tjdevries/gruvbuddy.nvim", "lukas-reineke/indent-blankline.nvim", "onsails/lspkind-nvim",
-    "tpope/vim-dispatch", "folke/trouble.nvim", "folke/lsp-colors.nvim", "ojroques/nvim-hardline", "lewis6991/gitsigns.nvim", -- lsp
+    "kyazdani42/nvim-web-devicons", "lifepillar/vim-gruvbox8", "sonph/onehalf", "chriskempson/base16-vim", "rakr/vim-one", "sainnhe/edge",
+    "junegunn/seoul256.vim", "tjdevries/gruvbuddy.nvim", "lukas-reineke/indent-blankline.nvim", "onsails/lspkind-nvim", "tpope/vim-dispatch",
+    "folke/trouble.nvim", "folke/lsp-colors.nvim", "ojroques/nvim-hardline", "lewis6991/gitsigns.nvim", -- lsp
     "hrsh7th/nvim-compe", "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ", "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim",
     "nvim-treesitter/nvim-treesitter-textobjects", "ray-x/lsp_signature.nvim", "vim-test/vim-test", "sindrets/diffview.nvim",
     "simrat39/symbols-outline.nvim", "ruifm/gitlinker.nvim", "tanvirtin/vgit.nvim", "kdheepak/lazygit.nvim", "sheerun/vim-polyglot", {
@@ -15,7 +15,7 @@ require "paq" {
         run = function()
             vim.cmd 'TSUpdate'
         end
-    }
+    }, "kyazdani42/nvim-tree.lua"
 }
 
 -- key-bindings - function to map keys and commands
@@ -228,6 +228,20 @@ neogit.setup {} ]]
 
 -- Vgit
 require('vgit').setup()
+
+-- NVimTree
+require'nvim-tree'.setup {
+    update_focused_file = {
+        -- enables the feature
+        enable = true,
+        -- update the root directory of the tree to the one of the folder containing the file if the file is not under the current root directory
+        -- only relevant when `update_focused_file.enable` is true
+        update_cwd = true,
+        -- list of buffer names / filetypes that will not update the cwd if the file isn't found under the current root directory
+        -- only relevant when `update_focused_file.update_cwd` is true and `update_focused_file.enable` is true
+        ignore_list = {}
+    }
+}
 
 -- gitlinker
 require"gitlinker".setup({
