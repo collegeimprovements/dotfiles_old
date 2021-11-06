@@ -1,5 +1,5 @@
 erlang 24.0.3
-elixir 1.12.3-otp-24
+elixir 1.13.0-rc.0-otp-24
 rust 1.51.0
 nodejs 14.17.3
 python 3.9.5 2.7.18
