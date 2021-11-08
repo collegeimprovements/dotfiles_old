@@ -332,6 +332,7 @@ alias gd="git diff"
 alias gco="git checkout"
 alias gpo="git pull origin"
 alias gpo="git pull origin master"
+alias gpf="git pull && git fetch --prune"
 alias gm="git checkout master && git pull origin master && git push all master && gco rex"
 alias gr='cd "$(git rev-parse --show-toplevel)"'
 
