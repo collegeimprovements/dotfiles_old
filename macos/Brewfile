@@ -98,7 +98,7 @@ brew "pre-commit"
 brew "protobuf"
 brew "python@3.8"
 brew "ranger"
-brew "redis", restart_service: true
+brew "redis"
 brew "rename"
 brew "renameutils"
 brew "ripgrep"
