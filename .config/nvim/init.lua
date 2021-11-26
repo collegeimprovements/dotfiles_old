@@ -267,13 +267,6 @@ require("kommentary.config").configure_language("lua", {prefer_single_line_comme
 require"surround".setup {}
 -- vim.g.surround_prefix = "m"
 
--- NVimTree
--- vim.g.nvim_tree_gitignore = 0
--- -- vim.g.nvim_tree_hide_dotfiles = 0
--- vim.g.nvim_tree_highlight_opened_files = 1
--- vim.g.nvim_tree_lsp_diagnostics = 1
--- vim.g.nvim_tree_update_cwd = 1
--- vim.g.nvim_tree_follow = 1
 
 -- symbols-outline
 map("n", "<leader>tt", [[<Cmd>:SymbolsOutline<CR>]], opt)
