@@ -11,13 +11,17 @@ require "paq" {
     "hrsh7th/nvim-compe","hrsh7th/nvim-cmp", "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ", "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "junegunn/fzf.vim", 
     {"junegunn/fzf", run=function() vim.fn["fzf#install"]() end},
      "ray-x/lsp_signature.nvim", "vim-test/vim-test", "sindrets/diffview.nvim",
-    "simrat39/symbols-outline.nvim", "ruifm/gitlinker.nvim", "tanvirtin/vgit.nvim", "kdheepak/lazygit.nvim",  {
-        'nvim-treesitter/nvim-treesitter',
-        run = function()
-            vim.cmd 'TSUpdate'
-        end
-    }, "kyazdani42/nvim-tree.lua"
+    "simrat39/symbols-outline.nvim", "ruifm/gitlinker.nvim", "tanvirtin/vgit.nvim", "kdheepak/lazygit.nvim",   "kyazdani42/nvim-tree.lua"
 }
+
+-- Removed treesitter as due to some issue it was making vim slow.
+-- Revisit in future
+-- {
+--         'nvim-treesitter/nvim-treesitter',
+--         run = function()
+--             vim.cmd 'TSUpdate'
+--         end
+--     },
 
 -- key-bindings - function to map keys and commands
 local function map(mode, lhs, rhs, opts)
