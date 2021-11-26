@@ -8,7 +8,8 @@ require "paq" {
     "kyazdani42/nvim-web-devicons", "lifepillar/vim-gruvbox8", "sonph/onehalf", "chriskempson/base16-vim", "rakr/vim-one", "sainnhe/edge",
     "junegunn/seoul256.vim", "tjdevries/gruvbuddy.nvim", "lukas-reineke/indent-blankline.nvim", "onsails/lspkind-nvim", "tpope/vim-dispatch",
     "folke/trouble.nvim", "folke/lsp-colors.nvim", "ojroques/nvim-hardline", "lewis6991/gitsigns.nvim", -- lsp
-    "hrsh7th/nvim-compe", "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ", "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim",
+    "hrsh7th/nvim-compe", "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ", "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "junegunn/fzf.vim", 
+    {"junegunn/fzf", run=function() vim.fn["fzf#install"]() end},
     "nvim-treesitter/nvim-treesitter-textobjects", "ray-x/lsp_signature.nvim", "vim-test/vim-test", "sindrets/diffview.nvim",
     "simrat39/symbols-outline.nvim", "ruifm/gitlinker.nvim", "tanvirtin/vgit.nvim", "kdheepak/lazygit.nvim", "sheerun/vim-polyglot", {
         'nvim-treesitter/nvim-treesitter',
@@ -267,12 +268,12 @@ require"surround".setup {}
 -- vim.g.surround_prefix = "m"
 
 -- NVimTree
-vim.g.nvim_tree_gitignore = 0
-vim.g.nvim_tree_hide_dotfiles = 0
-vim.g.nvim_tree_highlight_opened_files = 1
-vim.g.nvim_tree_lsp_diagnostics = 1
-vim.g.nvim_tree_update_cwd = 1
-vim.g.nvim_tree_follow = 1
+-- vim.g.nvim_tree_gitignore = 0
+-- -- vim.g.nvim_tree_hide_dotfiles = 0
+-- vim.g.nvim_tree_highlight_opened_files = 1
+-- vim.g.nvim_tree_lsp_diagnostics = 1
+-- vim.g.nvim_tree_update_cwd = 1
+-- vim.g.nvim_tree_follow = 1
 
 -- symbols-outline
 map("n", "<leader>tt", [[<Cmd>:SymbolsOutline<CR>]], opt)
@@ -394,7 +395,16 @@ vim.api.nvim_set_keymap("i", "<C-k>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<C-k>", "v:lua.s_tab_complete()", {expr = true})
 
 -- hop
+require'hop'.setup()
+vim.api.nvim_command('highlight HopNextKey guifg=none guibg=none gui=none ctermfg=none cterm=bold')
+vim.api.nvim_command('highlight HopNextKey1 guifg=none guibg=none gui=none ctermfg=none cterm=bold')
+vim.api.nvim_command('highlight HopNextKey2 guifg=none guibg=none gui=none ctermfg=none')
+vim.api.nvim_command('highlight HopUnmatched guifg=none guibg=none guisp=none ctermfg=none')
+
 vim.api.nvim_set_keymap("n", "f", "<cmd>lua require'hop'.hint_char1()<cr>", {})
+
+--  vim.api.nvim_command('highlight HopNextKey  guifg=#ff007c gui=bold ctermfg=198 cterm=bold')
+
 
 -- nvim-autopairs
 require("nvim-autopairs").setup()
@@ -524,11 +534,16 @@ map("n", "<leader>ps", [[ <Cmd> PaqSync<CR>]]) -- Sync = install + update the pl
 map("n", "∫", [[ <Cmd> NvimTreeToggle<CR>]]) -- Cmd+b Open NvimTree Sidebar
 map("n", "<C-e>", [[ <Cmd> NvimTreeToggle<CR>]]) -- Open NvimTree Sidebar
 map("n", "ƒ", [[<Cmd> Telescope find_files theme=get_dropdown<CR>]]) -- Find Files
+map("n", "ƒ", [[<Cmd> Files<CR>]]) -- Find Files
+map("n", "<leader>m", [[<Cmd> Rg<CR>]]) -- Find Buffers
 map("n", "<leader>b", [[<Cmd> Telescope buffers theme=get_dropdown<CR>]]) -- Find Buffers
+map("n", "<leader>b", [[<Cmd> Buffers<CR>]]) -- Find Buffers
 map("n", "<leader>s", [[<Cmd> Telescope live_grep theme=get_dropdown<CR>]]) -- Find Buffers
 map("n", "∆", [[<Cmd> TBD<CR>]]) -- Cmd+Shift+j unmapped for now
 map("n", "<C-p>", [[<Cmd> Telescope git_files theme=get_dropdown<CR>]], opt)
+map("n", "<C-p>", [[<Cmd> GFiles<CR>]], opt)
 map("n", "π", [[<Cmd> Telescope commands theme=get_dropdown<CR>]], opt) -- Cmd+p Dropdown with commands
+map("n", "¬", [[<Cmd> LazyGit<CR>]], opt) -- Cmd+l Lazygit
 map("n", "<S-s>", [[<Cmd>Telescope builtin<CR>]], opt) -- Telescope builtin things
 map("n", ";;", "<C-^>", opt) -- goto pervious file fast
 map("n", "<leader>;", ":", opt) -- Run commad in command-mode. i.e. at bottom of nvim's commandline.
