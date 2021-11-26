@@ -276,6 +276,7 @@ alias .....="cd ../../../.."
 alias vim="nvim"
 alias vi="nvim"
 alias n="nvim"
+alias update-nvim-nightly='asdf uninstall neovim nightly && asdf install neovim nightly'
 alias cz="code ~/.zshrc"
 alias cnz="nvim ~/.zshrc"
 alias zrc="code ~/.zshrc"
