@@ -8,10 +8,10 @@ require "paq" {
     "kyazdani42/nvim-web-devicons", "lifepillar/vim-gruvbox8", "sonph/onehalf", "chriskempson/base16-vim", "rakr/vim-one", "sainnhe/edge",
     "junegunn/seoul256.vim", "tjdevries/gruvbuddy.nvim", "lukas-reineke/indent-blankline.nvim", "onsails/lspkind-nvim", "tpope/vim-dispatch",
     "folke/trouble.nvim", "folke/lsp-colors.nvim", "ojroques/nvim-hardline", "lewis6991/gitsigns.nvim", -- lsp
-    "hrsh7th/nvim-compe", "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ", "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "junegunn/fzf.vim", 
+    "hrsh7th/nvim-compe","hrsh7th/nvim-cmp", "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ", "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "junegunn/fzf.vim", 
     {"junegunn/fzf", run=function() vim.fn["fzf#install"]() end},
     "nvim-treesitter/nvim-treesitter-textobjects", "ray-x/lsp_signature.nvim", "vim-test/vim-test", "sindrets/diffview.nvim",
-    "simrat39/symbols-outline.nvim", "ruifm/gitlinker.nvim", "tanvirtin/vgit.nvim", "kdheepak/lazygit.nvim", "sheerun/vim-polyglot", {
+    "simrat39/symbols-outline.nvim", "ruifm/gitlinker.nvim", "tanvirtin/vgit.nvim", "kdheepak/lazygit.nvim",  {
         'nvim-treesitter/nvim-treesitter',
         run = function()
             vim.cmd 'TSUpdate'
@@ -572,6 +572,41 @@ map("n", "<leader>rc", [[:%s///gc<Left><Left><Left>]])
 ---  LSP
 -----------------------------------------------------------------------------------------------
 local nvim_lsp = require("lspconfig")
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- Setup our autocompletion. These configuration options are the default ones
+-- copied out of the documentation.
+local cmp = require("cmp")
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      -- For `vsnip` user.
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+  mapping = {
+    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<C-e>"] = cmp.mapping.close(),
+    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+  },
+  sources = {
+    { name = "nvim_lsp" },
+    { name = "vsnip" },
+  },
+  formatting = {
+    format = require("lspkind").cmp_format({
+      with_text = true,
+      menu = {
+        nvim_lsp = "[LSP]",
+      },
+    }),
+  },
+})
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
