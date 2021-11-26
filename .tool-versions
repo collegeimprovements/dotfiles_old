@@ -6,3 +6,4 @@ python 3.9.5 2.7.18
 golang 1.16.3
 rabbitmq 3.8.17
 postgres 14beta2
+neovim nightly
