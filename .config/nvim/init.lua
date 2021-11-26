@@ -10,7 +10,7 @@ require "paq" {
     "folke/trouble.nvim", "folke/lsp-colors.nvim", "ojroques/nvim-hardline", "lewis6991/gitsigns.nvim", -- lsp
     "hrsh7th/nvim-compe","hrsh7th/nvim-cmp", "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ", "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "junegunn/fzf.vim", 
     {"junegunn/fzf", run=function() vim.fn["fzf#install"]() end},
-    "nvim-treesitter/nvim-treesitter-textobjects", "ray-x/lsp_signature.nvim", "vim-test/vim-test", "sindrets/diffview.nvim",
+     "ray-x/lsp_signature.nvim", "vim-test/vim-test", "sindrets/diffview.nvim",
     "simrat39/symbols-outline.nvim", "ruifm/gitlinker.nvim", "tanvirtin/vgit.nvim", "kdheepak/lazygit.nvim",  {
         'nvim-treesitter/nvim-treesitter',
         run = function()
@@ -471,45 +471,45 @@ vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", {silent 
 vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", {silent = true, noremap = true})
 
 -- Treesitter
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-    highlight = {
-        enable = true, -- false will disable the whole extension
-        disable = {"c", "rust"}, -- list of language that will be disabled
-        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-        -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-        -- Using this option may slow down your editor, and you may see some duplicate highlights.
-        -- Instead of true it can also be a list of languages
-        additional_vim_regex_highlighting = false
-    }
-}
+-- require'nvim-treesitter.configs'.setup {
+--     ensure_installed = {"elixir","javascript"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+--     highlight = {
+--         enable = true, -- false will disable the whole extension
+--         disable = {"c", "rust"}, -- list of language that will be disabled
+--         -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+--         -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+--         -- Using this option may slow down your editor, and you may see some duplicate highlights.
+--         -- Instead of true it can also be a list of languages
+--         additional_vim_regex_highlighting = false
+--     }
+-- }
 
 -- Telescope
-require("telescope").setup {
-    defaults = {
-        -- Your defaults config goes in here
-    },
-    pickers = {
-        -- Your special builtin config goes in here
-        buffers = {
-            sort_lastused = true,
-            theme = "dropdown",
-            -- previewer = false,
-            mappings = {
-                i = {
-                    ["<c-d>"] = require("telescope.actions").delete_buffer,
-                    -- Right hand side can also be the name of the action as a string
-                    ["<c-d>"] = "delete_buffer"
-                },
-                n = {["<c-d>"] = require("telescope.actions").delete_buffer}
-            }
-        },
-        find_files = {theme = "dropdown"}
-    },
-    extensions = {
-        -- Your extension config goes in here
-    }
-}
+-- require("telescope").setup {
+--     defaults = {
+--         -- Your defaults config goes in here
+--     },
+--     pickers = {
+--         -- Your special builtin config goes in here
+--         buffers = {
+--             sort_lastused = true,
+--             theme = "dropdown",
+--             -- previewer = false,
+--             mappings = {
+--                 i = {
+--                     ["<c-d>"] = require("telescope.actions").delete_buffer,
+--                     -- Right hand side can also be the name of the action as a string
+--                     ["<c-d>"] = "delete_buffer"
+--                 },
+--                 n = {["<c-d>"] = require("telescope.actions").delete_buffer}
+--             }
+--         },
+--         find_files = {theme = "dropdown"}
+--     },
+--     extensions = {
+--         -- Your extension config goes in here
+--     }
+-- }
 
 -- Key Mappings
 map("n", "<leader>n", [[ <Cmd> set nu!<CR>]], opt) -- Toggle Number
