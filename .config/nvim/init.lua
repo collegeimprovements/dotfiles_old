@@ -1,17 +1,59 @@
 require "paq" {
-    "savq/paq-nvim", -- Let Paq manage itself
+    "savq/paq-nvim",
+    -- Let Paq manage itself
+
     -- libs
-    "tjdevries/nlua.nvim", "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim", "rktjmp/lush.nvim", "tjdevries/colorbuddy.vim", -- tools
-    "ahmedkhalf/lsp-rooter.nvim", "b3nj5m1n/kommentary", "blackCauldron7/surround.nvim", "kassio/neoterm", "tpope/vim-repeat",
-    "tpope/vim-projectionist", "windwp/nvim-autopairs", "pechorin/any-jump.vim", "phaazon/hop.nvim", -- languages
-    "elixir-editors/vim-elixir", -- appearance
-    "kyazdani42/nvim-web-devicons", "lifepillar/vim-gruvbox8", "sonph/onehalf", "chriskempson/base16-vim", "rakr/vim-one", "sainnhe/edge",
-    "junegunn/seoul256.vim", "tjdevries/gruvbuddy.nvim", "lukas-reineke/indent-blankline.nvim", "onsails/lspkind-nvim", "tpope/vim-dispatch",
-    "folke/trouble.nvim", "folke/lsp-colors.nvim", "ojroques/nvim-hardline", "lewis6991/gitsigns.nvim", -- lsp
-    "hrsh7th/nvim-compe","hrsh7th/nvim-cmp", "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ", "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "junegunn/fzf.vim", 
-    {"junegunn/fzf", run=function() vim.fn["fzf#install"]() end},
-     "ray-x/lsp_signature.nvim", "vim-test/vim-test", "sindrets/diffview.nvim",
-    "simrat39/symbols-outline.nvim", "ruifm/gitlinker.nvim", "tanvirtin/vgit.nvim", "kdheepak/lazygit.nvim",   "kyazdani42/nvim-tree.lua"
+    "tjdevries/nlua.nvim",
+    "nvim-lua/plenary.nvim",
+    "nvim-lua/popup.nvim",
+    "rktjmp/lush.nvim",
+    "tjdevries/colorbuddy.vim",
+    -- tools
+    "ahmedkhalf/lsp-rooter.nvim",
+    "b3nj5m1n/kommentary",
+    "blackCauldron7/surround.nvim",
+    "kassio/neoterm",
+    "tpope/vim-repeat",
+    "tpope/vim-projectionist",
+    "windwp/nvim-autopairs",
+    "pechorin/any-jump.vim",
+    "phaazon/hop.nvim",
+    "junegunn/fzf.vim",
+    {"junegunn/fzf", run = function()
+            vim.fn["fzf#install"]()
+        end},
+    -- languages
+    "elixir-editors/vim-elixir",
+    -- appearance
+    "kyazdani42/nvim-web-devicons",
+    "lifepillar/vim-gruvbox8",
+    "sonph/onehalf",
+    "chriskempson/base16-vim",
+    "rakr/vim-one",
+    "sainnhe/edge",
+    "junegunn/seoul256.vim",
+    "tjdevries/gruvbuddy.nvim",
+    "lukas-reineke/indent-blankline.nvim",
+    "onsails/lspkind-nvim",
+    "tpope/vim-dispatch",
+    "folke/trouble.nvim",
+    "folke/lsp-colors.nvim",
+    "ojroques/nvim-hardline",
+    "lewis6991/gitsigns.nvim",
+    -- lsp
+    "neovim/nvim-lspconfig",
+    "nvim-telescope/telescope.nvim",
+    "ray-x/lsp_signature.nvim",
+    "vim-test/vim-test",
+    "sindrets/diffview.nvim",
+    "simrat39/symbols-outline.nvim",
+    "ruifm/gitlinker.nvim",
+    "tanvirtin/vgit.nvim",
+    "kdheepak/lazygit.nvim",
+    "kyazdani42/nvim-tree.lua",
+    "hrsh7th/vim-vsnip",
+    "hrsh7th/vim-vsnip-integ",
+    "hrsh7th/nvim-compe"
 }
 
 -- Removed treesitter as due to some issue it was making vim slow.
@@ -26,7 +68,9 @@ require "paq" {
 -- key-bindings - function to map keys and commands
 local function map(mode, lhs, rhs, opts)
     local options = {noremap = true, silent = true}
-    if opts then options = vim.tbl_extend("force", options, opts) end
+    if opts then
+        options = vim.tbl_extend("force", options, opts)
+    end
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
@@ -50,7 +94,7 @@ opt.backupdir = vim.fn.expand("~/.tmp/backup")
 opt.directory = vim.fn.expand("~/.tmp/swp")
 opt.swapfile = false -- Don't keep swap file. Most projects have git.
 opt.clipboard = "unnamedplus" -- Use system's clipboard.
-opt.completeopt = "menuone,noselect"
+opt.completeopt = "menu,menuone,noselect"
 opt.cursorline = false
 opt.encoding = "utf-8" -- Set default encoding to UTF-8
 opt.errorbells = false
@@ -103,10 +147,28 @@ opt.inccommand = "nosplit" --  if we want to show live results in a split window
 
 -- Ignore compiled files
 opt.wildignore = "*.zip"
-opt.wildignore = opt.wildignore + {
-    "*.beam", "*~", "*DS_Store*", "log/**", "*.png", "*.jpg", "*.gif", "*.png", "*.o", "*.obj", "*.so", "*.swp", "*.zip", "*/.Trash/**", "*.pdf",
-    "*.dmg", "*/Library/**", "*/_build/**"
-}
+opt.wildignore =
+    opt.wildignore +
+    {
+        "*.beam",
+        "*~",
+        "*DS_Store*",
+        "log/**",
+        "*.png",
+        "*.jpg",
+        "*.gif",
+        "*.png",
+        "*.o",
+        "*.obj",
+        "*.so",
+        "*.swp",
+        "*.zip",
+        "*/.Trash/**",
+        "*.pdf",
+        "*.dmg",
+        "*/Library/**",
+        "*/_build/**"
+    }
 
 opt.wildmode = {"longest", "list", "full"}
 
@@ -156,8 +218,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- " Keep the selection after indenting
-vim.api.nvim_set_keymap('x', '<', '<gv', {noremap = true})
-vim.api.nvim_set_keymap('x', '>', '>gv', {noremap = true})
+vim.api.nvim_set_keymap("x", "<", "<gv", {noremap = true})
+vim.api.nvim_set_keymap("x", ">", ">gv", {noremap = true})
 
 -- " Faster keyword completion - for <ctrl-j,k>, <ctrl-n,p>
 -- " disable scanning included files
@@ -166,15 +228,19 @@ vim.cmd("set complete-=i")
 -- Highlight on yank
 -- cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
 -- vim.cmd "au TextYankPost * silent! lua vim.highlight.on_yank()" -- this is same as long version below.
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+    [[
   augroup YankHighlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
-]], false)
+]],
+    false
+)
 
 -- Move Lines with Alt-Up and Alt-Down
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+    [[
   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   " => Move Lines with Alt-Up and Alt-Down
   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -192,10 +258,13 @@ vim.api.nvim_exec([[
   vnoremap <M-Up>   :m '<-2<CR>gv=gv
 
   " Move Lines - End
-]], false)
+]],
+    false
+)
 
 -- Toggle Zoom
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+    [[
   function! ToggleZoom(zoom)
     if exists("t:restore_zoom") && (a:zoom == v:true || t:restore_zoom.win != winnr())
         exec t:restore_zoom.cmd
@@ -210,16 +279,21 @@ vim.api.nvim_exec([[
       au WinEnter * silent! :call ToggleZoom(v:false)
   augroup END
   nnoremap <silent> <Leader>+ :call ToggleZoom(v:true)<CR>
-]], false)
+]],
+    false
+)
 
 -- Title String
 -- let &g:titlestring="%{expand('%:p:~:.')}%(%m%r%w%) %<\[%{fnamemodify(getcwd(), ':~')}\] - Neovim"
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+    [[
   let &g:titlestring="%{expand('%:p:~:.')}%(%m%r%w%) %<\[%{fnamemodify(getcwd(), ':~')}\]"
-]], false)
+]],
+    false
+)
 
 -- Y yank until the end of line
-vim.api.nvim_set_keymap('n', 'Y', 'y$', {noremap = true})
+vim.api.nvim_set_keymap("n", "Y", "y$", {noremap = true})
 
 -- auto-session
 -- require('auto-session').setup {auto_session_enable_last_session = true}
@@ -230,12 +304,11 @@ require("lsp-rooter").setup {ignore_lsp = {"efm"}}
 -- Neogit
 --[[ local neogit = require('neogit')
 neogit.setup {} ]]
-
 -- Vgit
-require('vgit').setup()
+require("vgit").setup()
 
 -- NVimTree
-require'nvim-tree'.setup {
+require "nvim-tree".setup {
     update_focused_file = {
         -- enables the feature
         enable = true,
@@ -249,28 +322,32 @@ require'nvim-tree'.setup {
 }
 
 -- gitlinker
-require"gitlinker".setup({
-    opts = {
-        remote = nil, -- force the use of a specific remote
-        -- adds current line nr in the url for normal mode
-        add_current_line_on_normal_mode = true,
-        -- callback for what to do with the url
-        action_callback = require"gitlinker.actions".copy_to_clipboard,
-        -- print the url after performing the action
-        print_url = true
-    },
-    callbacks = {["github.com"] = require"gitlinker.hosts".get_github_type_url, ["gitlab.com"] = require"gitlinker.hosts".get_gitlab_type_url},
-    -- default mapping to call url generation with action_callback
-    mappings = "<leader>gy"
-})
+require "gitlinker".setup(
+    {
+        opts = {
+            remote = nil, -- force the use of a specific remote
+            -- adds current line nr in the url for normal mode
+            add_current_line_on_normal_mode = true,
+            -- callback for what to do with the url
+            action_callback = require "gitlinker.actions".copy_to_clipboard,
+            -- print the url after performing the action
+            print_url = true
+        },
+        callbacks = {
+            ["github.com"] = require "gitlinker.hosts".get_github_type_url,
+            ["gitlab.com"] = require "gitlinker.hosts".get_gitlab_type_url
+        },
+        -- default mapping to call url generation with action_callback
+        mappings = "<leader>gy"
+    }
+)
 
 -- kommentary
 require("kommentary.config").configure_language("lua", {prefer_single_line_comments = true})
 
 -- surround
-require"surround".setup {}
+require "surround".setup {}
 -- vim.g.surround_prefix = "m"
-
 
 -- symbols-outline
 map("n", "<leader>tt", [[<Cmd>:SymbolsOutline<CR>]], opt)
@@ -298,10 +375,14 @@ require("hardline").setup {
     theme = "nord", -- change theme
     sections = {
         -- define sections
-        {class = "mode", item = require("hardline.parts.mode").get_item}, {class = "high", item = require("hardline.parts.git").get_item, hide = 80},
-        "%<", {class = "med", item = require("hardline.parts.filename").get_item}, {class = "med", item = "%="},
+        {class = "mode", item = require("hardline.parts.mode").get_item},
+        {class = "high", item = require("hardline.parts.git").get_item, hide = 80},
+        "%<",
+        {class = "med", item = require("hardline.parts.filename").get_item},
+        {class = "med", item = "%="},
         {class = "low", item = require("hardline.parts.wordcount").get_item, hide = 80},
-        {class = "error", item = require("hardline.parts.lsp").get_error}, {class = "warning", item = require("hardline.parts.lsp").get_warning},
+        {class = "error", item = require("hardline.parts.lsp").get_error},
+        {class = "warning", item = require("hardline.parts.lsp").get_warning},
         {class = "warning", item = require("hardline.parts.whitespace").get_item},
         {class = "high", item = require("hardline.parts.filetype").get_item, hide = 80},
         {class = "mode", item = require("hardline.parts.line").get_item}
@@ -314,19 +395,19 @@ require("hardline").setup {
 
 -- indent line
 vim.g.indentLine_char = "│"
-vim.g.indent_blankline_char = '│'
+vim.g.indent_blankline_char = "│"
 -- vim.g.indentLine_faster = 1
 -- vim.g.indentLine_setConceal = 2
 -- vim.g.indentLine_concealcursor = ""
 -- vim.g.indentLine_bufNameExclude = {"term:.*"}
 
 -- Compe
-require'compe'.setup {
+require "compe".setup {
     enabled = true,
     autocomplete = true,
     debug = false,
     min_length = 1,
-    preselect = 'enable',
+    preselect = "enable",
     throttle_time = 80,
     source_timeout = 200,
     resolve_timeout = 800,
@@ -335,14 +416,13 @@ require'compe'.setup {
     max_kind_width = 100,
     max_menu_width = 100,
     documentation = {
-        border = {'', '', '', ' ', '', '', '', ' '}, -- the border option is the same as `|help nvim_open_win|`
+        border = {"", "", "", " ", "", "", "", " "}, -- the border option is the same as `|help nvim_open_win|`
         winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
         max_width = 120,
         min_width = 60,
         max_height = math.floor(vim.o.lines * 0.3),
         min_height = 1
     },
-
     source = {path = true, buffer = true, calc = true, nvim_lsp = true, nvim_lua = true, vsnip = true}
 }
 
@@ -351,8 +431,8 @@ local t = function(str)
 end
 
 local check_back_space = function()
-    local col = vim.fn.col('.') - 1
-    return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
+    local col = vim.fn.col(".") - 1
+    return col == 0 or vim.fn.getline("."):sub(col, col):match("%s") ~= nil
 end
 
 --  Compe: Use (s-)tab to:
@@ -361,19 +441,19 @@ end
 _G.tab_complete = function()
     if vim.fn.pumvisible() == 1 then
         return t "<C-n>"
-    elseif vim.fn['vsnip#available'](1) == 1 then
+    elseif vim.fn["vsnip#available"](1) == 1 then
         return t "<Plug>(vsnip-expand-or-jump)"
     elseif check_back_space() then
         return t "<Tab>"
     else
-        return vim.fn['compe#complete']()
+        return vim.fn["compe#complete"]()
     end
 end
 
 _G.s_tab_complete = function()
     if vim.fn.pumvisible() == 1 then
         return t "<C-p>"
-    elseif vim.fn['vsnip#jumpable'](-1) == 1 then
+    elseif vim.fn["vsnip#jumpable"](-1) == 1 then
         return t "<Plug>(vsnip-jump-prev)"
     else
         -- If <S-Tab> is not working in your terminal, change it to <C-h>
@@ -392,23 +472,22 @@ vim.api.nvim_set_keymap("i", "<C-k>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<C-k>", "v:lua.s_tab_complete()", {expr = true})
 
 -- hop
-require'hop'.setup()
-vim.api.nvim_command('highlight HopNextKey guifg=none guibg=none gui=none ctermfg=none cterm=bold')
-vim.api.nvim_command('highlight HopNextKey1 guifg=none guibg=none gui=none ctermfg=none cterm=bold')
-vim.api.nvim_command('highlight HopNextKey2 guifg=none guibg=none gui=none ctermfg=none')
-vim.api.nvim_command('highlight HopUnmatched guifg=none guibg=none guisp=none ctermfg=none')
+require "hop".setup()
+vim.api.nvim_command("highlight HopNextKey guifg=none guibg=none gui=none ctermfg=none cterm=bold")
+vim.api.nvim_command("highlight HopNextKey1 guifg=none guibg=none gui=none ctermfg=none cterm=bold")
+vim.api.nvim_command("highlight HopNextKey2 guifg=none guibg=none gui=none ctermfg=none")
+vim.api.nvim_command("highlight HopUnmatched guifg=none guibg=none guisp=none ctermfg=none")
 
 vim.api.nvim_set_keymap("n", "f", "<cmd>lua require'hop'.hint_char1()<cr>", {})
 
 --  vim.api.nvim_command('highlight HopNextKey  guifg=#ff007c gui=bold ctermfg=198 cterm=bold')
 
-
 -- nvim-autopairs
 require("nvim-autopairs").setup()
-require("nvim-autopairs.completion.compe").setup({
-    map_cr = true, --  map <CR> on insert mode
-    map_complete = true -- it will auto insert `(` after select function or method item
-})
+-- require("nvim-autopairs.completion.compe").setup({
+--     map_cr = true, --  map <CR> on insert mode
+--     map_complete = true -- it will auto insert `(` after select function or method item
+-- })
 
 -- gitsigns
 require("gitsigns").setup()
@@ -429,9 +508,9 @@ vim.api.nvim_set_keymap("n", "tl", "<Cmd>TestLast<CR>", {silent = true, noremap 
 require("lspkind").init()
 
 -- Git Diffview
-local cb = require'diffview.config'.diffview_callback
+local cb = require "diffview.config".diffview_callback
 
-require'diffview'.setup {
+require "diffview".setup {
     diff_binaries = false, -- Show diffs for binaries
     use_icons = true, -- Requires nvim-web-devicons
     file_panel = {width = 35},
@@ -468,7 +547,12 @@ require'diffview'.setup {
 -- Trouble
 require("trouble").setup {}
 vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>xw", "<cmd>Trouble lsp_workspace_diagnostics<cr>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap(
+    "n",
+    "<leader>xw",
+    "<cmd>Trouble lsp_workspace_diagnostics<cr>",
+    {silent = true, noremap = true}
+)
 vim.api.nvim_set_keymap("n", "<leader>xd", "<cmd>Trouble lsp_document_diagnostics<cr>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", {silent = true, noremap = true})
@@ -575,42 +659,8 @@ map("n", "<leader>rc", [[:%s///gc<Left><Left><Left>]])
 -----------------------------------------------------------------------------------------------
 ---  LSP
 -----------------------------------------------------------------------------------------------
-local nvim_lsp = require("lspconfig")
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-capabilities.textDocument.completion.completionItem.snippetSupport = true
--- Setup our autocompletion. These configuration options are the default ones
--- copied out of the documentation.
-local cmp = require("cmp")
-
-cmp.setup({
-  snippet = {
-    expand = function(args)
-      -- For `vsnip` user.
-      vim.fn["vsnip#anonymous"](args.body)
-    end,
-  },
-  mapping = {
-    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<C-Space>"] = cmp.mapping.complete(),
-    ["<C-e>"] = cmp.mapping.close(),
-    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-  },
-  sources = {
-    { name = "nvim_lsp" },
-    { name = "vsnip" },
-  },
-  formatting = {
-    format = require("lspkind").cmp_format({
-      with_text = true,
-      menu = {
-        nvim_lsp = "[LSP]",
-      },
-    }),
-  },
-})
+local nvim_lspp = require("lspconfig")
+-- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -654,7 +704,7 @@ end
 USER = vim.fn.expand("$USER")
 local sumneko_binary = "/Users/" .. USER .. "/language-servers/lua-language-server/bin/macOS/lua-language-server"
 local sumneko_root_path = "/Users/" .. USER .. "/language-servers/lua-language-server"
-nvim_lsp.sumneko_lua.setup {
+nvim_lspp.sumneko_lua.setup {
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
     on_attach = custom_attach,
     flags = {debounce_text_changes = 150},
@@ -679,7 +729,21 @@ nvim_lsp.sumneko_lua.setup {
 }
 
 -- EFM - Mainly for credo, and luafmt as of now
-nvim_lsp.efm.setup {filetypes = {"lua", "elixir"}}
+nvim_lspp.efm.setup {
+    init_options = {documentFormatting = true},
+    filetypes = {"lua", "elixir"},
+    settings = {
+        rootMarkers = {".git/"},
+        languages = {
+            lua = {
+                {
+                    formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=150 --break-after-table-lb",
+                    formatStdin = true
+                }
+            }
+        }
+    }
+}
 
 -- Format on save
 -- When multiple LSPs are involved (e.g. elixirls & efm) then to avoid choosing which one to use, always use `formatting_seq_sync` instead of `formatting_sync`
@@ -690,43 +754,50 @@ vim.api.nvim_command("autocmd BufWritePre *.ex,*.exs lua vim.lsp.buf.formatting_
 -- Don't forget to build the language-server first.
 -- Try to choose the most recent tag possible.
 -- Link: https://www.mitchellhanberg.com/how-to-set-up-neovim-for-elixir-development/?utm_medium=email&utm_source=elixir-radar
-local path_to_elixirls = vim.fn.expand("/Users/" .. USER .. "/language-servers/elixir-ls/rel/language_server.sh")
-nvim_lsp.elixirls.setup({
-    cmd = {path_to_elixirls},
-    on_attach = custom_attach,
-    flags = {debounce_text_changes = 150},
-    settings = {
-        elixirLS = {
-            -- I choose to disable dialyzer for personal reasons, but
-            -- I would suggest you also disable it unless you are well
-            -- aquainted with dialzyer and know how to use it.
-            dialyzerEnabled = false,
-            -- I also choose to turn off the auto dep fetching feature.
-            -- It often get's into a weird state that requires deleting
-            -- the .elixir_ls directory and restarting your editor.
-            fetchDeps = false
+local path_to_elixirls = vim.fn.expand("/Users/" .. USER .. "/language-servers/elixir-ls/release/language_server.sh")
+nvim_lspp.elixirls.setup(
+    {
+        cmd = {path_to_elixirls},
+        on_attach = custom_attach,
+        flags = {debounce_text_changes = 150},
+        settings = {
+            elixirLS = {
+                -- I choose to disable dialyzer for personal reasons, but
+                -- I would suggest you also disable it unless you are well
+                -- aquainted with dialzyer and know how to use it.
+                dialyzerEnabled = false,
+                -- I also choose to turn off the auto dep fetching feature.
+                -- It often get's into a weird state that requires deleting
+                -- the .elixir_ls directory and restarting your editor.
+                fetchDeps = false
+            }
         }
     }
-})
+)
 
 -- Elixir Pipes:
 -- Adds |> when we press <C-l>,
 -- Adds |> IO.inspect(label: "here") when we press <C-h>
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+    [[
 augroup elixirbindings
   autocmd! elixirbindings
   autocmd Filetype elixir imap <buffer> <silent> <C-l> \|>
   autocmd Filetype elixir imap <buffer> <silent> <C-h> \|> IO.inspect(label: "Here")
   " autocmd Filetype elixir imap <buffer> <silent> <C-m> %{}
 augroup end
-]], false)
+]],
+    false
+)
 
 -- Set Syntax for different file extension
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+    [[
 augroup extension_syntax_setting
   autocmd! extension_syntax_setting
   autocmd BufNewFile,BufRead *.env,*.local,*.env.local,*.uat,*.prod,*.envrc,*.in set syntax=zsh
   autocmd BufNewFile,BufRead *.env.local set syntax=zsh
 augroup end
-]], false)
-
+]],
+    false
+)
