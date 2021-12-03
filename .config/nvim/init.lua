@@ -626,7 +626,7 @@ map("n", "<leader>b", [[<Cmd> Buffers<CR>]]) -- Find Buffers
 map("n", "<leader>s", [[<Cmd> Telescope live_grep theme=get_dropdown<CR>]]) -- Find Buffers
 map("n", "∆", [[<Cmd> TBD<CR>]]) -- Cmd+Shift+j unmapped for now
 map("n", "<C-p>", [[<Cmd> Telescope git_files theme=get_dropdown<CR>]], opt)
-map("n", "<C-p>", [[<Cmd> GFiles<CR>]], opt)
+map("n", "<C-p>", [[<Cmd> GFiles --exclude-standard --others --cached<CR>]], opt)
 map("n", "π", [[<Cmd> Telescope commands theme=get_dropdown<CR>]], opt) -- Cmd+p Dropdown with commands
 map("n", "π", [[<Cmd> Files<CR>]], opt) -- Cmd+p Dropdown with commands
 map("n", "¬", [[<Cmd> LazyGit<CR>]], opt) -- Cmd+l Lazygit
