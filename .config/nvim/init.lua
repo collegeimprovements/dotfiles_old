@@ -628,6 +628,7 @@ map("n", "∆", [[<Cmd> TBD<CR>]]) -- Cmd+Shift+j unmapped for now
 map("n", "<C-p>", [[<Cmd> Telescope git_files theme=get_dropdown<CR>]], opt)
 map("n", "<C-p>", [[<Cmd> GFiles<CR>]], opt)
 map("n", "π", [[<Cmd> Telescope commands theme=get_dropdown<CR>]], opt) -- Cmd+p Dropdown with commands
+map("n", "π", [[<Cmd> Files<CR>]], opt) -- Cmd+p Dropdown with commands
 map("n", "¬", [[<Cmd> LazyGit<CR>]], opt) -- Cmd+l Lazygit
 map("n", "<S-s>", [[<Cmd>Telescope builtin<CR>]], opt) -- Telescope builtin things
 map("n", ";;", "<C-^>", opt) -- goto pervious file fast
