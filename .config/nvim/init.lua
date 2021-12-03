@@ -193,6 +193,10 @@ vim.cmd("cnoreabbrev nowrap set nowrap")
 -- vim-test
 vim.cmd('let test#strategy = "neoterm"')
 
+-- FZF
+vim.env.FZF_DEFAULT_OPTS = '--layout=reverse'
+
+
 -- disable builtin vim plugins
 opt.wildignore = opt.wildignore + {"*.o", "*~", "*.pyc", "*pycache*"}
 g.loaded_gzip = 0
@@ -661,6 +665,23 @@ map("n", "<down>", [[<Cmd>:tabprev<CR>]], opt) -- Previous Tab
 -- then press a key below to replace all instances of it in the current file.
 map("n", "<leader>r", [[:%s///g<Left><Left>]])
 map("n", "<leader>rc", [[:%s///gc<Left><Left><Left>]])
+
+
+
+-- Yank, delete and paste will use the x register
+map("n", "y", '"xy', opt)
+map("x", "y", '"xy', opt)
+map("n", "Y", '"xy$', opt)
+
+map("n", "d", '"xd', opt)
+map("x", "d", '"xd', opt)
+map("n", "D", '"xD', opt)
+
+map("n", "p", '"xp', opt)
+map("x", "p", '"xP', opt)
+map("x", "P", '"xP', opt)
+
+
 -----------------------------------------------------------------------------------------------
 ---  LSP
 -----------------------------------------------------------------------------------------------
