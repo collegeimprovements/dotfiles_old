@@ -669,17 +669,16 @@ map("n", "<leader>rc", [[:%s///gc<Left><Left><Left>]])
 
 
 -- Yank, delete and paste will use the x register
-map("n", "y", '"xy', opt)
-map("x", "y", '"xy', opt)
-map("n", "Y", '"xy$', opt)
+-- map("n", "y", '"0y', opt)
+-- map("x", "y", '"0y', opt)
+-- map("n", "Y", '"0y$', opt)
 
-map("n", "d", '"xd', opt)
-map("x", "d", '"xd', opt)
-map("n", "D", '"xD', opt)
-
-map("n", "p", '"xp', opt)
-map("x", "p", '"xP', opt)
-map("x", "P", '"xP', opt)
+-- map("n", "d", '"0d', opt)
+-- map("x", "d", '"0d', opt)
+-- map("n", "D", '"0D', opt)
+-- map("n", "p", '"0p', opt)
+-- map("x", "p", '"0P', opt)
+-- map("x", "P", '"0P', opt)
 
 
 -----------------------------------------------------------------------------------------------
