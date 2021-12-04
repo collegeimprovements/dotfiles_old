@@ -306,6 +306,8 @@ alias t3="tree -L 3"
 alias t4="tree -L 4"
 alias weather="curl wttr.in"
 alias ball="brewall"
+alias si="source .in"
+alias sz="source ~/.zshrc"
 
 alias allowapp="sudo xattr -rd com.apple.quarantine"
 
