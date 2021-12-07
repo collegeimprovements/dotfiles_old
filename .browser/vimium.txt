@@ -1,0 +1,23 @@
+# Insert your preferred key mappings here.
+
+map t Vomnibar.activateTabSelection
+map <c-p> Vomnibar.activateTabSelection
+
+
+
+map gxr closeTabsOnRight
+map gxl closeTabsOnLeft
+map gxo closeOtherTabs
+
+
+map <c-d> scrollFullPageDown
+map <c-u> scrollFullPageUp
+
+map <c-f> LinkHints.activateModeToOpenInNewForegroundTab
+
+map <c-l> nextTab
+map <c-h> previousTab
+
+map M Marks.activateGotoMode
+
+
