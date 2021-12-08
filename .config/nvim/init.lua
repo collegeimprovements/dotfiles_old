@@ -22,6 +22,8 @@ require "paq" {
     {"junegunn/fzf", run = function()
             vim.fn["fzf#install"]()
         end},
+    "ray-x/guihua.lua",
+    "ray-x/sad.nvim",
     -- languages
     "elixir-editors/vim-elixir",
     -- appearance
@@ -242,6 +244,18 @@ vim.api.nvim_exec(
     false
 )
 
+
+-- Reload file if it changes outside nvim
+-- Current Usecase: :Sad old new
+-- https://www.reddit.com/r/neovim/comments/f0qx2y/automatically_reload_file_if_contents_changed/
+vim.api.nvim_exec(
+  [[
+      autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+       autocmd FileChangedShellPost *
+        \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+  ]], false
+)
+
 -- Move Lines with Alt-Up and Alt-Down
 vim.api.nvim_exec(
     [[
@@ -310,6 +324,15 @@ require("lsp-rooter").setup {ignore_lsp = {"efm"}}
 neogit.setup {} ]]
 -- Vgit
 require("vgit").setup()
+
+
+-- ray-x/sad.nvim
+require'sad'.setup({
+  diff = 'delta', -- you can use `diff`, `diff-so-fancy`
+  ls_file = 'fd', -- also git ls_file
+  exact = false, -- exact match
+
+})
 
 -- NVimTree
 require "nvim-tree".setup {
