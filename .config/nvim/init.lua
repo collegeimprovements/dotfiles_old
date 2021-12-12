@@ -9,6 +9,7 @@ require "paq" {
     "rktjmp/lush.nvim",
     "tjdevries/colorbuddy.vim",
     -- tools
+    "ldelossa/calltree.nvim",
     "ahmedkhalf/lsp-rooter.nvim",
     "b3nj5m1n/kommentary",
     "blackCauldron7/surround.nvim",
@@ -537,6 +538,10 @@ vim.api.nvim_set_keymap("n", "t<C-v>", "<Cmd>TestVisit<CR>", {silent = true, nor
 
 -- LSP Kind
 require("lspkind").init()
+
+-- calltree.nvim
+require('calltree').setup({})
+
 
 -- Git Diffview
 local cb = require "diffview.config".diffview_callback
