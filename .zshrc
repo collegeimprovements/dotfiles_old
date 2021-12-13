@@ -35,36 +35,6 @@ asdfreshim() {
 #================================================================================
 
 #================================================================================
-# Mcfly - START
-#================================================================================
-#mcfly - enhanced ctrl-r
-# eval "$(mcfly init zsh)"
-# export MCFLY_KEY_SCHEME=vim
-# export MCFLY_FUZZY=true
-# export MCFLY_INTERFACE_VIEW=BOTTOM
-
-
-#================================================================================
-# Mcfly - END
-#================================================================================
-
-#================================================================================
-# VOLTA Javascript Package Manager - Start
-#================================================================================
-export VOLTA_HOME="$HOME/.volta"
-[ -s "$VOLTA_HOME/load.sh" ] && . "$VOLTA_HOME/load.sh"
-# export PATH=$VOLTA_HOME/bin:$PATH #SET VOLATA in PATH
-# NOTE: volta path needs to come before /user/local/bin => For that it's path is set below. SEE: PATH - IMP Section
-
-# 👇🏽 is not working currently - track: https://github.com/volta-cli/volta/issues/574
-alias save_vlist="volta list --format=plain > ~/.config/volta/volta_list.txt"
-alias vlist="volta list  --format=plain && save_vlist"
-
-#================================================================================
-# VOLTA Javascript Package Manager - End
-#================================================================================
-
-#================================================================================
 # PATH - IMP - Start
 #================================================================================
 # If you come from bash you might have to change your $PATH.
