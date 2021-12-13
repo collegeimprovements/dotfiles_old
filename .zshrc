@@ -38,10 +38,10 @@ asdfreshim() {
 # Mcfly - START
 #================================================================================
 #mcfly - enhanced ctrl-r
-eval "$(mcfly init zsh)"
-export MCFLY_KEY_SCHEME=vim
-export MCFLY_FUZZY=true
-export MCFLY_INTERFACE_VIEW=BOTTOM
+# eval "$(mcfly init zsh)"
+# export MCFLY_KEY_SCHEME=vim
+# export MCFLY_FUZZY=true
+# export MCFLY_INTERFACE_VIEW=BOTTOM
 
 
 #================================================================================
