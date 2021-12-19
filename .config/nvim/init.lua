@@ -680,8 +680,8 @@ map("n", "j", "gj", opt)
 map("n", "k", "gk", opt)
 
 -- Paste the last thing yanked
-map("n", ",p", '"0p', opt)
-map("n", ",P", '"0P', opt)
+-- map("n", ",p", '"0p', opt)
+-- map("n", ",P", '"0P', opt)
 
 -- Buffer Navigation
 map("n", "<right>", [[<Cmd>:bnext<CR>]], opt) -- Next Buffer
@@ -697,16 +697,18 @@ map("n", "<leader>rc", [[:%s///gc<Left><Left><Left>]])
 
 
 -- Yank, delete and paste will use the x register
--- map("n", "y", '"0y', opt)
--- map("x", "y", '"0y', opt)
--- map("n", "Y", '"0y$', opt)
+-- This is something i don't understand but I changed 0 to * in first 3 lines below and it works now.
+-- I just want to keep yiw -> viwp workflow to work smoothly and also want to keep thing in system clipboard.
+map("n", "y", '"*y', opt)
+map("x", "y", '"*y', opt)
+map("n", "Y", '"*y$', opt)
 
--- map("n", "d", '"0d', opt)
--- map("x", "d", '"0d', opt)
--- map("n", "D", '"0D', opt)
--- map("n", "p", '"0p', opt)
--- map("x", "p", '"0P', opt)
--- map("x", "P", '"0P', opt)
+map("n", "d", '"0d', opt)
+map("x", "d", '"0d', opt)
+map("n", "D", '"0D', opt)
+map("n", "p", '"0p', opt)
+map("x", "p", '"0P', opt)
+map("x", "P", '"0P', opt)
 
 
 -----------------------------------------------------------------------------------------------
