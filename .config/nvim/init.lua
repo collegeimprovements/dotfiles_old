@@ -540,7 +540,7 @@ vim.api.nvim_set_keymap("n", "t<C-v>", "<Cmd>TestVisit<CR>", {silent = true, nor
 require("lspkind").init()
 
 -- calltree.nvim
-require('calltree').setup({})
+-- require('calltree').setup({})
 
 
 -- Git Diffview
