@@ -381,3 +381,20 @@ bindkey '^Z' fancy-ctrl-z
 #================================================================================
 # Python Related Things - CAPCHASE
 #================================================================================
+
+
+#================================================================================
+# Kitty - Zsh - Cursor Shape should be blocked
+#================================================================================
+function zle-keymap-select zle-line-init zle-line-finish
+{
+  case $KEYMAP in
+      vicmd)      print -n '\033[1 q';; # block cursor -> '\033[1 q';;
+      viins|main) print -n '\033[1 q';; # line cursor -> '\033[5 q';; 
+  esac
+}
+
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select
+#================================================================================
