@@ -5,5 +5,5 @@ nodejs 14.17.3
 python 3.9.5 2.7.18
 golang 1.17.3
 rabbitmq 3.8.17
-postgres 14beta2
+postgres 14.1
 neovim nightly

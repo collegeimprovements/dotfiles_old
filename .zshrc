@@ -8,6 +8,7 @@
 # export USERNAME=apple
 export TERM=xterm-256color
 
+export AWS_REGION=us-east-1
 # ALSO - .zshenv is not a good place for setting PATH on macos. https://stackoverflow.com/questions/26433856/why-would-path-be-getting-overwritten-after-shell-login#comment69745215_26434096
 #================================================================================
 # ASDF - Start
@@ -349,6 +350,10 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 #cal - show previous and future month as well
 alias cal="cal -3"
 alias att="almostontop toggle"
+alias sso="aws --profile retail-dev-EternityDev sso login"
+alias sl="sh ~/a.sh"
+alias bsh="AWS_PROFILE=retail-dev-EternityDev ssh"
+
 
 #python
 # alias python=python3
@@ -398,3 +403,4 @@ zle -N zle-line-init
 zle -N zle-line-finish
 zle -N zle-keymap-select
 #================================================================================
+
