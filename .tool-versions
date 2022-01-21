@@ -1,5 +1,5 @@
 erlang 24.0.3
-elixir 1.13.0-otp-24
+elixir 1.13.2-otp-24
 rust 1.51.0
 nodejs 14.17.3
 python 3.9.5 2.7.18
@@ -7,3 +7,4 @@ golang 1.17.3
 rabbitmq 3.8.17
 postgres 14.1
 neovim nightly
+ruby 3.1.0
