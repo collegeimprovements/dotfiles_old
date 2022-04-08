@@ -12,7 +12,6 @@ require "paq" {
     "ldelossa/calltree.nvim",
     "ahmedkhalf/lsp-rooter.nvim",
     "b3nj5m1n/kommentary",
-    "blackCauldron7/surround.nvim",
     "kassio/neoterm",
     "tpope/vim-repeat",
     "tpope/vim-projectionist",
@@ -373,9 +372,6 @@ require "gitlinker".setup(
 -- kommentary
 require("kommentary.config").configure_language("lua", {prefer_single_line_comments = true})
 
--- surround
-require "surround".setup {}
--- vim.g.surround_prefix = "m"
 
 -- symbols-outline
 map("n", "<leader>tt", [[<Cmd>:SymbolsOutline<CR>]], opt)
