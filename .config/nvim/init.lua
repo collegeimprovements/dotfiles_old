@@ -27,6 +27,7 @@ require "paq" {
     "ray-x/sad.nvim",
     -- languages
     "elixir-editors/vim-elixir",
+    'mhanberg/elixir.nvim',
     -- appearance
     "kyazdani42/nvim-web-devicons",
     "lifepillar/vim-gruvbox8",
@@ -576,6 +577,10 @@ require "diffview".setup {
         }
     }
 }
+
+-- Motch Elixir
+require("elixir").setup()
+
 
 -- Trouble
 require("trouble").setup {}
