@@ -9,6 +9,7 @@ require "paq" {
     "rktjmp/lush.nvim",
     "tjdevries/colorbuddy.vim",
     -- tools
+    'mg979/vim-visual-multi',
     "ldelossa/calltree.nvim",
     "ahmedkhalf/lsp-rooter.nvim",
     "b3nj5m1n/kommentary",
