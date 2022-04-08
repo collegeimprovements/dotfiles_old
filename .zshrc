@@ -54,6 +54,7 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export PATH=~/language-servers/elixir-ls/rel:$PATH # Language Servers
 export PATH=~/language-servers/lua-language-server/bin/macOS:$PATH
 
+export PATH="/usr/local/opt/openssl@3/bin:$PATH"
 
 #================================================================================
 # PATH - IMP - End
