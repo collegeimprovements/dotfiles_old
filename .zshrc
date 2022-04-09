@@ -147,12 +147,15 @@ brewall() {
 #================================================================================
 # source <(antibody init)
 
-source ~/.zsh_plugins.sh
+# source ~/.zsh_plugins.sh
 
 # Update Zsh plugins
 updatezsh() {
-    antibody bundle <~/.zsh_plugins.txt >~/.zsh_plugins.sh
-    antibody update
+    # antibody bundle <~/.zsh_plugins.txt >~/.zsh_plugins.sh
+    # antibody update
+    
+    # zinit update --all
+    zinit update --parallel
     source ~/.zshrc
 }
 #================================================================================
@@ -410,4 +413,74 @@ zle -N zle-keymap-select
 # EXAMPLES
 #================================================================================
 # rg 'ClocheApi' --files-with-matches | xargs sd -f c ClocheApi Cie
+#================================================================================
+
+#================================================================================
+### Added by Zinit's installer
+#================================================================================
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
+#================================================================================
+# MY ZSH PLUGINS (I used to use Antibody for this)
+#================================================================================
+zinit ice wait"2" lucid
+zinit light zsh-users/zsh-autosuggestions
+zinit ice wait"2" lucid
+zinit light zsh-users/zsh-completions
+zinit ice wait"2" lucid
+zinit light zsh-users/zsh-history-substring-search
+zinit ice wait"2" lucid
+zinit light zsh-users/zsh-syntax-highlighting
+
+zinit light zpm-zsh/autoenv
+
+# denysdovhan/spaceship-prompt - another good shell.
+zinit light subnixr/minimal # current shell - it's quite nice.
+zinit ice wait"2" lucid
+zinit light popstas/zsh-command-time
+
+zinit ice wait"2" lucid
+zinit light changyuheng/fz
+zinit ice wait"2" lucid
+zinit light rupa/z
+
+zinit ice wait"2" lucid
+zinit light caarlos0/zsh-mkc
+zinit ice wait"2" lucid
+zinit light mattmc3/zsh-safe-rm
+
+# unixorn/tumult.plugin.zsh #https://github.com/unixorn/tumult.plugin.zsh -> For useful commands
+# unixorn/tumult.plugin.zsh
+zinit ice wait"2" lucid
+zinit light MichaelAquilina/zsh-you-should-use
+
+zinit ice wait"2" lucid
+zinit light paulirish/git-open
+
+#experimental
+zinit ice wait"2" lucid
+zinit light wfxr/forgit
+
+zinit ice wait"2" lucid
+zinit light Valiev/almostontop
+# jeffreytse/zsh-vi-mode
 #================================================================================
