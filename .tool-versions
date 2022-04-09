@@ -2,9 +2,9 @@ erlang 24.2
 elixir 1.13.4-otp-24
 rust 1.51.0
 nodejs 17.9.0
-python 3.10.2
+python 3.10.4
 golang 1.17.3
 rabbitmq 3.8.17
 postgres 14.2
 neovim nightly
-ruby 3.1.0
+ruby 3.1.1
