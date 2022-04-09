@@ -213,5 +213,6 @@ cask "typora"
 cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
+cask "zoom"
 mas "Adblock Plus", id: 1432731683
 mas "Xcode", id: 497799835
