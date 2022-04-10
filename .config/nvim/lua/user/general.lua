@@ -1,3 +1,22 @@
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+-- key-bindings - function to map keys and commands
+local function map(mode, lhs, rhs, opts)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+local opts = { noremap = true, silent = true }
+
+-- Shorten function name
+local keymap = vim.api.nvim_set_keymap
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+
 -- Reload file if it changes outside nvim
 -- Current Usecase: :Sad old new
 -- https://www.reddit.com/r/neovim/comments/f0qx2y/automatically_reload_file_if_contents_changed/
@@ -77,8 +96,37 @@ vim.api.nvim_exec(
 )
 
 -- " Keep the selection after indenting
-vim.api.nvim_set_keymap("x", "<", "<gv", { noremap = true })
-vim.api.nvim_set_keymap("x", ">", ">gv", { noremap = true })
+keymap("x", "<", "<gv", { noremap = true })
+keymap("x", ">", ">gv", { noremap = true })
 
 -- Source $MYVIMRC after saving
 vim.cmd("au! BufWritePost $MYVIMRC source %")
+
+-- Copy Paste Better
+keymap("v", "p", '"_dp', opts)
+
+
+-- Quickly add empty lines
+map("n", "[<space>", ":<c-u>put! =repeat(nr2char(10), v:count1)<cr>", opts)
+map("n", "]<space>", ":<c-u>put =repeat(nr2char(10), v:count1)<cr>", opts)
+
+-- Allow easy navigation between wrapped lines.
+map("v", "j", "gj", opts)
+map("v", "k", "gk", opts)
+map("n", "j", "gj", opts)
+map("n", "k", "gk", opts)
+
+-- Paste the last thing yanked
+-- map("n", ",p", '"0p', opts)
+-- map("n", ",P", '"0P', opts)
+
+-- Buffer Navigation
+map("n", "<right>", [[<Cmd>:bnext<CR>]], opts) -- Next Buffer
+map("n", "<left>", [[<Cmd>:bprevious<CR>]], opts) -- Previous Buffer
+map("n", "<up>", [[<Cmd>:tabnext<CR>]], opts) -- Next Tab
+map("n", "<down>", [[<Cmd>:tabprev<CR>]], opts) -- Previous Tab
+
+-- Press * to search for the term under the cursor or a visual selection and
+-- then press a key below to replace all instances of it in the current file.
+map("n", "<leader>r", [[:%s///g<Left><Left>]])
+map("n", "<leader>rc", [[:%s///gc<Left><Left><Left>]])

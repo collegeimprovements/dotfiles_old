@@ -1,14 +1,23 @@
-require "user.options"
-require "user.keymaps"
-require "user.general"
+require("user.options")
+require("user.keymaps")
+require("user.general")
 
-require "user.plugins"
+require("user.plugins")
 
-require "user.cmp"
-require "user.lsp"
+require("user.cmp")
+require("user.lsp")
 
-require "user.autopairs"
-require "user.comment"
-require "user.colorscheme"
-require "user.gitsigns"
-require "user.impatient"
+require("user.autopairs")
+require("user.comment")
+require("user.colorscheme")
+require("user.gitsigns")
+require("user.impatient")
+require("user.elixir")
+require("user.nvim-tree")
+require("user.lualine")
+require("user.gitlinker")
+require("user.sad")
+require("user.vgit")
+require("user.hop")
+require("user.vim-test")
+require("user.trouble")
