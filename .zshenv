@@ -12,7 +12,7 @@ export LANG="en_US"
 # ZSH Common Settings/Options - Start
 #================================================================================
 #autocompletion - git and maybe others
-autoload -U compinit && compinit
+autoload -Uz compinit && compinit
 zmodload -i zsh/complist
 
 #globbing - remove if required
@@ -194,13 +194,13 @@ c() {
 }
 
 # allowapp <path of application> - generally app is in /Application
-allowapp() {
-  if [ $# -eq 0 ]; then
-    echo "Select Application's Path. e.g. /Applications/Sketch.app "
-  else
-    xattr -cr $1
-  fi
-}
+# allowapp() {
+#   if [ $# -eq 0 ]; then
+#     echo "Select Application's Path. e.g. /Applications/Sketch.app"
+#   else
+#     xattr -cr $1
+#   fi
+# }
 
 # Make any number of directories, passing options to mkdir. Then cd to the last-mentioned directory.
 
