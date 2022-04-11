@@ -1,5 +1,5 @@
 -- hop
-require "hop".setup()
+require("hop").setup()
 vim.api.nvim_command("highlight HopNextKey guifg=none guibg=none gui=none ctermfg=none cterm=bold")
 vim.api.nvim_command("highlight HopNextKey1 guifg=none guibg=none gui=none ctermfg=none cterm=bold")
 vim.api.nvim_command("highlight HopNextKey2 guifg=none guibg=none gui=none ctermfg=none")
