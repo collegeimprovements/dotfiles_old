@@ -31,6 +31,7 @@ require("paq")({
 	-- "nvim-lualine/lualine.nvim",
 	"weilbith/nvim-code-action-menu",
 	-- "tpope/vim-projectionist",
+	"nvim-treesitter/nvim-treesitter",
 	"windwp/nvim-autopairs",
 	"pechorin/any-jump.vim",
 	"phaazon/hop.nvim",
