@@ -6,11 +6,11 @@ local keymap = vim.api.nvim_set_keymap
 
 -- key-bindings - function to map keys and commands
 local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	local options = { noremap = true, silent = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 --Remap space as leader key
@@ -30,8 +30,9 @@ keymap("v", ">", ">gv", opts)
 keymap("x", "<", "<gv", opts)
 keymap("x", ">", ">gv", opts)
 
-
 -- Key Mappings
+map("n", "<leader>s", [[ <Cmd> set signcolumn=number<CR>]], opts) -- Toggle Number
+map("n", "<leader>S", [[ <Cmd> set signcolumn=yes:1<CR>]], opts) -- Toggle Number
 map("n", "<leader>n", [[ <Cmd> set nu!<CR>]], opts) -- Toggle Number
 map("n", "<leader>r", [[ <Cmd> source ~/.config/nvim/init.lua<CR>]], opts) -- Source $MYVIMRC
 map("n", "ß", [[<Cmd>:w <CR>]], opts) -- Save - Cmd+s
@@ -45,21 +46,25 @@ map("n", "bd", [[<Cmd> bd <CR>]], opts) -- Close the buffer
 map("n", "<leader>ps", [[ <Cmd> PaqSync<CR>]]) -- Sync = install + update the plugins
 map("n", "∫", [[ <Cmd> NvimTreeToggle<CR>]]) -- Cmd+b Open NvimTree Sidebar
 map("n", "<C-e>", [[ <Cmd> NvimTreeToggle<CR>]]) -- Open NvimTree Sidebar
-map("n", "ƒ", [[<Cmd> Telescope find_files theme=get_dropdown<CR>]]) -- Find Files
 map("n", "ƒ", [[<Cmd> Files<CR>]]) -- Find Files
 map("n", "<leader>m", [[<Cmd> Rg<CR>]]) -- Find Buffers
-map("n", "<leader>b", [[<Cmd> Telescope buffers theme=get_dropdown<CR>]]) -- Find Buffers
 map("n", "<leader>b", [[<Cmd> Buffers<CR>]]) -- Find Buffers
-map("n", "<leader>s", [[<Cmd> Telescope live_grep theme=get_dropdown<CR>]]) -- Find Buffers
 map("n", "∆", [[<Cmd> TBD<CR>]]) -- Cmd+Shift+j unmapped for now
-map("n", "<C-p>", [[<Cmd> Telescope git_files theme=get_dropdown<CR>]], opts)
 map("n", "<C-p>", [[<Cmd> GFiles --exclude-standard --others --cached<CR>]], opts)
-map("n", "π", [[<Cmd> Telescope commands theme=get_dropdown<CR>]], opts) -- Cmd+p Dropdown with commands
 map("n", "π", [[<Cmd> Files<CR>]], opts) -- Cmd+p Dropdown with commands
 map("n", "¬", [[<Cmd> LazyGit<CR>]], opts) -- Cmd+l Lazygit
-map("n", "<S-s>", [[<Cmd>Telescope builtin<CR>]], opts) -- Telescope builtin things
 map("n", ";;", "<C-^>", opts) -- goto pervious file fast
 map("n", "<leader>;", ":", opts) -- Run commad in command-mode. i.e. at bottom of nvim's commandline.
 map("x", "<leader>;", ":", opts) -- Run commad in command-mode. i.e. at bottom of nvim's commandline.
 map("n", "<c-c>", ":", opts) -- Run commad in command-mode. i.e. at bottom of nvim's commandline.
 map("x", "<c-c>", ":", opts) -- Run commad in command-mode. i.e. at bottom of nvim's commandline.
+map("n", "<leader>tt", [[<Cmd>:SymbolsOutline<CR>]], opts) -- symbols-outline
+map("n", "<leader>td", [[<Cmd>:TroubleToggle document_diagnostics<CR>]], opts) -- symbols-outline
+
+-- Telescope
+-- map("n", "ƒ", [[<Cmd> Telescope find_files theme=get_dropdown<CR>]]) -- Find Files
+-- map("n", "<C-p>", [[<Cmd> Telescope git_files theme=get_dropdown<CR>]], opts)
+-- map("n", "<S-s>", [[<Cmd>Telescope builtin<CR>]], opts) -- Telescope builtin things
+-- map("n", "π", [[<Cmd> Telescope commands theme=get_dropdown<CR>]], opts) -- Cmd+p Dropdown with commands
+-- map("n", "<leader>b", [[<Cmd> Telescope buffers theme=get_dropdown<CR>]]) -- Find Buffers
+-- map("n", "<leader>s", [[<Cmd> Telescope live_grep theme=get_dropdown<CR>]]) -- Find Buffers

@@ -43,7 +43,7 @@ opt.sidescrolloff = 8 -- Columns of context
 opt.shiftround = true -- Round indent
 opt.shiftwidth = 2 -- Size of an indent
 opt.showmode = false -- Don't display mode
-opt.signcolumn = "number" -- always show signcolumns
+opt.signcolumn = "yes:1" -- always show signcolumns
 opt.smartcase = true -- Do not ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
 opt.spelllang = "en" -- English
@@ -69,8 +69,8 @@ opt.inccommand = "nosplit" --  if we want to show live results in a split window
 
 -- Ignore compiled files
 opt.wildignore = "*.zip"
-opt.wildignore = opt.wildignore +
-    {
+opt.wildignore = opt.wildignore
+    + {
       "*.beam",
       "*~",
       "*DS_Store*",
@@ -88,7 +88,7 @@ opt.wildignore = opt.wildignore +
       "*.pdf",
       "*.dmg",
       "*/Library/**",
-      "*/_build/**"
+      "*/_build/**",
     }
 
 opt.wildmode = { "longest", "list", "full" }
@@ -110,7 +110,6 @@ vim.cmd("cnoreabbrev Q q")
 vim.cmd("cnoreabbrev Bd bd")
 vim.cmd("cnoreabbrev wrap set wrap")
 vim.cmd("cnoreabbrev nowrap set nowrap")
-
 
 -- disable builtin vim plugins
 opt.wildignore = opt.wildignore + { "*.o", "*~", "*.pyc", "*pycache*" }
@@ -135,5 +134,5 @@ vim.cmd("set complete-=i")
 
 -- Treat word with hyphen(-) as single word.
 -- https://www.youtube.com/watch?v=hY5-Q6NxQgY&list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ&index=2
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
+vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd([[set iskeyword+=-]])
