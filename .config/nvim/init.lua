@@ -4,10 +4,10 @@ require("user.general")
 
 require("user.plugins")
 
-require("user.cmp")
 require("user.lsp")
 
 require("user.autopairs")
+require("user.cmp")
 require("user.colorscheme")
 require("user.comment")
 require("user.elixir")
