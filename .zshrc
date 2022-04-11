@@ -50,6 +50,7 @@ export PATH=$VOLTA_HOME/bin:$PATH   #SET VOLATA in PATH
 export PATH=$HOME/.asdf/shims:$PATH #https://github.com/asdf-vm/asdf/issues/107#issuecomment-257282018
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 
+export PATH=${PATH//$(asdf where python)\/shims:/}
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH=~/language-servers/elixir-ls/rel:$PATH # Language Servers
 export PATH=~/language-servers/lua-language-server/bin/macOS:$PATH
