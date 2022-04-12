@@ -24,6 +24,7 @@ require("paq")({
 	"rktjmp/lush.nvim",
 	"tjdevries/colorbuddy.vim",
 	-- tools
+	"ygm2/rooter.nvim",
 	"mg979/vim-visual-multi",
 	"numToStr/Comment.nvim",
 	"kassio/neoterm",
