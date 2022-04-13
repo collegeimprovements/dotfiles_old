@@ -8,6 +8,9 @@
 # export USERNAME=apple
 export TERM=xterm-256color
 
+# GPG
+export GPG_TTY=$(tty)
+
 export AWS_REGION=us-east-1
 # ALSO - .zshenv is not a good place for setting PATH on macos. https://stackoverflow.com/questions/26433856/why-would-path-be-getting-overwritten-after-shell-login#comment69745215_26434096
 #================================================================================
