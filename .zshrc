@@ -59,6 +59,7 @@ export PATH=~/language-servers/elixir-ls/rel:$PATH # Language Servers
 export PATH=~/language-servers/lua-language-server/bin/macOS:$PATH
 
 export PATH="/usr/local/opt/openssl@3/bin:$PATH"
+export PATH="$HOME/.apollo/bin:$PATH"
 
 #================================================================================
 # PATH - IMP - End
@@ -252,6 +253,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
 alias vim="nvim"
 alias vi="nvim"
 alias n="nvim"
@@ -296,6 +298,7 @@ alias allowapp="sudo xattr -rd com.apple.quarantine"
 alias claer="clear"
 alias cler="clear"
 alias oepn="open"
+alias breww="brew"
 
 #suffix aliases
 # alias -s {zip,ZIP}="unzip -l"
@@ -304,7 +307,8 @@ alias oepn="open"
 alias -s {pdf,PDF}='preview'
 alias -s {mp4,MP4,mov,MOV}='vlc'
 alias -s {zip,ZIP}="unzip -l"
-alias -s {txt,css,js,mdx,md,ex,exs,jsx,zshrc,zsh_profile,json,xml}="code"
+# alias -s {txt,css,js,mdx,md,ex,exs,jsx,zshrc,zsh_profile,json,xml}="code"
+alias -s {txt,css,js,mdx,md,ex,exs,jsx,zshrc,zsh_profile,json,xml,yml,toml,yaml}="nvim"
 
 # Git Aliases
 alias lg="lazygit"
@@ -372,7 +376,6 @@ alias bsh="AWS_PROFILE=retail-dev-EternityDev ssh"
 #================================================================================
 
 # source /Users/arpit/Library/Preferences/org.dystroy.broot/launcher/bash/br
-export PATH="$HOME/.apollo/bin:$PATH"
 
 #================================================================================
 # Useful Functions
