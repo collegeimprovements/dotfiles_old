@@ -69,26 +69,27 @@ opt.inccommand = "nosplit" --  if we want to show live results in a split window
 
 -- Ignore compiled files
 opt.wildignore = "*.zip"
-opt.wildignore = opt.wildignore({
-  "*.beam",
-  "*~",
-  "*DS_Store*",
-  "log/**",
-  "*.png",
-  "*.jpg",
-  "*.gif",
-  "*.png",
-  "*.o",
-  "*.obj",
-  "*.so",
-  "*.swp",
-  "*.zip",
-  "*/.Trash/**",
-  "*.pdf",
-  "*.dmg",
-  "*/Library/**",
-  "*/_build/**",
-})
+opt.wildignore = opt.wildignore
+	+ {
+		"*.beam",
+		"*~",
+		"*DS_Store*",
+		"log/**",
+		"*.png",
+		"*.jpg",
+		"*.gif",
+		"*.png",
+		"*.o",
+		"*.obj",
+		"*.so",
+		"*.swp",
+		"*.zip",
+		"*/.Trash/**",
+		"*.pdf",
+		"*.dmg",
+		"*/Library/**",
+		"*/_build/**",
+	}
 
 opt.wildmode = { "longest", "list", "full" }
 
