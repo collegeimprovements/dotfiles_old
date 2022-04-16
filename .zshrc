@@ -179,7 +179,9 @@ updatezsh() {
 #================================================================================
 # FZF - Start
 #================================================================================
+export FZF_DEFAULT_COMMAND='rg --files'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 #================================================================================
 # FZF - End
 #================================================================================
@@ -254,13 +256,17 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
+alias 2.="cd ../.."
+alias 3.="cd ../../.."
+alias 4.="cd ../../../.."
+alias 5.="cd ../../../../.."
 alias vim="nvim"
 alias vi="nvim"
 alias n="nvim"
 alias update-nvim-nightly='asdf uninstall neovim nightly && asdf install neovim nightly'
 alias cz="code ~/.zshrc"
-alias cnz="nvim ~/.zshrc"
-alias zrc="code ~/.zshrc"
+alias cnz="code ~/.zshrc"
+alias zrc="nvim ~/.zshrc"
 alias ce="code ~/.zshenv"
 alias cze="code ~/.zshrc ~/.zshenv"
 alias o="open ."
@@ -269,6 +275,10 @@ alias down="cd ~/Downloads"
 alias ca="~/Projects/ZAKI/cloche_api"
 alias p="~/Documents/projects"
 alias b="~/Blockfi/blockfi-mystique"
+alias bl="~/Blockfi/blockfi-mystique"
+alias bm="~/Blockfi/blockfi-mystique"
+alias cl="~/Cookstro/cloche_api"
+alias clo="~/Cookstro/cloche_api"
 alias e="~/Projects/Live/eternity_client"
 alias ui="/Users/$USERNAME/Documents/projects/ultra-ui"
 alias infra="cd ~/Documents/projects/infrastructure"
