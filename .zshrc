@@ -27,6 +27,7 @@ vimtoline(){ IFS=: read -r f l <<< "$1"; nvim "$f" +"$l"; }
 export PATH=~/language-servers/elixir-ls/rel:$PATH # Language Servers
 export PATH=~/language-servers/lua-language-server/bin/macOS:$PATH
 . /usr/local/opt/asdf/asdf.sh # THIS IS MUCH FASTER THAN THE ABOVE -> . $(brew --prefix asdf)/asdf.sh
+export PATH=$HOME/.asdf/shims:$PATH #https://github.com/asdf-vm/asdf/issues/107#issuecomment-257282018
 
 #NOTE: asdf path should be first - i.e. before /user/local/bin and /usr/bin etc.
 #Hence it's set before all. SEE: PATH - IMP Section
@@ -38,9 +39,14 @@ export PATH=~/language-servers/lua-language-server/bin/macOS:$PATH
 # Note: later we have set android paths. I don't need java except for react-native yet.
 # Hence I'm not installing java explicitly. We will rely on react-native's java guide.
 
-asdfreshim() {
-    asdf reshim erlang elixir golang rust ruby java python
+# asdfreshim() {
+#     asdf reshim erlang elixir golang rust ruby java python
+# }
+
+asdfreshim(){
+  rm -rf ~/.asdf/shims; asdf reshim
 }
+
 #================================================================================
 # ASDF - END
 #================================================================================
@@ -50,14 +56,14 @@ asdfreshim() {
 #================================================================================
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/.asdf/installs/elixir/1.12.0-rc.0-otp-23/.mix/escripts/:$PATH
+
+export PATH=/usr/local/bin:$PATH    #for homebrew
+export PATH=/usr/local/sbin:$PATH   #for homebrew
+
 export PATH=/usr/local/opt/make/libexec/gnubin:$PATH #for make 
 export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH #grep
 export PATH=/usr/local/lib/luarocks/rocks-5.4/luaformatter/scm-1/bin:$PATH
 
-export PATH=/usr/local/bin:$PATH    #for homebrew
-export PATH=/usr/local/sbin:$PATH   #for homebrew
-export PATH=$VOLTA_HOME/bin:$PATH   #SET VOLATA in PATH
-export PATH=$HOME/.asdf/shims:$PATH #https://github.com/asdf-vm/asdf/issues/107#issuecomment-257282018
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 
 export PATH=${PATH//$(asdf where python)\/shims:/}
