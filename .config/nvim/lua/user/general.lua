@@ -3,11 +3,11 @@
 ------------------------------------------------------------------------
 -- key-bindings - function to map keys and commands
 local function map(mode, lhs, rhs, opts)
-	local options = { noremap = true, silent = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 local opts = { noremap = true, silent = true }
@@ -22,25 +22,25 @@ local keymap = vim.api.nvim_set_keymap
 -- Current Usecase: :Sad old new
 -- https://www.reddit.com/r/neovim/comments/f0qx2y/automatically_reload_file_if_contents_changed/
 vim.api.nvim_exec(
-	[[
+  [[
       autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
        autocmd FileChangedShellPost *
         \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
   ]],
-	false
+  false
 )
 
 -- Highlight on yank
 -- cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
 -- vim.cmd "au TextYankPost * silent! lua vim.highlight.on_yank()" -- this is same as long version below.
 vim.api.nvim_exec(
-	[[
+  [[
   augroup YankHighlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
-]],
-	false
+]] ,
+  false
 )
 
 -- Y yank until the end of line
@@ -48,7 +48,7 @@ vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true })
 
 -- Move Lines with Alt-Up and Alt-Down
 vim.api.nvim_exec(
-	[[
+  [[
   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   " => Move Lines with Alt-Up and Alt-Down
   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -63,13 +63,13 @@ vim.api.nvim_exec(
   vnoremap <M-Down> :m '>+1<CR>gv=gv
   vnoremap <M-Up>   :m '<-2<CR>gv=gv
   " Move Lines - End
-]],
-	false
+]] ,
+  false
 )
 
 -- Toggle Zoom
 vim.api.nvim_exec(
-	[[
+  [[
   function! ToggleZoom(zoom)
     if exists("t:restore_zoom") && (a:zoom == v:true || t:restore_zoom.win != winnr())
         exec t:restore_zoom.cmd
@@ -83,17 +83,29 @@ vim.api.nvim_exec(
       au WinEnter * silent! :call ToggleZoom(v:false)
   augroup END
   nnoremap <silent> <Leader>+ :call ToggleZoom(v:true)<CR>
-]],
-	false
+]] ,
+  false
 )
 
 -- Title String
 -- let &g:titlestring="%{expand('%:p:~:.')}%(%m%r%w%) %<\[%{fnamemodify(getcwd(), ':~')}\] - Neovim"
 vim.api.nvim_exec(
-	[[
+  [[
   let &g:titlestring="%{expand('%:p:~:.')}%(%m%r%w%) %<\[%{fnamemodify(getcwd(), ':~')}\]"
-]],
-	false
+]] ,
+  false
+)
+
+-- Set Syntax for different file extension
+vim.api.nvim_exec(
+  [[
+augroup extension_syntax_setting
+  autocmd! extension_syntax_setting
+  autocmd BufNewFile,BufRead *.env,*.local,*.env.local,*.uat,*.prod,*.envrc,*.in, .dockerignore set syntax=zsh
+  autocmd BufNewFile,BufRead *.env.local set syntax=zsh
+augroup end
+]] ,
+  false
 )
 
 -- " Keep the selection after indenting
