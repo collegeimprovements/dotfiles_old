@@ -25,6 +25,7 @@ require("paq")({
 	-- "rktjmp/lush.nvim",
 	-- "tjdevries/colorbuddy.vim",
 	-- tools
+	"wsdjeg/vim-fetch",
 	"machakann/vim-sandwich",
 	"mg979/vim-visual-multi",
 	"numToStr/Comment.nvim",
