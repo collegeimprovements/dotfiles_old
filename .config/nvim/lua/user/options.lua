@@ -136,3 +136,6 @@ vim.cmd("set complete-=i")
 -- https://www.youtube.com/watch?v=hY5-Q6NxQgY&list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ&index=2
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
+
+-- Set shell
+-- vim.cmd("set shell=/usr/local/bin/zsh")

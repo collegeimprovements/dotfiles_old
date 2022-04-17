@@ -46,8 +46,6 @@ vim.api.nvim_exec(
 -- Y yank until the end of line
 vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true })
 
--- vim.api.nvim_exec(set shell=/usr/local/bin/zsh)
-
 -- Move Lines with Alt-Up and Alt-Down
 vim.api.nvim_exec(
 	[[
