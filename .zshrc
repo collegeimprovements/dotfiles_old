@@ -12,6 +12,13 @@ export TERM=xterm-256color
 export GPG_TTY=$(tty)
 
 export AWS_REGION=us-east-1
+
+#================================================================================
+# Open file with  nvim and goto line.
+nl(){ IFS=: read -r f l <<< "$1"; nvim "$f" +"$l"; }
+vimtoline(){ IFS=: read -r f l <<< "$1"; nvim "$f" +"$l"; }
+#================================================================================
+
 # ALSO - .zshenv is not a good place for setting PATH on macos. https://stackoverflow.com/questions/26433856/why-would-path-be-getting-overwritten-after-shell-login#comment69745215_26434096
 #================================================================================
 # ASDF - Start
