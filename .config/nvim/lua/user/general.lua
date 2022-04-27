@@ -101,8 +101,7 @@ vim.api.nvim_exec(
 	[[
 augroup extension_syntax_setting
   autocmd! extension_syntax_setting
-  autocmd BufNewFile,BufRead *.env,*.local,*.env.local,*.uat,*.prod,*.envrc,*.in, *.dockerignore set syntax=zsh
-  autocmd BufNewFile,BufRead *.env.local set syntax=zsh
+  autocmd BufNewFile,BufRead *.env,*.local,*.env.local,*.uat,*.prod,*.envrc,*.in,*.dockerignore,*.env* set syntax=zsh
 augroup end
 ]],
 	false
