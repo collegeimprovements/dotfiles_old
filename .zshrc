@@ -13,6 +13,8 @@ export GPG_TTY=$(tty)
 
 export AWS_REGION=us-east-1
 
+cd ~/Blockfi/blockfi-mystique
+
 #================================================================================
 # Open file with  nvim and goto line.
 nl(){ IFS=: read -r f l <<< "$1"; nvim "$f" +"$l"; }
