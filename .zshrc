@@ -13,7 +13,7 @@ export GPG_TTY=$(tty)
 
 export AWS_REGION=us-east-1
 
-cd ~/Blockfi/blockfi-mystique
+# cd ~/Blockfi/blockfi-mystique
 
 #================================================================================
 # Open file with  nvim and goto line.
@@ -292,6 +292,7 @@ alias b="~/Blockfi/blockfi-mystique"
 alias bl="~/Blockfi/blockfi-mystique"
 alias bm="~/Blockfi/blockfi-mystique"
 alias cl="~/Cookstro/cloche_api"
+alias lc="~/Cookstro/cloche_api"
 alias clo="~/Cookstro/cloche_api"
 alias e="~/Projects/Live/eternity_client"
 alias ui="/Users/$USERNAME/Documents/projects/ultra-ui"
