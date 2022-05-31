@@ -106,7 +106,7 @@ brew "pinentry-mac"
 brew "pre-commit"
 brew "protobuf"
 brew "ranger"
-brew "redis"
+brew "redis", restart_service: true
 brew "rename"
 brew "renameutils"
 brew "ripgrep"
