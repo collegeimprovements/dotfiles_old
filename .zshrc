@@ -242,11 +242,14 @@ alias vinstall="vscode-install-extension"
 # ELIXIR - Start
 #================================================================================
 export ERL_AFLAGS="-kernel shell_history enabled"
-# export KERL_BUILD_DOCS="yes"
-# export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl)"
-# export EGREP=egrep 
-# export CPP="clang++ -E "
-# export CC=clang
+export KERL_BUILD_DOCS="yes"
+export KERL_CONFIGURE_OPTIONS="--without-wx --without-javac --with-ssl=$(brew --prefix openssl)"
+export EGREP=egrep
+export CPP="clang++ -E "
+export CC=clang
+# export KERL_CONFIGURE_OPTIONS="–disable-debug --without-javac"
+
+
 
 #================================================================================
 # ELIXIR - End
