@@ -9,3 +9,4 @@ postgres 15beta3
 neovim nightly
 ruby 3.1.1
 deno 1.24.3
+bun 0.1.10
