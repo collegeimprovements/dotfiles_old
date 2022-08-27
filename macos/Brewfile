@@ -52,7 +52,7 @@ brew "devd"
 brew "devil"
 brew "diskonaut"
 brew "diskus"
-brew "docker-compose"
+brew "docker-compose", link: false
 brew "dog"
 brew "dotenv-linter"
 brew "efm-langserver"
