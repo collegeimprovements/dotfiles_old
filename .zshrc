@@ -12,6 +12,7 @@ export TERM=xterm-256color
 export GPG_TTY=$(tty)
 
 export AWS_REGION=us-east-1
+export PATH=/Users/arpit/Library/Python/3.10/bin:$PATH
 
 # cd ~/Blockfi/blockfi-mystique
 
