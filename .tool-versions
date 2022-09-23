@@ -1,4 +1,4 @@
-erlang 25.0.4
+erlang 25.1
 elixir 1.14.0-otp-25
 rust 1.63.0
 nodejs 17.9.0
@@ -7,6 +7,7 @@ golang 1.18
 rabbitmq 3.8.17
 postgres 15beta3
 neovim nightly
-ruby 3.1.1
+ruby 3.0.0
 deno 1.24.3
 bun 0.1.10
+adr-tools 3.0.0

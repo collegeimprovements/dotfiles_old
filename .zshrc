@@ -12,7 +12,7 @@ export TERM=xterm-256color
 export GPG_TTY=$(tty)
 
 export AWS_REGION=us-east-1
-export PATH=/Users/arpit/Library/Python/3.10/bin:$PATH
+# export PATH=/Users/arpit/Library/Python/3.10/bin:$PATH
 
 # cd ~/Blockfi/blockfi-mystique
 
@@ -31,6 +31,7 @@ export PATH=~/language-servers/elixir-ls/rel:$PATH # Language Servers
 export PATH=~/language-servers/lua-language-server/bin/macOS:$PATH
 . /usr/local/opt/asdf/asdf.sh # THIS IS MUCH FASTER THAN THE ABOVE -> . $(brew --prefix asdf)/asdf.sh
 export PATH=$HOME/.asdf/shims:$PATH #https://github.com/asdf-vm/asdf/issues/107#issuecomment-257282018
+
 
 #NOTE: asdf path should be first - i.e. before /user/local/bin and /usr/bin etc.
 #Hence it's set before all. SEE: PATH - IMP Section
@@ -321,6 +322,8 @@ alias ball="brewall"
 alias si="source .in"
 alias sz="source ~/.zshrc"
 
+alias cb='defbro $(defbro | grep -v "^\*" | grep "com.brave.Browser\|com.google.Chrome" | cut -d " " -f3)'
+
 alias allowapp="sudo xattr -rd com.apple.quarantine"
 
 #spelling mistakes
@@ -520,3 +523,5 @@ zinit ice wait"2" lucid
 zinit light Valiev/almostontop
 # jeffreytse/zsh-vi-mode
 #================================================================================
+. /usr/local/opt/asdf/libexec/asdf.sh
+
