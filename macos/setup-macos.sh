@@ -47,6 +47,8 @@ defaults write com.apple.dock dashboard-in-overlay -bool true
 defaults write com.apple.dock show-recents -bool FALSE
 
 
+# to keep j and k keys fast in vscode neovim mode
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Ref: https://timber.io/snippets/increase-keyboard-repeat-rate-on-mac/
