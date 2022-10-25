@@ -11,7 +11,7 @@ export TERM=xterm-256color
 # GPG
 export GPG_TTY=$(tty)
 
-export AWS_REGION=us-east-1
+# export AWS_REGION=us-east-1
 # export PATH=/Users/arpit/Library/Python/3.10/bin:$PATH
 
 # cd ~/Blockfi/blockfi-mystique
@@ -30,6 +30,7 @@ vimtoline(){ IFS=: read -r f l <<< "$1"; nvim "$f" +"$l"; }
 export PATH=~/language-servers/elixir-ls/rel:$PATH # Language Servers
 export PATH=~/language-servers/lua-language-server/bin/macOS:$PATH
 . /usr/local/opt/asdf/asdf.sh # THIS IS MUCH FASTER THAN THE ABOVE -> . $(brew --prefix asdf)/asdf.sh
+. /usr/local/opt/asdf/libexec/asdf.sh
 export PATH=$HOME/.asdf/shims:$PATH #https://github.com/asdf-vm/asdf/issues/107#issuecomment-257282018
 
 
@@ -64,7 +65,7 @@ asdfreshim(){
 export PATH=/usr/local/bin:$PATH    #for homebrew
 export PATH=/usr/local/sbin:$PATH   #for homebrew
 
-export PATH=/usr/local/opt/make/libexec/gnubin:$PATH #for make 
+export PATH=/usr/local/opt/make/libexec/gnubin:$PATH #for make
 export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH #grep
 export PATH=/usr/local/lib/luarocks/rocks-5.4/luaformatter/scm-1/bin:$PATH
 
@@ -174,7 +175,7 @@ brewall() {
 updatezsh() {
     # antibody bundle <~/.zsh_plugins.txt >~/.zsh_plugins.sh
     # antibody update
-    
+
     # zinit update --all
     zinit update --parallel
     source ~/.zshrc
@@ -394,9 +395,7 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 #cal - show previous and future month as well
 alias cal="cal -3"
 alias att="almostontop toggle"
-alias sso="aws --profile retail-dev-EternityDev sso login"
 alias sl="sh ~/a.sh"
-alias bsh="AWS_PROFILE=retail-dev-EternityDev ssh"
 
 
 #python
@@ -438,7 +437,7 @@ function zle-keymap-select zle-line-init zle-line-finish
 {
   case $KEYMAP in
       vicmd)      print -n '\033[1 q';; # block cursor -> '\033[1 q';;
-      viins|main) print -n '\033[1 q';; # line cursor -> '\033[5 q';; 
+      viins|main) print -n '\033[1 q';; # line cursor -> '\033[5 q';;
   esac
 }
 
@@ -523,5 +522,24 @@ zinit ice wait"2" lucid
 zinit light Valiev/almostontop
 # jeffreytse/zsh-vi-mode
 #================================================================================
-. /usr/local/opt/asdf/libexec/asdf.sh
+# . /usr/local/opt/asdf/libexec/asdf.sh
 
+
+#=====================================SAVI========================================
+eval "$(ssh-agent -s)" > /dev/null 2>&1
+# mac
+ssh-add --apple-use-keychain ~/.ssh/*.pem &>/dev/null
+
+function setJump {
+  export JUMP_PUBLIC_IP=$(aws ec2 describe-instances --filters Name=tag:Name,Values=jump  --region us-west-2 \
+    --query "Reservations[*].Instances[*].PublicIpAddress" --output=text)
+  export MIGRATION_PRIVATE_IP=$(aws ec2 describe-instances --filters Name=tag:Name,Values=migration-prod-v1  --region us-west-2 \
+    --query "Reservations[*].Instances[*].PrivateIpAddress" --output=text)
+}
+function sshReadReplica {
+  setJump
+  echo "Jump IP set, connecting to read replica"
+  ssh -N -L 5432:getsavi-mono-prod-read-replica2.cuwk9myovve6.us-west-2.rds.amazonaws.com:5432 -J \
+    ubuntu@$JUMP_PUBLIC_IP "ec2-user@$MIGRATION_PRIVATE_IP" -i ~/.ssh/savi-us-west-2.pem
+}
+#=====================================SAVI========================================
