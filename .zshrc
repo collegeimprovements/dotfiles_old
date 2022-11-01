@@ -522,7 +522,7 @@ zinit ice wait"2" lucid
 zinit light Valiev/almostontop
 # jeffreytse/zsh-vi-mode
 #================================================================================
-# . /usr/local/opt/asdf/libexec/asdf.sh
+. /usr/local/opt/asdf/libexec/asdf.sh
 
 
 #=====================================SAVI========================================
