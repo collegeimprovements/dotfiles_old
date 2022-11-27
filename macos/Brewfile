@@ -116,7 +116,7 @@ brew "peco"
 brew "pgcli"
 brew "pgformatter"
 brew "pinentry-mac"
-brew "pre-commit"
+brew "pre-commit", link: false
 brew "protobuf"
 brew "ranger"
 brew "redis", restart_service: true
