@@ -542,4 +542,6 @@ function sshReadReplica {
   ssh -N -L 5432:getsavi-mono-prod-read-replica2.cuwk9myovve6.us-west-2.rds.amazonaws.com:5432 -J \
     ubuntu@$JUMP_PUBLIC_IP "ec2-user@$MIGRATION_PRIVATE_IP" -i ~/.ssh/savi-us-west-2.pem
 }
+
+cd ~/Savi/mono/
 #=====================================SAVI========================================
