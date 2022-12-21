@@ -29,7 +29,7 @@ vimtoline(){ IFS=: read -r f l <<< "$1"; nvim "$f" +"$l"; }
 # . $(brew --prefix asdf)/asdf.sh # https://github.com/asdf-vm/asdf/issues/428
 export PATH=~/language-servers/elixir-ls/rel:$PATH # Language Servers
 export PATH=~/language-servers/lua-language-server/bin/macOS:$PATH
-. /usr/local/opt/asdf/asdf.sh # THIS IS MUCH FASTER THAN THE ABOVE -> . $(brew --prefix asdf)/asdf.sh
+# . /usr/local/opt/asdf/asdf.sh # THIS IS MUCH FASTER THAN THE ABOVE -> . $(brew --prefix asdf)/asdf.sh
 . /usr/local/opt/asdf/libexec/asdf.sh
 export PATH=$HOME/.asdf/shims:$PATH #https://github.com/asdf-vm/asdf/issues/107#issuecomment-257282018
 
