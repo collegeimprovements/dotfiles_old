@@ -121,6 +121,7 @@ brew "pgformatter"
 brew "pinentry-mac"
 brew "pre-commit", link: false
 brew "protobuf"
+brew "qpdf"
 brew "ranger"
 brew "redis", restart_service: true
 brew "rename"
