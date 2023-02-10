@@ -1,6 +1,36 @@
 local opt = vim.opt
 local g = vim.g
 
+-- [START] https://github.com/nathom/nvim_config/blob/main/lua/opts.lua#L6
+-- Disable some built-in plugins we don't want
+local disabled_built_ins = {
+  "gzip",
+  "man",
+  "matchit",
+  "matchparen",
+  "shada_plugin",
+  "tarPlugin",
+  "tar",
+  "zipPlugin",
+  "zip",
+  "netrwPlugin",
+  "2html_plugin",
+  "remote_plugins",
+}
+
+for _, plugin in ipairs(disabled_built_ins) do
+  g["loaded_" .. plugin] = 1
+end
+
+-- Skip some remote provider loading
+g.loaded_python_provider = 0
+
+-- [END] https://github.com/nathom/nvim_config/blob/main/lua/opts.lua#L6
+
+-- Speed up startup time
+-- Doesn't work with vim.opt for some reason
+vim.cmd([[set shada="NONE"]])
+
 -- Options
 opt.shortmess:append("sI") -- disable nvim intro
 

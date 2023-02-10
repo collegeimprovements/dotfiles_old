@@ -18,10 +18,13 @@ require("paq")({
   "savq/paq-nvim",
   "nvim-treesitter/nvim-treesitter",
   "RRethy/nvim-treesitter-endwise",
-  "lukas-reineke/lsp-format.nvim",
 
   -- Let Paq manage itself
   -- libs
+  "nathom/filetype.nvim",
+  "andymass/vim-matchup",
+  "windwp/nvim-ts-autotag",
+  -- "lukas-reineke/indent-blankline.nvim",
   "lewis6991/impatient.nvim",
   "tjdevries/nlua.nvim",
   "nvim-lua/plenary.nvim",
