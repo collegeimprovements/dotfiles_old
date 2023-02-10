@@ -10,6 +10,8 @@ if not snip_status_ok then
 end
 
 require("luasnip/loaders/from_vscode").lazy_load()
+local lsnip = require("luasnip")
+lsnip.filetype_extend("heex", { "html" })
 
 local check_backspace = function()
   local col = vim.fn.col(".") - 1

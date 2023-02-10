@@ -6,8 +6,8 @@ local g = vim.g
 local disabled_built_ins = {
   "gzip",
   "man",
-  "matchit",
-  "matchparen",
+  -- "matchit",
+  -- "matchparen",
   "shada_plugin",
   "tarPlugin",
   "tar",
@@ -25,11 +25,16 @@ end
 -- Skip some remote provider loading
 g.loaded_python_provider = 0
 
--- [END] https://github.com/nathom/nvim_config/blob/main/lua/opts.lua#L6
-
 -- Speed up startup time
 -- Doesn't work with vim.opt for some reason
-vim.cmd([[set shada="NONE"]])
+-- vim.cmd([[set shada="NONE"]])
+-- [END] https://github.com/nathom/nvim_config/blob/main/lua/opts.lua#L6
+
+-- File Reloading
+vim.cmd([[
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+]])
 
 -- Options
 opt.shortmess:append("sI") -- disable nvim intro

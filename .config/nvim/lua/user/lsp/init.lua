@@ -8,7 +8,11 @@ require("user.lsp.handlers").setup()
 require("user.lsp.null-ls")
 require("user.lsp.lsp-signature")
 
--- Format on save
+-- Format on save and heex
+-- This is a hack where we set heex as html first and then as eelixir to make sure all LSPs are available.
+vim.api.nvim_command("autocmd BufNew,BufNewFile,BufRead *.heex set ft=html")
+vim.api.nvim_command("autocmd BufNew,BufNewFile,BufRead *.heex set ft=eelixir")
+
 vim.api.nvim_command("autocmd BufWritePre *.lua lua vim.lsp.buf.format()")
 vim.api.nvim_command("autocmd BufWritePre *.ex,*.exs,*.eex,*.heex lua vim.lsp.buf.format()")
 
