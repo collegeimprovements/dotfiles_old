@@ -10,7 +10,8 @@ require("user.lsp.lsp-signature")
 
 -- Format on save
 vim.api.nvim_command("autocmd BufWritePre *.lua lua vim.lsp.buf.format()")
-vim.api.nvim_command("autocmd BufWritePre *.ex,*.exs lua vim.lsp.buf.format()")
+vim.api.nvim_command("autocmd BufWritePre *.ex,*.exs,*.eex,*.heex lua vim.lsp.buf.format()")
+
 -- When multiple LSPs are involved (e.g. elixirls & efm) then to avoid choosing which one to use, always use `formatting_seq_sync` instead of `formatting_sync`
 -- vim.api.nvim_command("autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_seq_sync(nil, 2000)")
 -- vim.api.nvim_command("autocmd BufWritePre *.ex,*.exs lua vim.lsp.buf.formatting_seq_sync(nil, 2000)")

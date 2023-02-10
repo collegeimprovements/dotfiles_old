@@ -4,6 +4,7 @@ require("user.general")
 
 require("user.plugins")
 
+require("user.treesitter")
 require("user.lsp")
 
 require("user.autopairs")

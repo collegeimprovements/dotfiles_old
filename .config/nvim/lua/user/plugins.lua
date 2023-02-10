@@ -16,6 +16,10 @@ vim.diagnostic.config({
 
 require("paq")({
   "savq/paq-nvim",
+  "nvim-treesitter/nvim-treesitter",
+  "RRethy/nvim-treesitter-endwise",
+  "lukas-reineke/lsp-format.nvim",
+
   -- Let Paq manage itself
   -- libs
   "lewis6991/impatient.nvim",
