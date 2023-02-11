@@ -11,16 +11,15 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
 local ok, lazy = pcall(require, "lazy")
 if not ok then
 	return
 end
 
 require("lazy").setup({
-		import = "plugins",
-  	performance = {
-      rtp = {
+	import = "plugins",
+	performance = {
+		rtp = {
 			disabled_plugins = {
 				"gzip",
 				"health",
@@ -38,6 +37,6 @@ require("lazy").setup({
 				"zipPlugin",
 				"filetype",
 			},
-    }
-  }
+		},
+	},
 }) -- loads each lua/plugin/*

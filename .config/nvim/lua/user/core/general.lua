@@ -146,32 +146,31 @@ map("n", "<down>", [[<Cmd>:tabprev<CR>]], opts) -- Previous Tab
 map("n", "<leader>r", [[:%s///g<Left><Left>]])
 map("n", "<leader>rc", [[:%s///gc<Left><Left><Left>]])
 
-
 -- Use `<ESC>` or `q` to close windows
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = {
-    "fugitive",
-    "help",
-    "lspinfo",
-    "lspsagafinder",
-    "man",
-    "null-ls-info",
-    "qf",
-    "sagacodeaction",
-    "startuptime",
-    "lazy",
-    "checkhealth",
-    "health://"
-  },
-  callback = function()
-    vim.keymap.set({ "n" }, "<ESC>", "<cmd>close<CR>", { silent = true, buffer = true })
-    vim.keymap.set({ "n" }, "q", "<cmd>close<CR>", { silent = true, buffer = true })
-  end,
+	pattern = {
+		"fugitive",
+		"help",
+		"lspinfo",
+		"lspsagafinder",
+		"man",
+		"null-ls-info",
+		"qf",
+		"sagacodeaction",
+		"startuptime",
+		"lazy",
+		"checkhealth",
+		"health://",
+	},
+	callback = function()
+		vim.keymap.set({ "n" }, "<ESC>", "<cmd>close<CR>", { silent = true, buffer = true })
+		vim.keymap.set({ "n" }, "q", "<cmd>close<CR>", { silent = true, buffer = true })
+	end,
 })
 
 --- Remove all trailing whitespace on save
 local TrimWhiteSpaceGrp = vim.api.nvim_create_augroup("TrimWhiteSpaceGrp", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
-  command = [[:%s/\s\+$//e]],
-  group = TrimWhiteSpaceGrp,
+	command = [[:%s/\s\+$//e]],
+	group = TrimWhiteSpaceGrp,
 })

@@ -71,4 +71,3 @@ map("n", "<leader>td", [[<Cmd>:TroubleToggle document_diagnostics<CR>]], opts) -
 -- map("n", "π", [[<Cmd> Telescope commands theme=get_dropdown<CR>]], opts) -- Cmd+p Dropdown with commands
 -- map("n", "<leader>b", [[<Cmd> Telescope buffers theme=get_dropdown<CR>]]) -- Find Buffers
 -- map("n", "<leader>s", [[<Cmd> Telescope live_grep theme=get_dropdown<CR>]]) -- Find Buffers
-
