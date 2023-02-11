@@ -23,7 +23,7 @@ return {
 	"kassio/neoterm",
 	"kdheepak/lazygit.nvim",
 	"kylechui/nvim-surround",
-	"lewis6991/gitsigns.nvim",
+
 	"lukas-reineke/indent-blankline.nvim",
 	"machakann/vim-sandwich",
 	"mg979/vim-visual-multi",
@@ -42,8 +42,7 @@ return {
 	"ray-x/guihua.lua",
 
 	"ray-x/sad.nvim",
-	"rmagatti/goto-preview",
-	"ruifm/gitlinker.nvim",
+
 	"saadparwaiz1/cmp_luasnip",
 	"simrat39/symbols-outline.nvim",
 	"tamago324/nlsp-settings.nvim",
