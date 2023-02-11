@@ -1,11 +1,9 @@
 return {
 	"AndrewRadev/tagalong.vim",
+	"alvan/vim-closetag",
 	"lewis6991/impatient.nvim",
 
 	"L3MON4D3/LuaSnip",
-
-	"ahmedkhalf/project.nvim",
-	"alvan/vim-closetag",
 
 	"antoinemadec/FixCursorHold.nvim",
 	"dstein64/vim-startuptime",
@@ -24,17 +22,14 @@ return {
 	"kdheepak/lazygit.nvim",
 	"kylechui/nvim-surround",
 
-	"lukas-reineke/indent-blankline.nvim",
 	"machakann/vim-sandwich",
 	"mg979/vim-visual-multi",
 
-	"nathom/filetype.nvim",
 	"neovim/nvim-lspconfig",
 
 	"nvim-lua/plenary.nvim",
 	"nvim-lua/popup.nvim",
 
-	"ojroques/nvim-hardline",
 	"onsails/lspkind-nvim",
 	"pechorin/any-jump.vim",
 
