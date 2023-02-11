@@ -1,12 +1,12 @@
 return {
 	"AndrewRadev/tagalong.vim",
 	"lewis6991/impatient.nvim",
-	
+
 	"L3MON4D3/LuaSnip",
-	
+
 	"ahmedkhalf/project.nvim",
 	"alvan/vim-closetag",
-	
+
 	"antoinemadec/FixCursorHold.nvim",
 	"dstein64/vim-startuptime",
 	"elixir-editors/vim-elixir",
@@ -20,8 +20,7 @@ return {
 	"hrsh7th/cmp-nvim-lua",
 	"hrsh7th/cmp-path",
 	"hrsh7th/nvim-cmp",
-	"jose-elias-alvarez/null-ls.nvim",
-	
+
 	"kassio/neoterm",
 	"kdheepak/lazygit.nvim",
 	"kylechui/nvim-surround",
@@ -32,17 +31,17 @@ return {
 	"nat-418/boole.nvim",
 	"nathom/filetype.nvim",
 	"neovim/nvim-lspconfig",
-	
+
 	"nvim-lua/plenary.nvim",
 	"nvim-lua/popup.nvim",
-	
+
 	"ojroques/nvim-hardline",
 	"onsails/lspkind-nvim",
 	"pechorin/any-jump.vim",
-	
+
 	"rafamadriz/friendly-snippets",
 	"ray-x/guihua.lua",
-	"ray-x/lsp_signature.nvim",
+
 	"ray-x/sad.nvim",
 	"rmagatti/goto-preview",
 	"ruifm/gitlinker.nvim",
@@ -54,8 +53,6 @@ return {
 	"tpope/vim-repeat",
 	"vim-test/vim-test",
 	"weilbith/nvim-code-action-menu",
-	
-	
+
 	"wsdjeg/vim-fetch",
 }
-
