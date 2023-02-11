@@ -1,10 +1,13 @@
+require("user.essential-keybinds")
+require("plugins")
+-- require("user.plugins")
+
 require("impatient")
 
 require("user.options")
 require("user.keymaps")
 require("user.general")
 
-require("user.plugins")
 
 require("user.treesitter")
 require("user.lsp")
@@ -22,7 +25,6 @@ require("user.gitsigns")
 require("user.goto-preview")
 require("user.hardline")
 require("user.hop")
--- require("user.impatient")
 require("user.indent-blankline")
 require("user.nvim-tree")
 require("user.project")
