@@ -13,8 +13,8 @@ require("user.lsp.lsp-signature")
 vim.api.nvim_command("autocmd BufNew,BufNewFile,BufRead *.heex set ft=html")
 vim.api.nvim_command("autocmd BufNew,BufNewFile,BufRead *.heex set ft=eelixir")
 
-vim.api.nvim_command("autocmd BufWritePre *.lua lua vim.lsp.buf.format()")
-vim.api.nvim_command("autocmd BufWritePre *.ex,*.exs,*.eex,*.heex lua vim.lsp.buf.format()")
+vim.api.nvim_command("autocmd BufWritePre *.lua lua vim.lsp.buf.format({ async = true })")
+vim.api.nvim_command("autocmd BufWritePre *.ex,*.exs,*.eex,*.heex lua vim.lsp.buf.format({ async = true })")
 
 -- When multiple LSPs are involved (e.g. elixirls & efm) then to avoid choosing which one to use, always use `formatting_seq_sync` instead of `formatting_sync`
 -- vim.api.nvim_command("autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_seq_sync(nil, 2000)")
