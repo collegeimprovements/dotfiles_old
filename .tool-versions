@@ -3,7 +3,7 @@ elixir 1.14.0-otp-25
 rust 1.63.0
 nodejs 17.9.0
 python 3.9.0
-golang 1.18
+golang 1.20
 rabbitmq 3.8.17
 postgres 15beta3
 neovim nightly
