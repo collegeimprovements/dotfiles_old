@@ -8,6 +8,7 @@ require("impatient")
 require("user.core.options")
 require("user.core.general")
 require("user.core.keymaps")
+require("user.core.languages")
 
 -- Config
 require("user.config.hop")

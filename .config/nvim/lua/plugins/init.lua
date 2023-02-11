@@ -11,7 +11,6 @@ return {
 	"dstein64/vim-startuptime",
 	"elixir-editors/vim-elixir",
 	"folke/lsp-colors.nvim",
-	"folke/trouble.nvim",
 
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-cmdline",
@@ -28,7 +27,7 @@ return {
 	"lukas-reineke/indent-blankline.nvim",
 	"machakann/vim-sandwich",
 	"mg979/vim-visual-multi",
-	"nat-418/boole.nvim",
+
 	"nathom/filetype.nvim",
 	"neovim/nvim-lspconfig",
 
@@ -51,7 +50,7 @@ return {
 	"tjdevries/nlua.nvim",
 	"tpope/vim-dispatch",
 	"tpope/vim-repeat",
-	"vim-test/vim-test",
+
 	"weilbith/nvim-code-action-menu",
 
 	"wsdjeg/vim-fetch",
