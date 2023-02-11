@@ -33,6 +33,8 @@ keymap("x", ">", ">gv", opts)
 -- Key Mappings
 map("n", "<leader>s", [[ <Cmd> set signcolumn=number<CR>]], opts) -- Toggle Number
 map("n", "<leader>S", [[ <Cmd> set signcolumn=yes:1<CR>]], opts) -- Toggle Number
+-- map("n", "<leader>l", [[ <Cmd> lua <CR>]], opts) -- Toggle Number
+-- map("n", "<leader>L", [[ <Cmd> set signcolumn=yes:1<CR>]], opts) -- Toggle Number
 map("n", "<leader>n", [[ <Cmd> set nu!<CR>]], opts) -- Toggle Number
 map("n", "<leader>r", [[ <Cmd> source ~/.config/nvim/init.lua<CR>]], opts) -- Source $MYVIMRC
 map("n", "ß", [[<Cmd>:w <CR>]], opts) -- Save - Cmd+s

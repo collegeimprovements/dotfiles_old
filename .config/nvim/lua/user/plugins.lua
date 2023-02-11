@@ -1,10 +1,10 @@
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PaqSync
+augroup packer_user_config
+autocmd!
+autocmd BufWritePost plugins.lua source <afile> | PaqSync
   augroup end
-]])
+  ]])
 
 vim.diagnostic.config({
 	virtual_text = true,
@@ -35,6 +35,8 @@ require("paq")({
 	-- "rktjmp/lush.nvim",
 	-- "tjdevries/colorbuddy.vim",
 	-- tools
+	"kylechui/nvim-surround",
+	"nat-418/boole.nvim",
 	"wsdjeg/vim-fetch",
 	"machakann/vim-sandwich",
 	"mg979/vim-visual-multi",
@@ -87,7 +89,7 @@ require("paq")({
 
 	"simrat39/symbols-outline.nvim",
 	"ruifm/gitlinker.nvim",
-	"tanvirtin/vgit.nvim",
+	-- "tanvirtin/vgit.nvim",
 	"kdheepak/lazygit.nvim",
 	"lewis6991/gitsigns.nvim",
 	-- "sindrets/diffview.nvim",
