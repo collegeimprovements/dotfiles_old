@@ -1,11 +1,9 @@
 return {
-  { "junegunn/fzf", build = ":call fzf#install()"},
-  { "junegunn/fzf.vim"},
-	{"lewis6991/impatient.nvim"},
+
+  
 
 	"AndrewRadev/tagalong.vim",
 	"David-Kunz/markid",
-
 	"L3MON4D3/LuaSnip",
 	"RRethy/nvim-treesitter-endwise",
 	"ahmedkhalf/project.nvim",
@@ -24,13 +22,14 @@ return {
 	"hrsh7th/cmp-path",
 	"hrsh7th/nvim-cmp",
 	"jose-elias-alvarez/null-ls.nvim",
-	"junegunn/seoul256.vim",
+	
 	"kassio/neoterm",
 	"kdheepak/lazygit.nvim",
 	"kyazdani42/nvim-tree.lua",
 	"kyazdani42/nvim-web-devicons",
 	"kylechui/nvim-surround",
-	-- "lewis6991/gitsigns.nvim",
+	"lewis6991/gitsigns.nvim",
+	"lewis6991/impatient.nvim",
 	"lukas-reineke/indent-blankline.nvim",
 	"machakann/vim-sandwich",
 	"mg979/vim-visual-multi",
@@ -59,7 +58,8 @@ return {
 	"tpope/vim-repeat",
 	"vim-test/vim-test",
 	"weilbith/nvim-code-action-menu",
-	"williamboman/mason.nvim",
+	
 	"windwp/nvim-autopairs",
 	"wsdjeg/vim-fetch",
 }
+

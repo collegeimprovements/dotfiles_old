@@ -17,7 +17,8 @@ if not ok then
 	return
 end
 
-require("lazy").setup("plugins", {
+require("lazy").setup({
+		import = "plugins",
   	performance = {
       rtp = {
 			disabled_plugins = {
@@ -40,3 +41,4 @@ require("lazy").setup("plugins", {
     }
   }
 }) -- loads each lua/plugin/*
+
