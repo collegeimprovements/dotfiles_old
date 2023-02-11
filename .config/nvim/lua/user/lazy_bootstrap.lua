@@ -41,4 +41,3 @@ require("lazy").setup({
     }
   }
 }) -- loads each lua/plugin/*
-

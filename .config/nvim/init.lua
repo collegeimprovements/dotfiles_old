@@ -1,9 +1,7 @@
 -- Order Matters
 require("user.core.essential-keybindings")
 require("user/lazy_bootstrap")
-
 require("impatient")
-
 
 -- Core
 -- require("user") -- user => init.lua
