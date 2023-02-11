@@ -1,19 +1,18 @@
 return {
-
-  
-
 	"AndrewRadev/tagalong.vim",
-	"David-Kunz/markid",
+	"lewis6991/impatient.nvim",
+	
 	"L3MON4D3/LuaSnip",
-	"RRethy/nvim-treesitter-endwise",
+	
 	"ahmedkhalf/project.nvim",
 	"alvan/vim-closetag",
-	"andymass/vim-matchup",
+	
 	"antoinemadec/FixCursorHold.nvim",
 	"dstein64/vim-startuptime",
 	"elixir-editors/vim-elixir",
 	"folke/lsp-colors.nvim",
 	"folke/trouble.nvim",
+
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-cmdline",
 	"hrsh7th/cmp-nvim-lsp",
@@ -25,25 +24,22 @@ return {
 	
 	"kassio/neoterm",
 	"kdheepak/lazygit.nvim",
-	"kyazdani42/nvim-tree.lua",
-	"kyazdani42/nvim-web-devicons",
 	"kylechui/nvim-surround",
 	"lewis6991/gitsigns.nvim",
-	"lewis6991/impatient.nvim",
 	"lukas-reineke/indent-blankline.nvim",
 	"machakann/vim-sandwich",
 	"mg979/vim-visual-multi",
 	"nat-418/boole.nvim",
 	"nathom/filetype.nvim",
 	"neovim/nvim-lspconfig",
-	"numToStr/Comment.nvim",
+	
 	"nvim-lua/plenary.nvim",
 	"nvim-lua/popup.nvim",
-	"nvim-treesitter/nvim-treesitter",
+	
 	"ojroques/nvim-hardline",
 	"onsails/lspkind-nvim",
 	"pechorin/any-jump.vim",
-	"phaazon/hop.nvim",
+	
 	"rafamadriz/friendly-snippets",
 	"ray-x/guihua.lua",
 	"ray-x/lsp_signature.nvim",
@@ -59,7 +55,7 @@ return {
 	"vim-test/vim-test",
 	"weilbith/nvim-code-action-menu",
 	
-	"windwp/nvim-autopairs",
+	
 	"wsdjeg/vim-fetch",
 }
 

@@ -168,3 +168,4 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set({ "n" }, "q", "<cmd>close<CR>", { silent = true, buffer = true })
   end,
 })
+
