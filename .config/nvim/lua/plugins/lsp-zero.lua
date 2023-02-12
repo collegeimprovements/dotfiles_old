@@ -20,11 +20,16 @@ return {
 			lsp.preset("recommended")
 
 			lsp.ensure_installed({
-				"tsserver",
-				"eslint",
 				"sumneko_lua",
 				"bashls",
 				"elixirls",
+				"efm",
+				"tsserver",
+				"eslint",
+				"tailwindcss",
+				"html",
+				"cssls",
+				"graphql",
 			})
 
 			-- Fix Undefined global 'vim'

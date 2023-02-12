@@ -1,4 +1,3 @@
--- colorscheme
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",

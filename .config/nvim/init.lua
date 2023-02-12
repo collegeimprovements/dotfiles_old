@@ -12,3 +12,4 @@ require("user.core.languages")
 
 -- Config
 require("user.config.hop")
+require("user.config.cmp")
