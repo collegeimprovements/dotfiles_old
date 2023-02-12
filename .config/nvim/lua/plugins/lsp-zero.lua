@@ -20,9 +20,18 @@ return {
 			local lsp = require("lsp-zero")
 			lsp.preset("recommended")
 
+			lsp.setup_nvim_cmp({
+				mapping = lsp.defaults.cmp_mappings,
+				sources = {
+					{ name = "path" },
+					{ name = "nvim_lsp", keyword_length = 1 },
+					{ name = "buffer", keyword_length = 3 },
+					{ name = "luasnip", keyword_length = 2 },
+				},
+			})
+
 			lsp.ensure_installed({
-				"sumneko_lua",
-				"lua-language-server",
+				"lua_ls",
 				"bashls",
 				"elixirls",
 				"efm",
@@ -32,10 +41,11 @@ return {
 				"html",
 				"cssls",
 				"graphql",
+				"jsonls",
 			})
 
 			-- Fix Undefined global 'vim'
-			lsp.configure("sumneko_lua", { settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
+			lsp.configure("lua_ls", { settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
 
 			lsp.setup()
 		end,

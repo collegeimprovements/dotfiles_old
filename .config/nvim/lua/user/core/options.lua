@@ -80,7 +80,7 @@ opt.sidescrolloff = 8 -- Columns of context
 opt.shiftround = true -- Round indent
 opt.shiftwidth = 2 -- Size of an indent
 opt.showmode = false -- Don't display mode
-opt.signcolumn = "yes:1" -- always show signcolumns
+opt.signcolumn = "number" -- always show signcolumns
 opt.smartcase = true -- Do not ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
 opt.spelllang = "en" -- English
@@ -204,3 +204,9 @@ vim.diagnostic.config({
 
 -- Do not source the default filetype.vim
 vim.g.did_load_filetypes = 1
+
+-- nvim-ufo
+vim.o.foldcolumn = "1" -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true

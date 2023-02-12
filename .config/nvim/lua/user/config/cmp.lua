@@ -48,7 +48,7 @@ local kind_icons = {
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
-local lspkind = require("lspkind")
+-- local lspkind = require("lspkind")
 
 cmp.setup({
 	snippet = {
@@ -56,6 +56,7 @@ cmp.setup({
 			luasnip.lsp_expand(args.body) -- For `luasnip` users.
 		end,
 	},
+
 	mapping = {
 		["<C-k>"] = cmp.mapping.select_prev_item(),
 		["<C-j>"] = cmp.mapping.select_next_item(),
