@@ -16,11 +16,13 @@ return {
 			{ "lukas-reineke/lsp-format.nvim", config = true },
 		},
 		config = function()
+			require("neoconf").setup({})
 			local lsp = require("lsp-zero")
 			lsp.preset("recommended")
 
 			lsp.ensure_installed({
 				"sumneko_lua",
+				"lua-language-server",
 				"bashls",
 				"elixirls",
 				"efm",

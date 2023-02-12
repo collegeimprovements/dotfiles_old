@@ -159,6 +159,7 @@ vim.cmd("au FocusGained * checktime") -- AutoRead on buffer focusgained
 vim.cmd("cnoreabbrev Wq wq")
 vim.cmd("cnoreabbrev W w")
 vim.cmd("cnoreabbrev Q q")
+vim.cmd("cnoreabbrev Q! q!")
 vim.cmd("cnoreabbrev Bd bd")
 vim.cmd("cnoreabbrev wrap set wrap")
 vim.cmd("cnoreabbrev nowrap set nowrap")
@@ -200,3 +201,6 @@ vim.diagnostic.config({
 	update_in_insert = false,
 	severity_sort = false,
 })
+
+-- Do not source the default filetype.vim
+vim.g.did_load_filetypes = 1
