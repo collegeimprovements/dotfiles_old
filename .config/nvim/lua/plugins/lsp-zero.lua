@@ -1,6 +1,8 @@
 return {
 	{
 		"VonHeikemen/lsp-zero.nvim",
+		event = "BufReadPre",
+
 		dependencies = {
 			"neovim/nvim-lspconfig",
 			"williamboman/mason.nvim",
@@ -16,7 +18,6 @@ return {
 			{ "lukas-reineke/lsp-format.nvim", config = true },
 		},
 		config = function()
-			require("neoconf").setup({})
 			local lsp = require("lsp-zero")
 			lsp.preset("recommended")
 

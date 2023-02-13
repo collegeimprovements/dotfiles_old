@@ -16,4 +16,5 @@ require("user.config.cmp")
 require("user.config.elixir")
 require("user.config.hop")
 require("user.config.html")
+
 vim.opt.shadafile = ""

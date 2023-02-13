@@ -6,7 +6,6 @@ return {
 	"L3MON4D3/LuaSnip",
 
 	"antoinemadec/FixCursorHold.nvim",
-	"dstein64/vim-startuptime",
 	"elixir-editors/vim-elixir",
 	"folke/lsp-colors.nvim",
 

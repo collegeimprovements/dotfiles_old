@@ -1,6 +1,8 @@
 return {
 	{
 		"nat-418/boole.nvim",
+		event = "BufReadPre",
+
 		config = function()
 			require("boole").setup({
 				mappings = {

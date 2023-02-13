@@ -2,6 +2,7 @@
 return {
 	{
 		"ojroques/nvim-hardline",
+
 		config = function()
 			-- Hardline
 			require("hardline").setup({

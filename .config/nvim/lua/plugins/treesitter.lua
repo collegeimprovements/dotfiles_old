@@ -2,6 +2,8 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		event = "BufReadPre",
+
 		dependencies = {
 			"RRethy/nvim-treesitter-endwise",
 			"windwp/nvim-autopairs",
