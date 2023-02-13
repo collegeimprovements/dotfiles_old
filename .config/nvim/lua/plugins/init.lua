@@ -2,10 +2,11 @@ return {
 	"AndrewRadev/tagalong.vim",
 	"alvan/vim-closetag",
 	"lewis6991/impatient.nvim",
+	"antoinemadec/FixCursorHold.nvim",
 
 	"L3MON4D3/LuaSnip",
+	"rafamadriz/friendly-snippets",
 
-	"antoinemadec/FixCursorHold.nvim",
 	"elixir-editors/vim-elixir",
 	"folke/lsp-colors.nvim",
 
@@ -32,7 +33,6 @@ return {
 	"onsails/lspkind-nvim",
 	"pechorin/any-jump.vim",
 
-	"rafamadriz/friendly-snippets",
 	"ray-x/guihua.lua",
 
 	"ray-x/sad.nvim",
