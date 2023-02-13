@@ -32,6 +32,7 @@ return {
 
 			lsp.ensure_installed({
 				"lua_ls",
+				"emmet_ls",
 				"bashls",
 				"elixirls",
 				"efm",
