@@ -1,3 +1,4 @@
+vim.opt.shadafile = "NONE"
 -- Order Matters
 require("user.core.essential-keybindings")
 require("user/lazy_bootstrap")
@@ -15,3 +16,4 @@ require("user.config.cmp")
 require("user.config.elixir")
 require("user.config.hop")
 require("user.config.html")
+vim.opt.shadafile = ""
