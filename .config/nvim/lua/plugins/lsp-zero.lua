@@ -1,7 +1,7 @@
 return {
 	{
 		"VonHeikemen/lsp-zero.nvim",
-		event = "BufReadPre",
+		-- event = "BufReadPre",
 
 		dependencies = {
 			"neovim/nvim-lspconfig",
@@ -19,6 +19,8 @@ return {
 		},
 		config = function()
 			local lsp = require("lsp-zero")
+			local path_to_elixirls = vim.fn.expand("~/language-servers/elixir-ls/release/language_server.sh")
+
 			lsp.preset("recommended")
 
 			lsp.setup_nvim_cmp({
@@ -46,8 +48,43 @@ return {
 				"jsonls",
 			})
 
-			-- Fix Undefined global 'vim'
+			lsp.configure("elixirls", {
+				cmd = { path_to_elixirls },
+				flags = { debounce_text_changes = 150 },
+				settings = {
+					elixirLS = {
+						dialyzerEnabled = false,
+						fetchDeps = false,
+					},
+				},
+			})
+
+			-- lua_ls Fix Undefined global 'vim'
 			lsp.configure("lua_ls", { settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
+
+			-- emmet_ls
+			lsp.configure("emmet_ls", {
+				filetypes = {
+					"html",
+					"heex",
+					"eelixir",
+					"eex",
+					"typescriptreact",
+					"javascriptreact",
+					"css",
+					"sass",
+					"scss",
+					"less",
+				},
+				init_options = {
+					html = {
+						options = {
+							-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+							["bem.enabled"] = true,
+						},
+					},
+				},
+			})
 
 			lsp.setup()
 		end,

@@ -40,21 +40,21 @@ map("n", "<leader>r", [[ <Cmd> source ~/.config/nvim/init.lua<CR>]], opts) -- So
 map("n", "ß", [[<Cmd>:w <CR>]], opts) -- Save - Cmd+s
 map("i", "ß", [[<Cmd>:w <CR>]], opts) -- Save - Cmd+s
 map("n", "∑", [[<Cmd>:q <CR>]], opts) -- Quit - Cmd+w
-map("n", "<c-q>", [[<Cmd>:q <CR>]], opts) -- Quit
+map("n", "<c-q>", [[<Cmd>:q! <CR>]], opts) -- Quit
 map("n", "bn", [[<Cmd>:q <CR>]], opts) -- Quit - `bn` in Normal mode
 map("n", "<leader>hl", [[<Cmd>set invhlsearch<CR>]], opts) -- Toggle Search Highlight
 map("n", "<leader>d", [[ <Cmd> bd<CR>]]) -- Close the buffer
 map("n", "bd", [[<Cmd> bd <CR>]], opts) -- Close the buffer
-map("n", "<leader>ps", [[ <Cmd> PaqSync<CR>]]) -- Sync = install + update the plugins
+map("n", "<leader>ps", [[ <Cmd> Lazy sync<CR>]]) -- Sync = install + update the plugins
 map("n", "∫", [[ <Cmd> NvimTreeToggle<CR>]]) -- Cmd+b Open NvimTree Sidebar
 map("n", "<C-e>", [[ <Cmd> NvimTreeToggle<CR>]]) -- Open NvimTree Sidebar
-map("n", "ƒ", [[<Cmd> Files<CR>]]) -- Find Files
 map("n", "<leader>m", [[<Cmd> Rg<CR>]]) -- Find Buffers
 map("n", "<leader>b", [[<Cmd> Buffers<CR>]]) -- Find Buffers
 map("n", "<leader>hi", [[<Cmd> History<CR>]], opts) -- symbols-outline
 map("n", "∆", [[<Cmd> TBD<CR>]]) -- Cmd+Shift+j unmapped for now
-map("n", "<C-p>", [[<Cmd> GFiles --exclude-standard --others --cached<CR>]], opts)
 map("n", "π", [[<Cmd> Files<CR>]], opts) -- Cmd+p Dropdown with commands
+map("n", "ƒ", [[<Cmd> Files<CR>]]) -- Find Files
+map("n", "<C-p>", [[<Cmd> GFiles --exclude-standard --others --cached<CR>]], opts)
 map("n", "¬", [[<Cmd> LazyGit<CR>]], opts) -- Cmd+l Lazygit
 map("n", ";;", "<C-^>", opts) -- goto pervious file fast
 map("n", "<leader>;", ":", opts) -- Run commad in command-mode. i.e. at bottom of nvim's commandline.

@@ -1,6 +1,6 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "418d3117dab2f54c4340ea73e0070dd78fc81753" },
-  "FixCursorHold.nvim": { "branch": "master", "commit": "70a9516a64668cbfe59f31b66d0a21678c5e9b12" },
+  "FixCursorHold.nvim": { "branch": "master", "commit": "1900f89dc17c603eec29960f57c00bd9ae696495" },
   "LuaSnip": { "branch": "master", "commit": "58fbfc627a93281a77f7d161d4ff702e639677b1" },
   "any-jump.vim": { "branch": "master", "commit": "9768403b6381ce3758cebac9613910c0160969e3" },
   "boole.nvim": { "branch": "main", "commit": "f4f9996f91159e54b8f1893b20e2e599c91bc1bd" },
@@ -15,7 +15,7 @@
   "fzf": { "branch": "master", "commit": "b3bf18b1c08524af8d1e80c53bc6017706fc6ca1" },
   "fzf.vim": { "branch": "master", "commit": "dc71692255b62d1f67dc55c8e51ab1aa467b1d46" },
   "gitlinker.nvim": { "branch": "master", "commit": "cc59f732f3d043b626c8702cb725c82e54d35c25" },
-  "gitsigns.nvim": { "branch": "main", "commit": "bc4a6dadca901bd65dc7204e2ed9f16791470222" },
+  "gitsigns.nvim": { "branch": "main", "commit": "a5caac26768af80b7c57b919f77b3fed3d7424d0" },
   "goto-preview": { "branch": "main", "commit": "54a5e18f6a42b39021b7aef62aae4dda8680d666" },
   "guihua.lua": { "branch": "master", "commit": "5cebe5bd6ce1820cab526f4ba5876d441a752460" },
   "hop.nvim": { "branch": "master", "commit": "90db1b2c61b820e230599a04fedcd2679e64bd07" },
