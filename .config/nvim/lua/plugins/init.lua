@@ -20,7 +20,6 @@ return {
 
 	"kassio/neoterm",
 	"kdheepak/lazygit.nvim",
-	"kylechui/nvim-surround",
 
 	"machakann/vim-sandwich",
 	"mg979/vim-visual-multi",

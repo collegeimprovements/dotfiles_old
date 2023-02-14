@@ -30,6 +30,14 @@ vim.api.nvim_exec(
 	false
 )
 
+-- Autosave - https://stackoverflow.com/a/4639076/835149
+vim.api.nvim_exec(
+	[[
+    autocmd BufLeave,FocusLost * silent! wall
+  ]],
+	false
+)
+
 -- Highlight on yank
 -- cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
 -- vim.cmd "au TextYankPost * silent! lua vim.highlight.on_yank()" -- this is same as long version below.
