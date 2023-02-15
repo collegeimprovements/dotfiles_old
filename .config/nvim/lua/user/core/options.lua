@@ -4,22 +4,22 @@ local g = vim.g
 -- [START] https://github.com/nathom/nvim_config/blob/main/lua/opts.lua#L6
 -- Disable some built-in plugins we don't want
 local disabled_built_ins = {
-	"gzip",
-	"man",
-	"matchit",
-	"matchparen",
-	"shada_plugin",
-	"tarPlugin",
-	"tar",
-	"zipPlugin",
-	"zip",
-	"netrwPlugin",
-	"2html_plugin",
-	"remote_plugins",
+  "gzip",
+  "man",
+  "matchit",
+  "matchparen",
+  "shada_plugin",
+  "tarPlugin",
+  "tar",
+  "zipPlugin",
+  "zip",
+  "netrwPlugin",
+  "2html_plugin",
+  "remote_plugins",
 }
 
 for _, plugin in ipairs(disabled_built_ins) do
-	g["loaded_" .. plugin] = 1
+  g["loaded_" .. plugin] = 1
 end
 
 -- Skip some remote provider loading
@@ -47,6 +47,7 @@ opt.exrc = true
 opt.backup = false
 opt.writebackup = false
 opt.wildmenu = true
+opt.autowriteall = true
 
 opt.background = "dark"
 opt.backspace = { "indent", "eol", "start" }
@@ -108,27 +109,27 @@ opt.inccommand = "nosplit" --  if we want to show live results in a split window
 -- Ignore compiled files
 opt.wildignore = "*.zip"
 opt.wildignore = opt.wildignore
-	+ {
-		"*.beam",
-		"*~",
-		"*DS_Store*",
-		"log/**",
-		"*.png",
-		"*.jpg",
-		"*.gif",
-		"*.png",
-		"*.o",
-		"*.obj",
-		"*.so",
-		"*.swp",
-		"*.zip",
-		"*/.Trash/**",
-		"*.pdf",
-		"*.dmg",
-		"*/Library/**",
-		"*/_build/**",
-		"*/deps/**",
-	}
+    + {
+      "*.beam",
+      "*~",
+      "*DS_Store*",
+      "log/**",
+      "*.png",
+      "*.jpg",
+      "*.gif",
+      "*.png",
+      "*.o",
+      "*.obj",
+      "*.so",
+      "*.swp",
+      "*.zip",
+      "*/.Trash/**",
+      "*.pdf",
+      "*.dmg",
+      "*/Library/**",
+      "*/_build/**",
+      "*/deps/**",
+    }
 
 -- o.wildignore = [[
 -- .git,.hg,.svn
@@ -196,11 +197,11 @@ vim.cmd([[set iskeyword+=-]])
 
 -- diagnostics
 vim.diagnostic.config({
-	virtual_text = true,
-	signs = true,
-	underline = true,
-	update_in_insert = false,
-	severity_sort = false,
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false,
 })
 
 -- Do not source the default filetype.vim
