@@ -14,7 +14,6 @@ require("user.core.languages")
 
 -- Config
 require("user.config.cmp")
--- require("user.config.elixir")
 require("user.config.hop")
 require("user.config.html")
 

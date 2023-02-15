@@ -50,7 +50,7 @@ return {
 			})
 
 			lsp.configure("elixirls", {
-				cmd = { path_to_elixirls },
+				-- cmd = { path_to_elixirls },
 				flags = { debounce_text_changes = 150 },
 				settings = {
 					elixirLS = {
@@ -63,7 +63,6 @@ return {
 			lsp.configure("efm", {
 				filetypes = { "elixir" },
 			})
-
 
 			-- lua_ls Fix Undefined global 'vim'
 			lsp.configure("lua_ls", { settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
