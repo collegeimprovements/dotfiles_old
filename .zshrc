@@ -102,6 +102,7 @@ alias ta2="tmux attach-session -t 2"
 alias ta3="tmux attach-session -t 3"
 alias ta4="tmux attach-session -t 4"
 alias ta5="tmux attach-session -t 5"
+alias x0="tmux attach-session -t 0"
 #================================================================================
 # Tmux - End
 #================================================================================
