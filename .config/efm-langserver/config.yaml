@@ -85,5 +85,9 @@ languages:
     - <<: *shfmt
   elixir:
     - <<: *mix_credo
+  eelixir:
+    - <<: *mix_credo
+  heex:
+    - <<: *mix_credo
   sql:
     - <<: *pg_format
