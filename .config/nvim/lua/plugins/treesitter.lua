@@ -65,6 +65,7 @@ return {
 					filetypes = {
 						"html",
 						"heex",
+						"eelixir",
 						"javascript",
 						"typescript",
 						"javascriptreact",

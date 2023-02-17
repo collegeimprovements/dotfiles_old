@@ -3,11 +3,11 @@
 ------------------------------------------------------------------------
 -- key-bindings - function to map keys and commands
 local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	local options = { noremap = true, silent = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 local opts = { noremap = true, silent = true }
@@ -22,25 +22,25 @@ local keymap = vim.api.nvim_set_keymap
 -- Current Usecase: :Sad old new
 -- https://www.reddit.com/r/neovim/comments/f0qx2y/automatically_reload_file_if_contents_changed/
 vim.api.nvim_exec(
-  [[
+	[[
       autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
        autocmd FileChangedShellPost *
         \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
   ]],
-  false
+	false
 )
 
 -- Highlight on yank
 -- cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
 -- vim.cmd "au TextYankPost * silent! lua vim.highlight.on_yank()" -- this is same as long version below.
 vim.api.nvim_exec(
-  [[
+	[[
   augroup YankHighlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
 ]],
-  false
+	false
 )
 
 -- Y yank until the end of line
@@ -48,7 +48,7 @@ vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true })
 
 -- Move Lines with Alt-Up and Alt-Down
 vim.api.nvim_exec(
-  [[
+	[[
   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   " => Move Lines with Alt-Up and Alt-Down
   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -64,7 +64,7 @@ vim.api.nvim_exec(
   vnoremap <M-Up>   :m '<-2<CR>gv=gv
   " Move Lines - End
 ]],
-  false
+	false
 )
 
 -- Better move
@@ -73,7 +73,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Toggle Zoom
 vim.api.nvim_exec(
-  [[
+	[[
   function! ToggleZoom(zoom)
     if exists("t:restore_zoom") && (a:zoom == v:true || t:restore_zoom.win != winnr())
         exec t:restore_zoom.cmd
@@ -88,27 +88,27 @@ vim.api.nvim_exec(
   augroup END
   nnoremap <silent> <Leader>+ :call ToggleZoom(v:true)<CR>
 ]],
-  false
+	false
 )
 
 -- Title String
 -- let &g:titlestring="%{expand('%:p:~:.')}%(%m%r%w%) %<\[%{fnamemodify(getcwd(), ':~')}\] - Neovim"
 vim.api.nvim_exec(
-  [[
+	[[
   let &g:titlestring="%{expand('%:p:~:.')}%(%m%r%w%) %<\[%{fnamemodify(getcwd(), ':~')}\]"
 ]],
-  false
+	false
 )
 
 -- Set Syntax for different file extension
 vim.api.nvim_exec(
-  [[
+	[[
 augroup extension_syntax_setting
   autocmd! extension_syntax_setting
   autocmd BufNewFile,BufRead *.env,*.local,*.env.local,*.uat,*.prod,*.envrc,*.in,*.dockerignore,*.env* set syntax=zsh
 augroup end
 ]],
-  false
+	false
 )
 
 -- " Keep the selection after indenting
@@ -148,29 +148,38 @@ map("n", "<leader>rc", [[:%s///gc<Left><Left><Left>]])
 
 -- Use `<ESC>` or `q` to close windows
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = {
-    "fugitive",
-    "help",
-    "lspinfo",
-    "lspsagafinder",
-    "man",
-    "null-ls-info",
-    "qf",
-    "sagacodeaction",
-    "startuptime",
-    "lazy",
-    "checkhealth",
-    "health://",
-  },
-  callback = function()
-    vim.keymap.set({ "n" }, "<ESC>", "<cmd>close<CR>", { silent = true, buffer = true })
-    vim.keymap.set({ "n" }, "q", "<cmd>close<CR>", { silent = true, buffer = true })
-  end,
+	pattern = {
+		"fugitive",
+		"help",
+		"lspinfo",
+		"lspsagafinder",
+		"man",
+		"null-ls-info",
+		"qf",
+		"sagacodeaction",
+		"startuptime",
+		"lazy",
+		"checkhealth",
+		"health://",
+	},
+	callback = function()
+		vim.keymap.set({ "n" }, "<ESC>", "<cmd>close<CR>", { silent = true, buffer = true })
+		vim.keymap.set({ "n" }, "q", "<cmd>close<CR>", { silent = true, buffer = true })
+	end,
 })
 
 --- Remove all trailing whitespace on save
 local TrimWhiteSpaceGrp = vim.api.nvim_create_augroup("TrimWhiteSpaceGrp", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
-  command = [[:%s/\s\+$//e]],
-  group = TrimWhiteSpaceGrp,
+	command = [[:%s/\s\+$//e]],
+	group = TrimWhiteSpaceGrp,
 })
+
+-- html
+vim.api.nvim_exec(
+	[[
+    let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.heex'
+    let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.heex'
+  ]],
+	false
+)
