@@ -19,4 +19,5 @@ augroup end
 vim.api.nvim_command("autocmd BufNew,BufNewFile,BufRead *.heex set ft=eelixir")
 
 vim.api.nvim_command("autocmd BufWritePre *.lua lua vim.lsp.buf.format()")
+-- vim.api.nvim_command("autocmd BufWritePre *.ex,*.exs,*.eex,*.heex  !rustywind % --write")
 vim.api.nvim_command("autocmd BufWritePre *.ex,*.exs,*.eex,*.heex lua vim.lsp.buf.format()")

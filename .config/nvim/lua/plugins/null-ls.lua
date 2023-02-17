@@ -12,10 +12,14 @@ return {
           -- formatting.black.with({ extra_args = { "--fast" } }),
           formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
           -- formatting.beautysh,
+          formatting.rustywind,
           formatting.stylua,
           formatting.mix,
           formatting.jq,
           formatting.pg_format,
+          formatting.rustywind.with({
+            extra_filetypes = { "heex", "eex", "eelixir", "html" },
+          }),
           -- formatting
           diagnostics.credo,
           diagnostics.eslint,
