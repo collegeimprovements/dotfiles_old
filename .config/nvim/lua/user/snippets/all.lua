@@ -20,7 +20,7 @@ return {
 		{ trig = "ii", dscr = "IO.inspect with label" },
 		fmta(
 			[[
-        IO.inspect(label: "<>" "$TM_FILENAME")
+        IO.inspect(label: "<>")
       ]],
 			{
 				i(1, "HERE:"),
