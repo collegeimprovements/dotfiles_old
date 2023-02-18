@@ -47,7 +47,7 @@ opt.exrc = true
 opt.backup = false
 opt.writebackup = false
 opt.wildmenu = true
-opt.autowriteall = true
+-- opt.autowriteall = true
 
 opt.background = "dark"
 opt.backspace = { "indent", "eol", "start" }

@@ -18,9 +18,9 @@ return {
 	require("luasnip").snippet({ trig = "foo" }, { t("Another snippet.") }),
 	require("luasnip").snippet(
 		{ trig = "ii", dscr = "IO.inspect with label" },
-		fmta(
+		fmt(
 			[[
-        IO.inspect(label: "<>")
+        |> IO.inspect(label: "{}")
       ]],
 			{
 				i(1, "HERE:"),
@@ -35,9 +35,27 @@ return {
       ]],
 			{
 				i(1, "thing_to_inspect:"),
+
 				i(2, "HERE:"),
 			}
 		)
 	),
 	require("luasnip").parser.parse_snippet("mf", "$TM_FILENAME - $TM_CURRENT_LINE"),
+	require("luasnip").snippet(
+		{ trig = "live_component", dscr = "live_component" },
+		fmta(
+			[[
+
+          <<.live_component
+            module={<>}
+            id="{@<>}"
+            navigate={}
+          \>>
+      ]],
+			{
+				i(1, "Module Name:"),
+				i(1, "some_assign.id"),
+			}
+		)
+	),
 }
