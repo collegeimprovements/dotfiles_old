@@ -1,6 +1,5 @@
 return {
   "AndrewRadev/tagalong.vim",
-  "L3MON4D3/LuaSnip",
   "alvan/vim-closetag",
   "antoinemadec/FixCursorHold.nvim",
   "elixir-editors/vim-elixir",
