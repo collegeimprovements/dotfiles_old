@@ -37,7 +37,8 @@ map("n", "<leader>S", [[ <Cmd> set signcolumn=yes:1<CR>]], opts) -- Toggle Numbe
 -- map("n", "<leader>L", [[ <Cmd> set signcolumn=yes:1<CR>]], opts) -- Toggle Number
 map("n", "<leader>n", [[ <Cmd> set nu!<CR>]], opts) -- Toggle Number
 map("n", "<leader>r", [[ <Cmd> source ~/.config/nvim/init.lua<CR>]], opts) -- Source $MYVIMRC
-map("n", "ß", [[<Cmd>:w <CR>]], opts) -- Save - Cmd+s
+-- map("n", "ß", [[<Cmd>:w <CR>]], opts) -- Save - Cmd+s
+map("n", "ß", [[<Cmd> lua vim.lsp.buf.format()<CR><Cmd>:w<CR>]], opts) -- symbols-outline
 map("i", "ß", [[<Cmd>:w <CR>]], opts) -- Save - Cmd+s
 map("n", "∑", [[<Cmd>:q <CR>]], opts) -- Quit - Cmd+w
 map("n", "<c-q>", [[<Cmd>:q! <CR>]], opts) -- Quit
