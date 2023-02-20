@@ -1,0 +1,9 @@
+[user]
+	name = Arpit Shah
+	email = collegeimprovements@gmail.com
+[init]
+	defaultBranch = main
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[fetch]
+	prune = true
