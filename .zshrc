@@ -333,6 +333,7 @@ alias claer="clear"
 alias cler="clear"
 alias oepn="open"
 alias breww="brew"
+alias fomrat="format"
 
 #suffix aliases
 # alias -s {zip,ZIP}="unzip -l"
