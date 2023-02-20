@@ -7,3 +7,5 @@
 	insteadOf = https://github.com/
 [fetch]
 	prune = true
+[gui]
+	pruneDuringFetch = true
