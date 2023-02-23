@@ -152,7 +152,7 @@ updatebrew() {
 }
 
 brewit() {
-    brew cleanup
+    brew cleanup --prune 1
     updatebrew
     echo "brewed it - $(date)"
 }
