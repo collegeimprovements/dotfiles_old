@@ -51,7 +51,9 @@ map("n", "∫", [[ <Cmd> NvimTreeToggle<CR>]]) -- Cmd+b Open NvimTree Sidebar
 map("n", "<C-e>", [[ <Cmd> NvimTreeToggle<CR>]]) -- Open NvimTree Sidebar
 map("n", "<leader>m", [[<Cmd> Rg<CR>]]) -- Find Buffers
 map("n", "<leader>b", [[<Cmd> Buffers<CR>]]) -- Find Buffers
-map("n", "<leader>hi", [[<Cmd> History<CR>]], opts) -- symbols-outline
+map("n", "<leader>hh", [[<Cmd> History<CR>]], opts) -- symbols-outline
+map("n", "<leader>h", [[<Cmd> History<CR>]], opts) -- symbols-outline
+-- map("n", "<leader>hi", [[<Cmd> History<CR>]], opts) -- symbols-outline
 map("n", "∆", [[<Cmd> TBD<CR>]]) -- Cmd+Shift+j unmapped for now
 map("n", "π", [[<Cmd> Files<CR>]], opts) -- Cmd+p Dropdown with commands
 map("n", "ƒ", [[<Cmd> Files<CR>]]) -- Find Files
