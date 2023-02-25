@@ -96,6 +96,8 @@ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 # Tmux - Start
 #================================================================================
 alias ta="tmux attach"
+alias tls="tmux ls"
+alias tk="tmux kill-session -t"
 alias ta0="tmux attach-session -t 0"
 alias ta1="tmux attach-session -t 1"
 alias ta2="tmux attach-session -t 2"
@@ -103,6 +105,26 @@ alias ta3="tmux attach-session -t 3"
 alias ta4="tmux attach-session -t 4"
 alias ta5="tmux attach-session -t 5"
 alias x0="tmux attach-session -t 0"
+
+alias tmono="tmux attach-session -t mono || tmx "
+alias tm="tmux attach-session -t mono || tmx "
+alias tkm="tmux kill-session -t"
+# alias tm= tmono || tmx
+tmx () {
+    # Use -d to allow the rest of the function to run
+    tmux new-session -d -s mono -n 'iex' -c ~/Savi/mono/services 'make iex.server'
+    #tmux new-window -n iex -c ~/Savi/mono/services
+    # tmux send -d -t mono:iex 'make iex.server' Enter
+    # -d to prevent current window from changing
+    tmux new-window -d -n web -c ~/Savi/mono/web 'yarn start'
+    # tmux send -d -t mono:web 'yarn start' Enter
+    # tmux new-window -d -n Win3
+    # tmux new-window -d -n Win4
+    # -d to detach any other client (which there shouldn't be,
+    # since you just created the session).
+    # tmux attach-session -d -t mono
+    # tmux select-window -t e:1
+}
 #================================================================================
 # Tmux - End
 #================================================================================
@@ -377,6 +399,7 @@ alias xp="gr && iex -S mix phx.server"
 alias mt="MIX_ENV=test iex -S mix"
 alias ips="iex -S mix phx.server"
 alias lxp="MIX_ENV=local iex -S mix phx.server"
+alias ms="cd /Users/arpit/Savi/mono/services && make iex.server"
 
 # IP addresses - https://github.com/mathiasbynens/dotfiles/blob/master/.aliases
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -429,6 +452,11 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+# See details of what's running on a port
+# Maybe you want to kill -9 the pid of it
+# lsof -i :9001 -S
+
 
 #================================================================================
 # Python Related Things - CAPCHASE
@@ -548,5 +576,7 @@ function sshReadReplica {
     ubuntu@$JUMP_PUBLIC_IP "ec2-user@$MIGRATION_PRIVATE_IP" -i ~/.ssh/savi-us-west-2.pem
 }
 
-cd ~/Savi/mono/
 #=====================================SAVI========================================
+
+# Created by `pipx` on 2023-02-25 20:41:17
+export PATH="$PATH:/Users/arpit/.local/bin"
