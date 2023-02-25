@@ -46,7 +46,6 @@ defaults write com.apple.dock dashboard-in-overlay -bool true
 # don't show recently used softwares in dock
 defaults write com.apple.dock show-recents -bool FALSE
 
-
 # to keep j and k keys fast in vscode neovim mode
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
@@ -60,6 +59,9 @@ defaults write NSGlobalDomain KeyRepeat -int 1
 
 # System Preferences > Keyboard >
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# System Preferences > Docke & Menubar >
+defaults write NSGlobalDomain _HIHideMenuBar -bool true
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 

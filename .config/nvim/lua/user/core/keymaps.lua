@@ -49,7 +49,7 @@ map("n", "bd", [[<Cmd> bd <CR>]], opts) -- Close the buffer
 map("n", "<leader>ps", [[ <Cmd> Lazy sync<CR>]]) -- Sync = install + update the plugins
 map("n", "∫", [[ <Cmd> NvimTreeToggle<CR>]]) -- Cmd+b Open NvimTree Sidebar
 map("n", "<C-e>", [[ <Cmd> NvimTreeToggle<CR>]]) -- Open NvimTree Sidebar
-map("n", "<leader>m", [[<Cmd> Rg<CR>]]) -- Find Buffers
+map("n", "<leader>m", [[<Cmd> Rg<CR>]]) -- Find with rg
 map("n", "<leader>b", [[<Cmd> Buffers<CR>]]) -- Find Buffers
 map("n", "<leader>hh", [[<Cmd> History<CR>]], opts) -- symbols-outline
 map("n", "<leader>h", [[<Cmd> History<CR>]], opts) -- symbols-outline
@@ -62,8 +62,8 @@ map("n", "¬", [[<Cmd> LazyGit<CR>]], opts) -- Cmd+l Lazygit
 map("n", ";;", "<C-^>", opts) -- goto pervious file fast
 map("n", "<leader>;", ":", opts) -- Run commad in command-mode. i.e. at bottom of nvim's commandline.
 map("x", "<leader>;", ":", opts) -- Run commad in command-mode. i.e. at bottom of nvim's commandline.
-map("n", "<c-c>", ":", opts) -- Run commad in command-mode. i.e. at bottom of nvim's commandline.
-map("x", "<c-c>", ":", opts) -- Run commad in command-mode. i.e. at bottom of nvim's commandline.
+map("n", "<C-c>", ":Commands<CR>", opts) -- Run commad in command-mode. i.e. at bottom of nvim's commandline.
+map("x", "<C-c>", ":Commands<CR>", opts) -- Run commad in command-mode. i.e. at bottom of nvim's commandline.
 map("n", "<leader>tt", [[<Cmd>:SymbolsOutline<CR>]], opts) -- symbols-outline
 map("n", "<leader>td", [[<Cmd>:TroubleToggle document_diagnostics<CR>]], opts) -- symbols-outline
 
