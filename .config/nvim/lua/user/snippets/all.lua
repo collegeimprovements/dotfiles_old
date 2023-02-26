@@ -40,6 +40,17 @@ return {
 			}
 		)
 	),
+	require("luasnip").snippet(
+		{ trig = "ins", dscr = "IO.inspect with label" },
+		fmta(
+			[[
+        <<%= inspect(@<>), pretty: true ,limit: :infinity %>>
+      ]],
+			{
+				i(1, "term"),
+			}
+		)
+	),
 	require("luasnip").parser.parse_snippet("mf", "$TM_FILENAME - $TM_CURRENT_LINE"),
 	require("luasnip").snippet(
 		{ trig = "live_component", dscr = "live_component" },
