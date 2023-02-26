@@ -107,8 +107,8 @@ alias ta5="tmux attach-session -t 5"
 alias x0="tmux attach-session -t 0"
 
 alias tmono="tmux attach-session -t mono || tmx "
-alias tm="tmux attach-session -t mono || tmx "
-alias tkm="tmux kill-session -t"
+alias tm="tmono && cd ~/savi/mono"
+alias tkm="tmux kill-session -t mono"
 # alias tm= tmono || tmx
 tmx () {
     # Use -d to allow the rest of the function to run
@@ -124,6 +124,7 @@ tmx () {
     # since you just created the session).
     # tmux attach-session -d -t mono
     # tmux select-window -t e:1
+    cd ~/Savi/mono/
 }
 #================================================================================
 # Tmux - End
@@ -309,6 +310,7 @@ alias vi="nvim"
 alias n="nvim"
 alias update-nvim-nightly='asdf uninstall neovim nightly && asdf install neovim nightly'
 alias cz="code ~/.zshrc"
+alias nz="nvim ~/.zshrc"
 alias cnz="code ~/.zshrc"
 alias zrc="nvim ~/.zshrc"
 alias ce="code ~/.zshenv"
@@ -318,7 +320,9 @@ alias desk="cd ~/Desktop"
 alias down="cd ~/Downloads"
 alias ca="~/Projects/ZAKI/cloche_api"
 alias p="~/Documents/projects"
-alias b="~/Blockfi/blockfi-mystique"
+alias mn="~/savi/mono/"
+alias mono="~/savi/mono/"
+alias mns="~/savi/mono/services/"
 alias bl="~/Blockfi/blockfi-mystique"
 alias bm="~/Blockfi/blockfi-mystique"
 alias cl="~/Cookstro/cloche_api"
@@ -425,6 +429,8 @@ alias cal="cal -3"
 alias att="almostontop toggle"
 alias sl="sh ~/a.sh"
 
+# currencyConverter - https://github.com/Rayrsn/currencyConverter
+function ccd() { currencyConverter $1 usd inr}
 
 #python
 # alias python=python3
