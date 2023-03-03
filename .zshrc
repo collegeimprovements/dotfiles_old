@@ -138,8 +138,8 @@ alias zls="zellij ls"
 alias za="zellij attach"
 alias zk="zellij kill-session"
 alias zka="zellij kill-all-sessions"
-alias zm="zellij attach mono || zellij -s mono"
-alias zmono="zellij attach mono || zellij -s mono"
+alias zm="zellij attach mono || cd ~/Savi/mono/services && zellij -s mono"
+alias zmono="zellij attach mono || cd ~/Savi/mono/services && zellij -s mono"
 
 #================================================================================
 # Zellij - End
@@ -298,6 +298,17 @@ export CC=clang
 # ELIXIR - End
 #================================================================================
 
+#================================================================================
+# fkill - Start
+#================================================================================
+fkill() {
+  lsof -ti:$1 | xargs kill -9
+}
+
+
+#================================================================================
+# fkill - End
+#================================================================================
 
 #================================================================================
 # PSQL - Start
@@ -420,7 +431,7 @@ alias xp="gr && iex -S mix phx.server"
 alias mt="MIX_ENV=test iex -S mix"
 alias ips="iex -S mix phx.server"
 alias lxp="MIX_ENV=local iex -S mix phx.server"
-alias ms="cd /Users/arpit/Savi/mono/services && make iex.server"
+alias ms="cd /Users/arpit/Savi/mono/services && fkill 9001 && make iex.server"
 
 # IP addresses - https://github.com/mathiasbynens/dotfiles/blob/master/.aliases
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
