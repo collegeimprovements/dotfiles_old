@@ -3,11 +3,11 @@ local keymap = vim.api.nvim_set_keymap
 
 -- key-bindings - function to map keys and commands
 local function map(mode, lhs, rhs, opts)
-	local options = { noremap = true, silent = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 local opts = { noremap = true, silent = true }
@@ -66,6 +66,7 @@ map("n", "<C-c>", ":Commands<CR>", opts) -- Run commad in command-mode. i.e. at 
 map("x", "<C-c>", ":Commands<CR>", opts) -- Run commad in command-mode. i.e. at bottom of nvim's commandline.
 map("n", "<leader>tt", [[<Cmd>:SymbolsOutline<CR>]], opts) -- symbols-outline
 map("n", "<leader>td", [[<Cmd>:TroubleToggle document_diagnostics<CR>]], opts) -- symbols-outline
+map("n", "S", [[<Cmd>:Other<CR>]], opts) -- otherfile
 
 -- Telescope
 -- map("n", "ƒ", [[<Cmd> Telescope find_files theme=get_dropdown<CR>]]) -- Find Files
