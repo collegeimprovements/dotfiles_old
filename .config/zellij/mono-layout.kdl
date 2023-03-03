@@ -1,0 +1,9 @@
+layout {
+    tab name="mono" cwd="/Users/arpit/Savi/mono/web/" {
+      pane command="yarn" name="web" {
+        args "start"
+      }
+      pane cwd="/Users/arpit/savi/mono/services/" name="services" focus=true {
+      }
+    }
+}

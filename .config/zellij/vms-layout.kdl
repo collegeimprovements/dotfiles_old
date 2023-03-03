@@ -1,0 +1,15 @@
+layout {
+    tab name="vms" cwd="/Users/arpit/Savi/vms_mono/" {
+      pane focus=true size="50%" {
+        }
+      pane name="rtsp" command="make" borderless=true split_direction="horizontal"  {
+        args "rtsp_ingestor.iex"
+      }
+      pane  name="rtmp" command="make" split_direction="vertical" {
+        args "rtmp_server.iex"
+      }
+      pane  name="stream_manager" command="make" split_direction="vertical" {
+        args "stream_manager.iex"
+      }
+    }
+}
