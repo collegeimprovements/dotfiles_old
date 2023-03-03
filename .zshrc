@@ -138,8 +138,9 @@ alias zls="zellij ls"
 alias za="zellij attach"
 alias zk="zellij kill-session"
 alias zka="zellij kill-all-sessions"
-alias zm="zellij attach mono || cd ~/Savi/mono/services && zellij -s mono"
-alias zmono="zellij attach mono || cd ~/Savi/mono/services && zellij -s mono"
+alias zw="zellij attach mw || zellij -s mw --layout /Users/arpit/.config/zellij/mono-layout.kdl"
+alias zm="zellij attach mono || zellij -s mono --layout /Users/arpit/.config/zellij/mono-layout.kdl"
+alias zv="zellij attach vms || zellij -s vms --layout /Users/arpit/.config/zellij/vms-layout.kdl"
 
 #================================================================================
 # Zellij - End
