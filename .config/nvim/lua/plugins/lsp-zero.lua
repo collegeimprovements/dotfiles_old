@@ -20,7 +20,7 @@ return {
 		},
 		config = function()
 			local lsp = require("lsp-zero")
-			local path_to_elixirls = vim.fn.expand("~/language-servers/elixir-ls/release/language_server.sh")
+			-- local path_to_elixirls = vim.fn.expand("~/language-servers/elixir-ls/release/language_server.sh")
 
 			lsp.preset("recommended")
 
@@ -39,7 +39,7 @@ return {
 				"emmet_ls",
 				"bashls",
 				"elixirls",
-				"efm",
+				-- "efm",
 				"tsserver",
 				"eslint",
 				"tailwindcss",
@@ -60,10 +60,10 @@ return {
 				},
 			})
 
-			lsp.configure("efm", {
-				filetypes = { "elixir", "html", "heex", "eelixr", "lua", "sh", "yaml" },
-				init_options = { documentFormatting = true },
-			})
+			-- lsp.configure("efm", {
+			-- 	filetypes = { "elixir", "html", "heex", "eelixr", "lua", "sh", "yaml" },
+			-- 	init_options = { documentFormatting = true },
+			-- })
 
 			-- lua_ls Fix Undefined global 'vim'
 			lsp.configure("lua_ls", { settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
