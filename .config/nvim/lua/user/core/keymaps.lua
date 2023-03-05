@@ -49,7 +49,8 @@ map("n", "bd", [[<Cmd> bd <CR>]], opts) -- Close the buffer
 map("n", "<leader>ps", [[ <Cmd> Lazy sync<CR>]]) -- Sync = install + update the plugins
 map("n", "∫", [[ <Cmd> NvimTreeToggle<CR>]]) -- Cmd+b Open NvimTree Sidebar
 map("n", "<C-e>", [[ <Cmd> NvimTreeToggle<CR>]]) -- Open NvimTree Sidebar
-map("n", "<leader>m", [[<Cmd> Rg<CR>]]) -- Find with rg
+map("n", "<leader>f", [[<Cmd> Rg<CR>]]) -- Find with rg
+-- map("n", "<leader>m", [[<Cmd> Rg<CR>]]) -- Find with rg
 map("n", "<leader>b", [[<Cmd> Buffers<CR>]]) -- Find Buffers
 map("n", "<leader>hh", [[<Cmd> History<CR>]], opts) -- symbols-outline
 map("n", "<leader>h", [[<Cmd> History<CR>]], opts) -- symbols-outline
@@ -67,6 +68,19 @@ map("x", "<C-c>", ":Commands<CR>", opts) -- Run commad in command-mode. i.e. at 
 map("n", "<leader>tt", [[<Cmd>:SymbolsOutline<CR>]], opts) -- symbols-outline
 map("n", "<leader>td", [[<Cmd>:TroubleToggle document_diagnostics<CR>]], opts) -- symbols-outline
 map("n", "S", [[<Cmd>:Other<CR>]], opts) -- otherfile
+
+-- Marks
+map("n", "<leader>m", [[<Cmd>Marks<CR>]], opts) -- Marks
+map("n", "<leader>0", [[`Mzz]], opts) -- Marks
+map("n", "<leader>1", [[`Azz]], opts) -- Marks
+map("n", "<leader>2", [[`Bzz]], opts) -- Marks
+map("n", "<leader>3", [[`Czz]], opts) -- Marks
+map("n", "<leader>4", [[`Dzz]], opts) -- Marks
+map("n", "<leader>5", [[`Ezz]], opts) -- Marks
+map("n", "<leader>6", [[`Fzz]], opts) -- Marks
+map("n", "<leader>7", [[`Gzz]], opts) -- Marks
+map("n", "<leader>8", [[`Hzz]], opts) -- Marks
+map("n", "<leader>9", [[`Izz]], opts) -- Marks
 
 -- Telescope
 -- map("n", "ƒ", [[<Cmd> Telescope find_files theme=get_dropdown<CR>]]) -- Find Files
