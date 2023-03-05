@@ -324,6 +324,7 @@ export PSQL_EDITOR="nvim"
 # COMMON ALIASES - Start
 #================================================================================
 # alias cls="printf '\033[2J\033[3J\033[1;1H'" # kitty - cmd+k - clears scrollback
+
 alias ......="cd ../../../../.."
 alias .....="cd ../../../.."
 alias ....="cd ../../.."
@@ -337,6 +338,7 @@ alias ball="brewall"
 alias bat="bat --theme ansi"
 alias bl="~/Blockfi/blockfi-mystique"
 alias bm="~/Blockfi/blockfi-mystique"
+alias c="~/Savi/mono/services/apps/api/lib/api_web/live/frontend/events_live/ev/components/custom_components.ex"
 alias ca="~/Projects/ZAKI/cloche_api"
 alias cat="bat --theme ansi -p"
 alias ce="code ~/.zshenv"
@@ -349,7 +351,6 @@ alias cze="code ~/.zshrc ~/.zshenv"
 alias desk="cd ~/Desktop"
 alias down="cd ~/Downloads"
 alias e="~/Savi/mono/services/apps/api/lib/api_web/live/frontend/events_live/ev/index.ex"
-alias c="~/Savi/mono/services/apps/api/lib/api_web/live/frontend/events_live/ev/components/custom_components.ex"
 alias infra="cd ~/Documents/projects/infrastructure"
 alias l="exa -l"
 alias la="exa -a"
