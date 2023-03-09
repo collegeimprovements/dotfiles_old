@@ -9,3 +9,5 @@
 	prune = true
 [gui]
 	pruneDuringFetch = true
+[help]
+	autocorrect = 1
