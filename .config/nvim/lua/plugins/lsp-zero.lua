@@ -20,7 +20,7 @@ return {
 		},
 		config = function()
 			local lsp = require("lsp-zero")
-			-- local path_to_elixirls = vim.fn.expand("~/language-servers/elixir-ls/release/language_server.sh")
+			local path_to_elixirls = vim.fn.expand("~/language-servers/elixir-ls/release/language_server.sh")
 
 			lsp.preset("recommended")
 
@@ -50,7 +50,7 @@ return {
 			})
 
 			lsp.configure("elixirls", {
-				-- cmd = { path_to_elixirls },
+				cmd = { path_to_elixirls },
 				flags = { debounce_text_changes = 150 },
 				settings = {
 					elixirLS = {
