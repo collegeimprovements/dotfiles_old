@@ -439,6 +439,12 @@ alias lxp="MIX_ENV=local iex -S mix phx.server"
 alias mcs="cd ~/Savi/mono/services && fkill 9001 && make console.server"
 alias ms="cd ~/Savi/mono/services && fkill 9001 && make console.server"
 
+# ssh
+alias cdev="ssh -i ~/Movies/devops.pem ec2-user@18.189.160.96"
+alias cprod="ssh -i ~/Movies/devops.pem ec2-user@18.118.220.218"
+alias hdev="ssh -i ~/Movies/devops.pem ec2-user@3.12.228.65"
+alias hprod="ssh -i ~/Movies/devops.pem ec2-user@3.141.185.173"
+
 # IP addresses - https://github.com/mathiasbynens/dotfiles/blob/master/.aliases
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
