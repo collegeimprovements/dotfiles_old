@@ -179,7 +179,7 @@ dotbrew() {
     rm $HOME/macos/Brewfile
     brew bundle dump --file=$HOME/macos/Brewfile
     dot add $HOME/macos/Brewfile
-    dot add $HOME/.confg/nvim
+    dot add $HOME/.config/nvim
     dot commit -m "updates brewfile and nvim"
 }
 
