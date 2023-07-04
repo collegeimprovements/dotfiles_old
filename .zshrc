@@ -30,8 +30,10 @@ vimtoline(){ IFS=: read -r f l <<< "$1"; nvim "$f" +"$l"; }
 export PATH=~/language-servers/elixir-ls/rel:$PATH # Language Servers
 export PATH=~/language-servers/lua-language-server/bin/macOS:$PATH
 # . /usr/local/opt/asdf/asdf.sh # THIS IS MUCH FASTER THAN THE ABOVE -> . $(brew --prefix asdf)/asdf.sh
-. /usr/local/opt/asdf/libexec/asdf.sh
+# . /usr/local/opt/asdf/libexec/asdf.sh
+# . /opt/homebrew/bin/asdf
 export PATH=$HOME/.asdf/shims:$PATH #https://github.com/asdf-vm/asdf/issues/107#issuecomment-257282018
+
 
 
 #NOTE: asdf path should be first - i.e. before /user/local/bin and /usr/bin etc.
@@ -229,7 +231,7 @@ updatezsh() {
 # rupa z - Start
 #================================================================================
 # z - frecency based cd
-. /usr/local/etc/profile.d/z.sh
+# . /usr/local/etc/profile.d/z.sh
 #================================================================================
 # rupa z - End
 #================================================================================
@@ -603,7 +605,7 @@ zinit ice wait"2" lucid
 zinit light Valiev/almostontop
 # jeffreytse/zsh-vi-mode
 #================================================================================
-. /usr/local/opt/asdf/libexec/asdf.sh
+# . /usr/local/opt/asdf/libexec/asdf.sh
 
 
 #=====================================SAVI========================================
