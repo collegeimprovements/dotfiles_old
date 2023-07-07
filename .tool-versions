@@ -5,7 +5,7 @@ nodejs 20.3.1
 python 3.9.2
 golang 1.20
 rabbitmq 3.8.17
-postgres 15beta3
+postgres 15.3
 neovim nightly
 ruby 3.0.0
 deno 1.24.3
