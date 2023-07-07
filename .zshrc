@@ -352,6 +352,8 @@ alias cz="code ~/.zshrc"
 alias cze="code ~/.zshrc ~/.zshenv"
 alias desk="cd ~/Desktop"
 alias down="cd ~/Downloads"
+alias u="cd ~/clsa/ultra"
+alias a="cd ~/clsa/ultra-api"
 alias e="~/Savi/mono/services/apps/api/lib/api_web/live/frontend/events_live/ev/index.ex"
 alias infra="cd ~/Documents/projects/infrastructure"
 alias l="exa -l"
@@ -383,6 +385,9 @@ alias vi="nvim"
 alias vim="nvim"
 alias weather="curl wttr.in"
 alias zrc="nvim ~/.zshrc"
+
+alias w="networksetup -setairportpower en0 on && networksetup -setnetworkserviceenabled 'Belkin USB-C LAN' off"
+alias ww="networksetup -setairportpower en0 off && networksetup -setnetworkserviceenabled 'Belkin USB-C LAN' on"
 
 alias cb='defbro $(defbro | grep -v "^\*" | grep "com.brave.Browser\|com.google.Chrome" | cut -d " " -f3)'
 
