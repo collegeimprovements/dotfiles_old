@@ -3,11 +3,17 @@
 	email = collegeimprovements@gmail.com
 [init]
 	defaultBranch = main
-[url "git@github.com:"]
-	insteadOf = https://github.com/
 [fetch]
 	prune = true
 [gui]
 	pruneDuringFetch = true
 [help]
 	autocorrect = 1
+[url "https://github.com/"]
+	insteadOf = git@github.com:
+[http]
+  sslVerify = false
+#	proxy = http://developer:developer@165.225.116.28:9400
+[https]
+  sslVerify = false
+#	proxy = http://developer:developer@165.225.116.28:9400

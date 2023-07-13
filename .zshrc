@@ -388,6 +388,7 @@ alias zrc="nvim ~/.zshrc"
 
 alias w="networksetup -setairportpower en0 on && networksetup -setnetworkserviceenabled 'Belkin USB-C LAN' off"
 alias ww="networksetup -setairportpower en0 off && networksetup -setnetworkserviceenabled 'Belkin USB-C LAN' on"
+alias cn="ww"
 
 alias cb='defbro $(defbro | grep -v "^\*" | grep "com.brave.Browser\|com.google.Chrome" | cut -d " " -f3)'
 
