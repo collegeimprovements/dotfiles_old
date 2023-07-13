@@ -55,7 +55,7 @@ brew "curl"
 brew "devil"
 brew "diskonaut"
 brew "diskus"
-brew "docker-compose", link: false
+brew "docker-compose"
 brew "dog"
 brew "dotenv-linter"
 brew "earthly"
@@ -111,6 +111,7 @@ brew "minio-mc"
 brew "ncdu"
 brew "neofetch"
 brew "neovim", args: ["HEAD"]
+brew "nginx", restart_service: true
 brew "ninja"
 brew "nmap"
 brew "nushell"
