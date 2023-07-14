@@ -123,7 +123,7 @@ brew "pgcli"
 brew "pgformatter"
 brew "pinentry-mac"
 brew "pipx"
-brew "pre-commit", link: false
+brew "pre-commit"
 brew "protobuf"
 brew "qpdf"
 brew "ranger"
