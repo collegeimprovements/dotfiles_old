@@ -111,7 +111,7 @@ brew "minio-mc"
 brew "ncdu"
 brew "neofetch"
 brew "neovim", args: ["HEAD"]
-brew "nginx", restart_service: true
+brew "nginx"
 brew "ninja"
 brew "nmap"
 brew "nushell"
