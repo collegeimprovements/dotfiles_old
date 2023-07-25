@@ -1,5 +1,5 @@
 erlang 26.0.2
-elixir 1.15.2-otp-26
+elixir 1.15.4-otp-26
 rust 1.70.0
 nodejs 20.3.1
 python 3.9.2

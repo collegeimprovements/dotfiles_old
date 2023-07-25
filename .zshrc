@@ -386,8 +386,12 @@ alias vim="nvim"
 alias weather="curl wttr.in"
 alias zrc="nvim ~/.zshrc"
 
-alias w="networksetup -setairportpower en0 on && networksetup -setnetworkserviceenabled 'Belkin USB-C LAN' off"
-alias ww="networksetup -setairportpower en0 off && networksetup -setnetworkserviceenabled 'Belkin USB-C LAN' on"
+alias ehd="export | grep HTTP && export | grep DB"
+alias uhp="unset HTTPS_PROXY && unset HTTP_PROXY"
+alias shp="export HTTP_PROXY=http://165.225.116.28:9400 && export HTTPS_PROXY=http://165.225.116.28:9400"
+
+alias w="networksetup -setairportpower en0 on && networksetup -setnetworkserviceenabled 'Belkin USB-C LAN' off && git config --global user.email 'collegeimprovements@gmail.com' && unset HTTP_PROXY && unset HTTPS_PROXY"
+alias ww="networksetup -setairportpower en0 off && networksetup -setnetworkserviceenabled 'Belkin USB-C LAN' on && git config --global user.email 'arpit.shah@clsa.com' && export HTTP_PROXY=http://165.225.116.28:9400 && export HTTPS_PROXY=http://165.225.116.28:9400"
 alias cn="ww"
 
 alias cb='defbro $(defbro | grep -v "^\*" | grep "com.brave.Browser\|com.google.Chrome" | cut -d " " -f3)'
